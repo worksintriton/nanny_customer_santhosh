@@ -33,7 +33,7 @@
         android:xlargeScreens="true" />
 
     <application
-        android:name="com.triton.nanny.appUtils.ApplicationData"
+        android:name=".appUtils.ApplicationData"
         android:allowBackup="true"
         android:icon="@drawable/app_logo_new"
         android:label="@string/app_name"
@@ -45,30 +45,42 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,UnusedAttribute"
         tools:replace="android:allowBackup,icon,theme,label,name">
-        <activity android:name="com.triton.nanny.activity.SliderAfterSplashActivity"
+        <activity
+            android:name=".petlover.PetLoverServiceDetailScreenActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".petlover.PetLoverLoaderActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.SliderAfterSplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
-
-        <activity android:name="com.triton.nanny.petlover.PetloverChooseServiceActivity"
+        <activity
+            android:name=".petlover.PetloverChooseServiceActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-
-        <activity android:name="com.triton.nanny.petlover.PetSubServiceActivity" />
+        <activity android:name=".petlover.PetSubServiceActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.triton.nanny.activity.SplashActivity"
+            android:name=".activity.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan">
@@ -79,868 +91,868 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.triton.nanny.petlover.ShippingAddressEditActivity"
+            android:name=".petlover.ShippingAddressEditActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.MedicalHistoryActivity"
+            android:name=".petlover.MedicalHistoryActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.ShippingAddressCreateActivity"
+            android:name=".petlover.ShippingAddressCreateActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.ShippingAddressAddActivity"
+            android:name=".petlover.ShippingAddressAddActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.ShippingAddressActivity"
+            android:name=".petlover.ShippingAddressActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.myaddresses.MyAddressesListActivity"
+            android:name=".petlover.myaddresses.MyAddressesListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.myaddresses.AddNewShippingAddressActivity"
+            android:name=".petlover.myaddresses.AddNewShippingAddressActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.myaddresses.MyAddressEditActivity"
+            android:name=".petlover.myaddresses.MyAddressEditActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.ProductDetailActivity"
+            android:name=".petlover.ProductDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetLoverDoctorChoosePaymentMethodActivity"
+            android:name=".petlover.PetLoverDoctorChoosePaymentMethodActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetLoverServiceChoosePaymentMethodActivity"
+            android:name=".petlover.PetLoverServiceChoosePaymentMethodActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.DoctorClinicDetailsActivity"
+            android:name=".petlover.DoctorClinicDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.VendorUpdateOrderStatusActivity"
+            android:name=".vendor.VendorUpdateOrderStatusActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.EditManageProdcutsActivity"
+            android:name=".vendor.EditManageProdcutsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetOtherInformationsActivity"
+            android:name=".petlover.PetOtherInformationsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetEditOtherInformationsActivity"
+            android:name=".petlover.PetEditOtherInformationsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.ChoosePetTypeActivity"
+            android:name=".petlover.ChoosePetTypeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.ChooseBreedTypeActivity"
+            android:name=".petlover.ChooseBreedTypeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.BasicPetDetailsActivity"
+            android:name=".petlover.BasicPetDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.BasicPetDetailsNewActivity"
+            android:name=".petlover.BasicPetDetailsNewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.AddNewPetActivity"
+            android:name=".petlover.AddNewPetActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.ConsultationActivity"
+            android:name=".petlover.ConsultationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.ConsultationIssuesActivity"
+            android:name=".petlover.ConsultationIssuesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.VerifyOtpActivity"
+            android:name=".activity.VerifyOtpActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.SignUpActivity"
+            android:name=".activity.SignUpActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.LoginActivity"
+            android:name=".activity.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.ChooseUserTypeActivity"
+            android:name=".activity.ChooseUserTypeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.VerifyEmailOtpActivity"
+            android:name=".activity.VerifyEmailOtpActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" /> <!-- Pet Lover -->
         <activity
-            android:name="com.triton.nanny.petlover.AddYourPetActivity"
+            android:name=".petlover.AddYourPetActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.RegisterYourPetActivity"
+            android:name=".petlover.RegisterYourPetActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetLoverDashboardActivity"
+            android:name=".petlover.PetLoverDashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NewAppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.BookAppointmentActivity"
+            android:name=".petlover.BookAppointmentActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetAppointment_Doctor_Date_Time_Activity"
+            android:name=".petlover.PetAppointment_Doctor_Date_Time_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetMyappointmentsActivity"
+            android:name=".petlover.PetMyappointmentsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetLoverEditProfileActivity"
+            android:name=".petlover.PetLoverEditProfileActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetLoverProfileScreenActivity"
+            android:name=".petlover.PetLoverProfileScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetLoverEditProfileImageActivity"
+            android:name=".petlover.PetLoverEditProfileImageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.EditYourPetProfileInfoActivity"
+            android:name=".petlover.EditYourPetProfileInfoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.AddYourPetOldUserActivity"
+            android:name=".petlover.AddYourPetOldUserActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.AddYourPetImageOlduserActivity"
+            android:name=".petlover.AddYourPetImageOlduserActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.EditYourPetImageActivity"
+            android:name=".petlover.EditYourPetImageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.FiltersActivity"
+            android:name=".petlover.FiltersActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetMyOrdrersActivity"
+            android:name=".petlover.PetMyOrdrersActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetMyOrdrersNewActivity"
+            android:name=".petlover.PetMyOrdrersNewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetCartActivity"
+            android:name=".petlover.PetCartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.ProductDetailsActivity"
+            android:name=".petlover.ProductDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.ListOfProductsSeeMoreActivity"
+            android:name=".petlover.ListOfProductsSeeMoreActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.Service_Details_Activity"
+            android:name=".petlover.Service_Details_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.ServiceBookAppointmentActivity"
+            android:name=".petlover.ServiceBookAppointmentActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.SelectedServiceActivity"
+            android:name=".petlover.SelectedServiceActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetServiceAppointment_Doctor_Date_Time_Activity"
+            android:name=".petlover.PetServiceAppointment_Doctor_Date_Time_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.SelectYourPetActivity"
+            android:name=".petlover.SelectYourPetActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetVerifyEmailOtpActivity"
+            android:name=".petlover.PetVerifyEmailOtpActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.VideoCallPetLoverActivity"
+            android:name=".petlover.VideoCallPetLoverActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.ManageAddressActivity"
+            android:name=".activity.location.ManageAddressActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.PickUpLocationAddNewAddressActivity"
+            android:name=".activity.location.PickUpLocationAddNewAddressActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.EditShippingAddresssActivity"
+            android:name=".activity.location.EditShippingAddresssActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.PickUpLocationShippingAddressEditActivity"
+            android:name=".activity.location.PickUpLocationShippingAddressEditActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.PickUpLocationAllowActivity"
+            android:name=".activity.location.PickUpLocationAllowActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.AddMyAddressShippingActivity"
+            android:name=".activity.location.AddMyAddressShippingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.PickUpLocationDenyActivity"
+            android:name=".activity.location.PickUpLocationDenyActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.AddMyAddressActivity"
+            android:name=".activity.location.AddMyAddressActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.PlacesSearchActivity"
+            android:name=".activity.location.PlacesSearchActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.PickUpLocationActivity"
+            android:name=".activity.location.PickUpLocationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.AddMyAddressOldUserActivity"
+            android:name=".activity.location.AddMyAddressOldUserActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.EditMyAddressActivity"
+            android:name=".activity.location.EditMyAddressActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.PickUpLocationEditActivity"
+            android:name=".activity.location.PickUpLocationEditActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.SetLocationDoctorNewActivity"
+            android:name=".activity.location.SetLocationDoctorNewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.SetLocationDoctorOldActivity"
+            android:name=".activity.location.SetLocationDoctorOldActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.SetLocationSPNewActivity"
+            android:name=".activity.location.SetLocationSPNewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.SetLocationSPOldActivity"
+            android:name=".activity.location.SetLocationSPOldActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetAppointmentDetailsActivity"
+            android:name=".petlover.PetAppointmentDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name="com.triton.nanny.activity.SliderActivity" />
+        <activity android:name=".activity.SliderActivity" />
         <activity
-            android:name="com.triton.nanny.petlover.PetCompletedAppointmentDetailsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name="com.triton.nanny.petlover.PetMissedAppointmentDetailsActivity"
+            android:name=".petlover.PetCompletedAppointmentDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetNewAppointmentDetailsActivity"
+            android:name=".petlover.PetMissedAppointmentDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetSPNewAppointmentDetailsActivity"
+            android:name=".petlover.PetNewAppointmentDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.ProductFiltersActivity"
+            android:name=".petlover.PetSPNewAppointmentDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".petlover.ProductFiltersActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" /> <!-- Doctor -->
         <activity
-            android:name="com.triton.nanny.doctor.DoctorBusinessInfoActivity"
+            android:name=".doctor.DoctorBusinessInfoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.EditDoctorBusinessInfoActivity"
+            android:name=".doctor.EditDoctorBusinessInfoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorMyCalendarNewUserActivity"
+            android:name=".doctor.DoctorMyCalendarNewUserActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorMyCalendarTimeActivity"
+            android:name=".doctor.DoctorMyCalendarTimeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.Doctor_Holiday_Activity"
+            android:name=".doctor.Doctor_Holiday_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorMyCalendarActivity"
+            android:name=".doctor.DoctorMyCalendarActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorDashboardActivity"
+            android:name=".doctor.DoctorDashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorVerifyEmailOtpActivity"
+            android:name=".doctor.DoctorVerifyEmailOtpActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.PrescriptionActivity"
+            android:name=".doctor.PrescriptionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorEditProfileActivity"
+            android:name=".doctor.DoctorEditProfileActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorProfileScreenActivity"
+            android:name=".doctor.DoctorProfileScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.EditDoctorProfileImageActivity"
+            android:name=".doctor.EditDoctorProfileImageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorPrescriptionDetailsActivity"
+            android:name=".doctor.DoctorPrescriptionDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.PrescriptionDetailsActivity"
+            android:name=".doctor.PrescriptionDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.VideoCallDoctorActivity"
+            android:name=".doctor.VideoCallDoctorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorAppointmentDetailsActivity"
+            android:name=".doctor.DoctorAppointmentDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorOrderDetailsActivity"
+            android:name=".doctor.DoctorOrderDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.ManageAddressDoctorActivity"
+            android:name=".doctor.ManageAddressDoctorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" /> <!-- Service Provider -->
         <activity
-            android:name="com.triton.nanny.serviceprovider.ServiceProviderRegisterFormActivity"
+            android:name=".serviceprovider.ServiceProviderRegisterFormActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.SPVerifyEmailOtpActivity"
+            android:name=".serviceprovider.SPVerifyEmailOtpActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.SPMyCalendarNewUserActivity"
+            android:name=".serviceprovider.SPMyCalendarNewUserActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.SPEditProfileActivity"
+            android:name=".serviceprovider.SPEditProfileActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.SPProfileScreenActivity"
+            android:name=".serviceprovider.SPProfileScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.ServiceProviderEditFormActivity"
+            android:name=".serviceprovider.ServiceProviderEditFormActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.ServiceProviderDashboardActivity"
+            android:name=".serviceprovider.ServiceProviderDashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.SPMyCalendarActivity"
+            android:name=".serviceprovider.SPMyCalendarActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.SP_Holiday_Activity"
+            android:name=".serviceprovider.SP_Holiday_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.SPMyCalendarTimeActivity"
+            android:name=".serviceprovider.SPMyCalendarTimeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.SPManageServiceActivity"
+            android:name=".serviceprovider.SPManageServiceActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.SPSettingsActivity"
+            android:name=".serviceprovider.SPSettingsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.SPFiltersActivity"
+            android:name=".serviceprovider.SPFiltersActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.SPAppointmentDetailsActivity"
+            android:name=".serviceprovider.SPAppointmentDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.SPEditProfileImageActivity"
+            android:name=".serviceprovider.SPEditProfileImageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.ShippingAddressSPActivity"
+            android:name=".serviceprovider.ShippingAddressSPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.shop.SearchSPActivity"
+            android:name=".serviceprovider.shop.SearchSPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.shop.SPCancelOrderActivity"
+            android:name=".serviceprovider.shop.SPCancelOrderActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.shop.SPCartActivity"
+            android:name=".serviceprovider.shop.SPCartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.shop.SPListOfProductsSeeMoreActivity"
+            android:name=".serviceprovider.shop.SPListOfProductsSeeMoreActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.shop.SPProductDetailsActivity"
+            android:name=".serviceprovider.shop.SPProductDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.shop.SPShopTodayDealsSeeMoreActivity"
+            android:name=".serviceprovider.shop.SPShopTodayDealsSeeMoreActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.shop.SPTrackOrderActivity"
+            android:name=".serviceprovider.shop.SPTrackOrderActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.shop.SPOrderDetailsActivity"
+            android:name=".serviceprovider.shop.SPOrderDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.shop.SPMyOrdrersActivity"
+            android:name=".serviceprovider.shop.SPMyOrdrersActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.shop.SPProductsFavActivity"
+            android:name=".serviceprovider.shop.SPProductsFavActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" /> <!-- Vendor -->
         <activity
-            android:name="com.triton.nanny.vendor.VendorRegisterFormActivity"
+            android:name=".vendor.VendorRegisterFormActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.VendorDashboardActivity"
+            android:name=".vendor.VendorDashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.VendorAddProductsActivity"
+            android:name=".vendor.VendorAddProductsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.VendorCreateProductsActivity"
+            android:name=".vendor.VendorCreateProductsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.NotificationActivity"
+            android:name=".activity.NotificationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.SoSActivity"
+            android:name=".activity.SoSActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.EditSoSActivity"
+            android:name=".activity.EditSoSActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetShopTodayDealsSeeMoreActivity"
+            android:name=".petlover.PetShopTodayDealsSeeMoreActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorMissedAppointmentDetailsActivity"
+            android:name=".doctor.DoctorMissedAppointmentDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorCompletedAppointmentDetailsActivity"
+            android:name=".doctor.DoctorCompletedAppointmentDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorNewAppointmentDetailsActivity"
+            android:name=".doctor.DoctorNewAppointmentDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.VendorEditProfileActivity"
+            android:name=".vendor.VendorEditProfileActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.VendorProfileScreenActivity"
+            android:name=".vendor.VendorProfileScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.EditVendorProfileImageActivity"
+            android:name=".vendor.EditVendorProfileImageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.EditVendorRegisterFormActivity"
+            android:name=".vendor.EditVendorRegisterFormActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.VendorVerifyEmailOtpActivity"
+            android:name=".vendor.VendorVerifyEmailOtpActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetVendorOrderDetailsActivity"
+            android:name=".petlover.PetVendorOrderDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetLoverVendorOrderDetailsActivity"
+            android:name=".petlover.PetLoverVendorOrderDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetVendorTrackOrderActivity"
+            android:name=".petlover.PetVendorTrackOrderActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.TrackOrderActivity"
+            android:name=".petlover.TrackOrderActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetVendorCancelOrderActivity"
+            android:name=".petlover.PetVendorCancelOrderActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetReturnOrderActivity"
+            android:name=".petlover.PetReturnOrderActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.VendorOrderDetailsActivity"
+            android:name=".vendor.VendorOrderDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.VendorTrackOrderActivity"
+            android:name=".vendor.VendorTrackOrderActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.VendorOrderDetailsNewActivity"
+            android:name=".vendor.VendorOrderDetailsNewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.vendor.ManageProductsActivity"
+            android:name=".vendor.ManageProductsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.SearchActivity"
+            android:name=".petlover.SearchActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.shop.DoctorShopTodayDealsSeeMoreActivity"
+            android:name=".doctor.shop.DoctorShopTodayDealsSeeMoreActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.shop.DoctorListOfProductsSeeMoreActivity"
+            android:name=".doctor.shop.DoctorListOfProductsSeeMoreActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.shop.DoctorProductDetailsActivity"
+            android:name=".doctor.shop.DoctorProductDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.shop.SearchDoctorActivity"
+            android:name=".doctor.shop.SearchDoctorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.shop.DoctorCartActivity"
+            android:name=".doctor.shop.DoctorCartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.shop.DoctorTrackOrderActivity"
+            android:name=".doctor.shop.DoctorTrackOrderActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.shop.DoctorCancelOrderActivity"
+            android:name=".doctor.shop.DoctorCancelOrderActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorMyOrdrersActivity"
+            android:name=".doctor.DoctorMyOrdrersActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetloverFavListActivity"
+            android:name=".petlover.PetloverFavListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.PickUpLocationAddNewAddressSPActivity"
+            android:name=".activity.location.PickUpLocationAddNewAddressSPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.AddMyAddressShippingSPActivity"
+            android:name=".activity.location.AddMyAddressShippingSPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.PickUpLocationDoctorActivity"
+            android:name=".activity.location.PickUpLocationDoctorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.AddMyAddressDoctorActivity"
+            android:name=".activity.location.AddMyAddressDoctorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.EditMyAddressDoctorActivity"
+            android:name=".activity.location.EditMyAddressDoctorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.PickUpLocationEditDoctorActivity"
+            android:name=".activity.location.PickUpLocationEditDoctorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.activity.location.ShippingAddressAddSPActivity"
+            android:name=".activity.location.ShippingAddressAddSPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorProductsFavActivity"
+            android:name=".doctor.DoctorProductsFavActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.doctor.DoctorPaymentDetailsActivity"
+            android:name=".doctor.DoctorPaymentDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetloverPaymentDetailsActivity"
+            android:name=".petlover.PetloverPaymentDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.PickUpLocationEditSPActivity"
+            android:name=".serviceprovider.PickUpLocationEditSPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.EditMyAddressSPActivity"
+            android:name=".serviceprovider.EditMyAddressSPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.AddMyAddressSPActivity"
+            android:name=".serviceprovider.AddMyAddressSPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.PickUpLocationSPActivity"
+            android:name=".serviceprovider.PickUpLocationSPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.serviceprovider.ManageAddressSPActivity"
+            android:name=".serviceprovider.ManageAddressSPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.triton.nanny.petlover.PetloverPetDetailsActivity"
+            android:name=".petlover.PetloverPetDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
@@ -954,7 +966,7 @@
         </receiver>
         -->
         <service
-            android:name="com.triton.nanny.fcm.MyFirebaseMessagingService"
+            android:name=".fcm.MyFirebaseMessagingService"
             android:directBootAware="true"
             android:exported="false">
             <intent-filter>

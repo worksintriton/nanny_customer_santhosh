@@ -162,7 +162,7 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
     private int prodcut_item_count;
 
     private String spid,catid,from,SP_ava_Date,selectedTimeSlot;
-    private String spuserid;
+    private String spuserid,subcatid,subservname,servname,icon_banner,servicedate;
     private String selectedServiceTitle;
 
     private String servicetime,goto_screen;
@@ -207,7 +207,7 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
 
         if (extras != null) {
             spid = extras.getString("spid");
-            catid = extras.getString("catid");
+
             from = extras.getString("from");
             spuserid = extras.getString("spuserid");
             selectedServiceTitle = extras.getString("selectedServiceTitle");
@@ -244,6 +244,24 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
 
             prodcut_item_count = extras.getInt("prodcut_item_count");
 
+            /**/
+
+            catid = extras.getString("catid");
+
+            subcatid = extras.getString("subcatid");
+
+            servname = extras.getString("servname");
+
+            subservname = extras.getString("subservname");
+
+            icon_banner = extras.getString("icon_banner");
+
+            serviceamount = extras.getInt("serviceamount");
+
+            servicetime = extras.getString("servicetime");
+
+            servicedate = extras.getString("servicedate");
+
             if (new ConnectionDetector(ShippingAddressActivity.this).isNetworkAvailable(ShippingAddressActivity.this)) {
                 shippingAddressresponseCall(userid);
 
@@ -274,6 +292,15 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
 
         }
         else if(fromactivity!=null&&fromactivity.equals("Service_Details_Activity")) {
+
+
+            ll_price.setVisibility(View.GONE);
+
+            ll_create_addreess.setVisibility(View.GONE);
+
+        }
+
+        else if(fromactivity!=null&&fromactivity.equals("PetloverChooseServiceActivity")) {
 
 
             ll_price.setVisibility(View.GONE);
@@ -330,6 +357,8 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
             txt_addrs_type.setText(address_type);
 
         }
+
+
     }
 
 
@@ -961,6 +990,11 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
             Intent intent = new Intent(getApplicationContext(),Service_Details_Activity.class);
             intent.putExtra("spid",spid);
             intent.putExtra("catid",catid);
+            intent.putExtra("subcatid",subcatid);
+            intent.putExtra("servname",servname);
+            intent.putExtra("subservname",subservname);
+            intent.putExtra("icon_banner",icon_banner);
+            intent.putExtra("serviceamount",serviceamount);
             intent.putExtra("from",from);
             intent.putExtra("spuserid",spuserid);
             intent.putExtra("selectedServiceTitle",selectedServiceTitle);
@@ -970,7 +1004,25 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
             startActivity(intent);
             finish();
             Log.w(TAG,"distance : "+distance);
+        }else if(fromactivity != null && fromactivity.equalsIgnoreCase("PetloverChooseServiceActivity")){
+            Intent intent = new Intent(getApplicationContext(),Service_Details_Activity.class);
+            intent.putExtra("spid",spid);
+            intent.putExtra("catid",catid);
+            intent.putExtra("subcatid",subcatid);
+            intent.putExtra("servname",servname);
+            intent.putExtra("subservname",subservname);
+            intent.putExtra("icon_banner",icon_banner);
+            intent.putExtra("serviceamount",serviceamount);
+            intent.putExtra("from",from);
+            intent.putExtra("spuserid",spuserid);
+            intent.putExtra("selectedServiceTitle",selectedServiceTitle);
+            intent.putExtra("serviceamount",serviceamount);
+            intent.putExtra("servicetime",servicetime);
+            intent.putExtra("distance",distance);
+            startActivity(intent);
             finish();
+            Log.w(TAG,"distance : "+distance);
+
         }
 
         else if(fromactivity != null && fromactivity.equalsIgnoreCase("SPCartActivity")){
@@ -979,9 +1031,13 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
         }
 
         else if(fromactivity != null && fromactivity.equalsIgnoreCase("PetServiceAppointment_Doctor_Date_Time_Activity")){
-            Intent intent = new Intent(getApplicationContext(),PetServiceAppointment_Doctor_Date_Time_Activity.class);
+            Intent intent = new Intent(getApplicationContext(),Service_Details_Activity.class);
             intent.putExtra("spid",spid);
             intent.putExtra("catid",catid);
+            intent.putExtra("subcatid",subcatid);
+            intent.putExtra("servname",servname);
+            intent.putExtra("subservname",subservname);
+            intent.putExtra("icon_banner",icon_banner);
             intent.putExtra("from",from);
             intent.putExtra("spuserid",spuserid);
             intent.putExtra("selectedServiceTitle",selectedServiceTitle);
@@ -991,7 +1047,7 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
             intent.putExtra("selectedTimeSlot",selectedTimeSlot);
             intent.putExtra("distance",distance);
             intent.putExtra("fromactivity",TAG);
-            finish();
+            startActivity(intent);
         }
 
         else{
@@ -1062,6 +1118,19 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
         intent.putExtra("fromactivity",fromactivity);
         intent.putExtra("spid",spid);
         intent.putExtra("catid",catid);
+        intent.putExtra("subcatid",subcatid);
+        intent.putExtra("servname",servname);
+        intent.putExtra("subservname",subservname);
+        intent.putExtra("icon_banner",icon_banner);
+        intent.putExtra("serviceamount",serviceamount);
+        intent.putExtra("servicedate",servicedate);
+        intent.putExtra("servicetime",servicetime);
+        intent.putExtra("state",state);
+        intent.putExtra("street",street);
+        intent.putExtra("landmark",landmark);
+        intent.putExtra("pincode",pincode);
+        intent.putExtra("address_type",address_type);
+        intent.putExtra("city",city);
         intent.putExtra("from",from);
         intent.putExtra("spuserid",spuserid);
         intent.putExtra("selectedServiceTitle",selectedServiceTitle);
@@ -1087,6 +1156,13 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
         intent.putExtra("fromactivity",fromactivity);
         intent.putExtra("spid",spid);
         intent.putExtra("catid",catid);
+        intent.putExtra("subcatid",subcatid);
+        intent.putExtra("servname",servname);
+        intent.putExtra("subservname",subservname);
+        intent.putExtra("icon_banner",icon_banner);
+        intent.putExtra("serviceamount",serviceamount);
+        intent.putExtra("servicedate",servicedate);
+        intent.putExtra("servicetime",servicetime);
         intent.putExtra("from",from);
         intent.putExtra("spuserid",spuserid);
         intent.putExtra("selectedServiceTitle",selectedServiceTitle);
@@ -1096,6 +1172,12 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
         intent.putExtra("selectedTimeSlot",selectedTimeSlot);
         intent.putExtra("distance",distance);
         intent.putExtra("fromactivity",TAG);
+        intent.putExtra("state",state);
+        intent.putExtra("street",street);
+        intent.putExtra("landmark",landmark);
+        intent.putExtra("pincode",pincode);
+        intent.putExtra("address_type",address_type);
+        intent.putExtra("city",city);
         startActivity(intent);
 
     }

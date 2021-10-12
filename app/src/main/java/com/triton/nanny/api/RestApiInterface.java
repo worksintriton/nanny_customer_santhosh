@@ -179,13 +179,20 @@ public interface RestApiInterface {
     Call<ServiceCatResponse> ServiceCatResponseCall(@Header("Content-Type") String type, @Body ServiceCatRequest serviceCatRequest);
 
     /*Sub Service list*/
-    @POST("sp_sub_services/getlist_id")
+    @POST("sp_sub_services/subservice_by_id")
     Call<SubServiceCatResponse> SubServiceCatResponseCall(@Header("Content-Type") String type, @Body SubServiceCatRequest subServiceCatRequest);
 
     /*Service Details*/
     @POST("service_provider/mobile/sp_fetch_by_id")
     Call<SPDetailsRepsonse> SPDetailsRepsonseCall(@Header("Content-Type") String type, @Body SPDetailsRequest spDetailsRequest);
 
+  /*Service Details*/
+    @POST("sp_sub_services/fetch_by_id")
+    Call<SPDetailShowRepsonse> SPDetailShowRepsonseCall(@Header("Content-Type") String type, @Body SPDetailShowRequest spDetailShowRequest);
+
+    /*Service Details*/
+    @POST("service_provider/mobile/servicedetails/nearme")
+    Call<SPDetailScreenResponse> SPDetailScreenRepsonseCall(@Header("Content-Type") String type, @Body SPDetailScreenRequest spDetailScreenRequest);
 
     /*SP available timeslot*/
     @POST("sp_available_time/get_sp_new")

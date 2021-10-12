@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_doctor_clinic_details.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_pet_cart.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_pet_lover_edit_profile_image.xml" value="0.2708333333333333" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_pet_lover_loader.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_pet_lover_service_detail_screen.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_pet_sub_service.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_petappointment_sp_date_time.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_petlover_choose_service.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_service_detail.xml" value="0.275" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_service_details.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_splash.xml" value="0.2708333333333333" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_verify_otp.xml" value="0.2708333333333333" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/alert_payment_success_layout.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/content_sp_details.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/doctor_bottom_sheet.xml" value="0.275" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/petloverdetailscreen_bottom_sheet.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/sp_choose_service_bottom_sheet.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/sp_details_bottom_sheet.xml" value="0.275" />
+      </map>
+    </option>
+  </component>
   <component name="EntryPointsManager">
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="android.annotation.SuppressLint" />

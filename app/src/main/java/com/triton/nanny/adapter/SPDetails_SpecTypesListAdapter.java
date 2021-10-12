@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.triton.nanny.R;
+import com.triton.nanny.responsepojo.SPDetailScreenResponse;
 import com.triton.nanny.responsepojo.SPDetailsRepsonse;
 
 import java.util.List;
@@ -19,12 +20,12 @@ public class SPDetails_SpecTypesListAdapter extends  RecyclerView.Adapter<Recycl
 
     private final String TAG = "SPDetails_SpecTypesListAdapter";
     Context mcontext;
-    List<SPDetailsRepsonse.DataBean.BusSpecListBean> specializationBeanList;
-    SPDetailsRepsonse.DataBean.BusSpecListBean currentItem;
+    List<SPDetailScreenResponse.DataBean.BusSpecListBean> specializationBeanList;
+    SPDetailScreenResponse.DataBean.BusSpecListBean currentItem;
     private int size;
 
 
-    public SPDetails_SpecTypesListAdapter(Context context, List<SPDetailsRepsonse.DataBean.BusSpecListBean> specializationBeanList,int size) {
+    public SPDetails_SpecTypesListAdapter(Context context, List<SPDetailScreenResponse.DataBean.BusSpecListBean> specializationBeanList,int size) {
         this.mcontext = context;
         this.specializationBeanList = specializationBeanList;
         this.size = size;

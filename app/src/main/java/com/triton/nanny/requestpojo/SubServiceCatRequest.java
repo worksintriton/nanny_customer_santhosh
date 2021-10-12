@@ -4,16 +4,16 @@ public class SubServiceCatRequest {
 
 
     /**
-     * server_id : 602d1fc0562e0916bc9b3245
+     * service_id : 5ff7f5171c72093650a13a14
      */
 
-    private String server_id;
+    private String service_id;
 
-    public String getServer_id() {
-        return server_id;
+    public String getService_id() {
+        return service_id;
     }
 
-    public void setServer_id(String server_id) {
-        this.server_id = server_id;
+    public void setService_id(String service_id) {
+        this.service_id = service_id;
     }
 }

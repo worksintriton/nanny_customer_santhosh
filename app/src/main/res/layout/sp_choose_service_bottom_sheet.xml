@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottomSheetLayoutsp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_marginBottom="30dp"
+    android:fillViewport="false"
     app:layout_behavior="@string/bottom_sheet_behavior">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@drawable/new_topcorner_radius"
         android:orientation="vertical"
         tools:ignore="UselessParent">
@@ -22,7 +23,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="20dp"
                 android:orientation="vertical">
 
@@ -38,7 +39,7 @@
                     android:text="@string/sub_service"
                     android:textColor="@color/new_light_black"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txt_sp_subservicename"
@@ -52,8 +53,7 @@
                     android:maxLines="1"
                     android:text="@string/upto_25_off"
                     android:textColor="@color/new_thick_orange_bgm_color"
-                    android:textSize="16sp"
-                    />
+                    android:textSize="16sp" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -164,32 +164,6 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView5"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/service_provider_name"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/txt_shop_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:textColor="@color/new_txt_color"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:orientation="horizontal">
-
-                        <TextView
                             android:id="@+id/textView6"
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
@@ -218,6 +192,32 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="Date Choosen"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/txt_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textColor="@color/new_txt_color"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
                             android:id="@+id/textView7"
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
@@ -226,7 +226,7 @@
                             android:textSize="14sp" />
 
                         <TextView
-                            android:id="@+id/txt_pet_name"
+                            android:id="@+id/txt_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
@@ -506,9 +506,9 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
+                            android:layout_marginBottom="80dp"
                             android:orientation="horizontal">
 
                             <TextView

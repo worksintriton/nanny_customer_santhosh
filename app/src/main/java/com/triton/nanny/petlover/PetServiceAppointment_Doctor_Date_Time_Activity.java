@@ -139,9 +139,13 @@ public class PetServiceAppointment_Doctor_Date_Time_Activity extends AppCompatAc
 
     TimePicker picker;
 
-    String time;
+    String time,subcatid,subservname,servname,icon_banner,servicedate;
 
     String strdayOfMonth ="" ,strMonth ="",strYear ="";
+
+    String userid, name, phonum, state, street, landmark_pincode, address_type, date, shipid, fromactivity;
+
+    String first_name,last_name,flat_no,landmark,pincode,alt_phonum,address_status,city;
 
     @SuppressLint("LogNotTimber")
     @Override
@@ -192,13 +196,43 @@ public class PetServiceAppointment_Doctor_Date_Time_Activity extends AppCompatAc
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             spid = extras.getString("spid");
-            catid = extras.getString("catid");
+
             from = extras.getString("from");
             spuserid = extras.getString("spuserid");
             selectedServiceTitle = extras.getString("selectedServiceTitle");
-            serviceamount = extras.getInt("serviceamount");
-            servicetime = extras.getString("servicetime");
+
             distance = extras.getInt("distance");
+
+            /**/
+
+            catid = extras.getString("catid");
+
+            subcatid = extras.getString("subcatid");
+
+            servname = extras.getString("servname");
+
+            subservname = extras.getString("subservname");
+
+            icon_banner = extras.getString("icon_banner");
+
+            serviceamount = extras.getInt("serviceamount");
+
+            servicetime = extras.getString("servicetime");
+
+            servicedate = extras.getString("servicedate");
+
+            state = extras.getString("state");
+
+            street = extras.getString("street");
+
+            landmark = extras.getString("landmark");
+
+            pincode = extras.getString("pincode");
+
+            address_type = extras.getString("address_type");
+
+            city = extras.getString("city");
+
             Log.w(TAG,"spid : "+spid +" catid : "+catid+" from : "+from);
             Log.w(TAG,"distance : "+distance);
         }
@@ -306,6 +340,9 @@ public class PetServiceAppointment_Doctor_Date_Time_Activity extends AppCompatAc
                 strYear = String.valueOf(year);
 
                 String Date = strdayOfMonth + "-" + strMonth + "-" + year;
+
+                servicedate = Date;
+
                 Log.w(TAG,"Selected Date-->"+Date);
 
 //                if (new ConnectionDetector(PetServiceAppointment_Doctor_Date_Time_Activity.this).isNetworkAvailable(PetServiceAppointment_Doctor_Date_Time_Activity.this)) {
@@ -356,7 +393,9 @@ public class PetServiceAppointment_Doctor_Date_Time_Activity extends AppCompatAc
             am_pm="AM";
         }
 
-        time = hour + " "+minute+" "+am_pm;
+        time = hour + ":"+minute+" "+am_pm;
+
+        servicetime = time;
 
         Log.w(TAG,"Selected time-->"+time);
 
@@ -367,7 +406,7 @@ public class PetServiceAppointment_Doctor_Date_Time_Activity extends AppCompatAc
 
         else {
 
-            showSuccessalert();
+            gotoServiceBookAppoinment();
         }
 
     }
@@ -385,7 +424,7 @@ public class PetServiceAppointment_Doctor_Date_Time_Activity extends AppCompatAc
                 @Override
                 public void onClick(View view) {
                     dialog.dismiss();
-                   gotoServiceBookAppoinment();
+
 
                 }
             });
@@ -577,17 +616,21 @@ public class PetServiceAppointment_Doctor_Date_Time_Activity extends AppCompatAc
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(getApplicationContext(),Service_Details_Activity.class);
+        Intent intent = new Intent(getApplicationContext(),ShippingAddressActivity.class);
         intent.putExtra("spid",spid);
         intent.putExtra("catid",catid);
+        intent.putExtra("subcatid",subcatid);
+        intent.putExtra("servname",servname);
+        intent.putExtra("subservname",subservname);
+        intent.putExtra("icon_banner",icon_banner);
+        intent.putExtra("serviceamount",serviceamount);
         intent.putExtra("from",from);
         intent.putExtra("spuserid",spuserid);
         intent.putExtra("selectedServiceTitle",selectedServiceTitle);
-        intent.putExtra("serviceamount",serviceamount);
         intent.putExtra("servicetime",servicetime);
         intent.putExtra("distance",distance);
+        intent.putExtra("fromactivity",TAG);
         startActivity(intent);
-        finish();
         Log.w(TAG,"distance : "+distance);
     }
 
@@ -610,6 +653,14 @@ public class PetServiceAppointment_Doctor_Date_Time_Activity extends AppCompatAc
         Intent intent = new Intent(PetServiceAppointment_Doctor_Date_Time_Activity.this,PetloverChooseServiceActivity.class);
         intent.putExtra("spid",spid);
         intent.putExtra("catid",catid);
+        intent.putExtra("subcatid",subcatid);
+        intent.putExtra("servname",servname);
+        intent.putExtra("subservname",subservname);
+        intent.putExtra("icon_banner",icon_banner);
+        intent.putExtra("serviceamount",serviceamount);
+        intent.putExtra("servicedate",servicedate);
+        intent.putExtra("servicetime",servicetime);
+        intent.putExtra("catid",catid);
         intent.putExtra("from",from);
         intent.putExtra("spuserid",spuserid);
         intent.putExtra("selectedServiceTitle",selectedServiceTitle);
@@ -618,6 +669,13 @@ public class PetServiceAppointment_Doctor_Date_Time_Activity extends AppCompatAc
         intent.putExtra("SP_ava_Date",SP_ava_Date);
         intent.putExtra("selectedTimeSlot",selectedTimeSlot);
         intent.putExtra("distance",distance);
+        intent.putExtra("fromactivity",TAG);
+        intent.putExtra("state",state);
+        intent.putExtra("street",street);
+        intent.putExtra("landmark",landmark);
+        intent.putExtra("pincode",pincode);
+        intent.putExtra("address_type",address_type);
+        intent.putExtra("city",city);
         intent.putExtra("fromactivity",TAG);
         Log.w(TAG,"gotoServiceBookAppoinment : "+"SP_ava_Date : "+SP_ava_Date);
         startActivity(intent);

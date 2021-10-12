@@ -33,11 +33,14 @@ public class PetSubServicesAdapter extends  RecyclerView.Adapter<RecyclerView.Vi
     SubServiceCatResponse.DataBean currentItem;
 
     boolean flag;
+    String servname;
 
-    public PetSubServicesAdapter(Context context, List<SubServiceCatResponse.DataBean> serviceCatList, boolean flag) {
+    public PetSubServicesAdapter(Context context, List<SubServiceCatResponse.DataBean> serviceCatList, boolean flag, String servname) {
         this.serviceCatList = serviceCatList;
         this.context = context;
         this.flag = flag;
+        this.servname = servname;
+
 
     }
 
@@ -62,16 +65,16 @@ public class PetSubServicesAdapter extends  RecyclerView.Adapter<RecyclerView.Vi
     private void initLayoutOne(ViewHolderOne holder, final int position) {
 
           currentItem = serviceCatList.get(position);
-          Log.w(TAG,"Size : "+serviceCatList.size()+" "+" Images : "+serviceCatList.get(position).getImg_path());
-          if (currentItem.getImg_path() != null && !currentItem.getImg_path().isEmpty()) {
+          Log.w(TAG,"Size : "+serviceCatList.size()+" "+" Images : "+serviceCatList.get(position).getIcon_banner());
+          if (currentItem.getIcon_banner() != null && !currentItem.getIcon_banner().isEmpty()) {
 
               int pos = position % 2 ;
 
               Log.w(TAG,"position "+pos);
 
-              if(currentItem.getImg_path() != null && !currentItem.getImg_path().isEmpty()) {
+              if(currentItem.getIcon_banner() != null && !currentItem.getIcon_banner().isEmpty()) {
                   Glide.with(context)
-                          .load(currentItem.getImg_path())
+                          .load(currentItem.getIcon_banner())
                           //.load(R.drawable.logo)
                           .into(holder.img_petservice);
               }else{
@@ -91,9 +94,9 @@ public class PetSubServicesAdapter extends  RecyclerView.Adapter<RecyclerView.Vi
 
         }
 
-          if(currentItem.getImg_title() != null&&!currentItem.getImg_title().isEmpty()){
+          if(currentItem.getTitle() != null&&!currentItem.getTitle().isEmpty()){
 
-              holder.txt_title.setText(currentItem.getImg_title());
+              holder.txt_title.setText(currentItem.getTitle());
 
           }
 
@@ -107,11 +110,17 @@ public class PetSubServicesAdapter extends  RecyclerView.Adapter<RecyclerView.Vi
 //                context.startActivity(intent);
 
                 Intent intent = new Intent(context, Service_Details_Activity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("catid",serviceCatList.get(position).get_id());
+                intent.putExtra("servname",servname);
+                intent.putExtra("subservname",serviceCatList.get(position).getTitle());
+                intent.putExtra("subcatid",serviceCatList.get(position).get_id());
+                intent.putExtra("catid",serviceCatList.get(position).getService_id());
                 intent.putExtra("from","PetSubServices");
                 intent.putExtra("flag",flag);
                 context.startActivity(intent);
-                }
+
+                Log.w(TAG,"catid"+ serviceCatList.get(position).getService_id());
+
+            }
 
 
 

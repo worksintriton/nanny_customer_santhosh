@@ -131,7 +131,7 @@ public class PetSubServiceActivity extends AppCompatActivity {
     View include_petlover_header;
 
     private String catid = "";
-    private String from;
+    private String from,servname;
 
     boolean flag;
 
@@ -155,6 +155,7 @@ public class PetSubServiceActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             catid = extras.getString("catid");
+            servname = extras.getString("servname");
             from = extras.getString("from");
             fromactivity = extras.getString("fromactivity");
             flag = extras.getBoolean("flag");
@@ -242,7 +243,7 @@ public class PetSubServiceActivity extends AppCompatActivity {
                                 setViewPetServices(serviceCatList);
                             }else{
                                 txt_no_records.setVisibility(View.VISIBLE);
-                                txt_no_records.setText("No pet service");
+                                txt_no_records.setText("No Sub service");
                                 rv_popular_services.setVisibility(View.GONE);
 
 
@@ -285,7 +286,7 @@ public class PetSubServiceActivity extends AppCompatActivity {
          */
 
         SubServiceCatRequest SubServiceCatRequest = new SubServiceCatRequest();
-        SubServiceCatRequest.setServer_id(catid);
+        SubServiceCatRequest.setService_id(catid);
         Log.w(TAG,"SubServiceCatRequest"+ new Gson().toJson(SubServiceCatRequest));
         return SubServiceCatRequest;
     }
@@ -297,7 +298,7 @@ public class PetSubServiceActivity extends AppCompatActivity {
         GridLayoutManager linearLayoutManager = new GridLayoutManager(this,1);
         rv_popular_services.setLayoutManager(linearLayoutManager);
 
-        PetSubServicesAdapter petServicesAdapter = new PetSubServicesAdapter(mContext, serviceCatList,flag);
+        PetSubServicesAdapter petServicesAdapter = new PetSubServicesAdapter(mContext, serviceCatList,flag,servname);
         rv_popular_services.setAdapter(petServicesAdapter);
     }
 

@@ -180,21 +180,22 @@ public class PetServicesAdapter extends  RecyclerView.Adapter<RecyclerView.ViewH
 
             {
 
-                if(serviceCatList.get(position).isSub_service_flag()){
+              /*  if(serviceCatList.get(position).isSub_service_flag()){
 
                     Log.w(TAG,""+position);
 
                     Log.w(TAG,String.valueOf(serviceCatList.get(position).isSub_service_flag()));
-
+*/
                     Intent intent = new Intent(context, PetSubServiceActivity.class);
                     intent.putExtra("catid",serviceCatList.get(position).get_id());
+                    intent.putExtra("servname",serviceCatList.get(position).getTitle());
                     intent.putExtra("flag",serviceCatList.get(position).isSub_service_flag());
                     intent.putExtra("from","PetServices");
                     context.startActivity(intent);
 
                 }
 
-                else {
+             /*   else {
 
                     Log.w(TAG,""+position);
 
@@ -203,7 +204,7 @@ public class PetServicesAdapter extends  RecyclerView.Adapter<RecyclerView.ViewH
                     Log.w(TAG,"-->False");
                 }
 
-            }
+            }*/
 
 
         });
