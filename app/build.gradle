@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.triton.nanny"
+        applicationId "com.trition.nannypartners"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 4
@@ -131,7 +131,9 @@ dependencies {
     implementation 'com.etebarian:meow-bottom-navigation-java:1.2.0'
 
 
-    implementation 'me.zhanghai.android.materialprogressbar:library:1.6.1'
+
+
+
 
 
 

@@ -153,17 +153,16 @@
                             android:id="@+id/edt_addmore_service"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@null"
                             android:fontFamily="@font/futuramediumbt"
                             android:hint="@string/add_more"
-                            android:padding="15dp"
-                            android:textColorHint="@color/dark_gray"
-                            android:textSize="14sp"
-                            tools:ignore="Autofill,LabelFor"
                             android:inputType="text"
                             android:maxLength="60"
                             android:maxLines="1"
-                            android:background="@null"
-                            />
+                            android:padding="15dp"
+                            android:textColorHint="@color/dark_gray"
+                            android:textSize="14sp"
+                            tools:ignore="Autofill,LabelFor" />
 
                         <Button
                             android:id="@+id/btn_add_service"

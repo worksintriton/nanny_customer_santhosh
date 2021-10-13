@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/ll_root">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+              <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                  <TextView
+                      android:id="@+id/txt_servicename"
+                      android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:ellipsize="end"
+                      android:fontFamily="@font/futuramediumbt"
+                      android:gravity="center_vertical"
+                      android:maxLines="1"
+                      android:text="@string/serv_name"
+                      android:textColor="@color/black"
+                      android:textSize="14sp" />
+
+              </LinearLayout>
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rv_subservices_list"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"/>
+
+
+        </LinearLayout>
+
+
+</LinearLayout>
