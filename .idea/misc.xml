@@ -3,14 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_add_my_address.xml" value="0.2" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_add_my_address_spactivity.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_custspappointment_details.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_doctor_appointment_details.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_doctor_business_info.xml" value="0.27447916666666666" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_doctor_prescription_details.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_doctor_products_fav.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_main.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_petappointment_details.xml" value="0.275" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_prescription.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_prescription_details.xml" value="0.2" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_service_provider_register_form.xml" value="0.275" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_sp_invoice.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_sp_loader.xml" value="0.2" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_spcustappointment_details.xml" value="0.275" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/activity_vendor_order_details_new.xml" value="0.2" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/adapter_cust_new_spappointment.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/adapter_cust_spcompleted_appointment.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nann_Partners/app/src/main/res/layout/adapter_cust_spmissed_appointment.xml" value="0.275" />
