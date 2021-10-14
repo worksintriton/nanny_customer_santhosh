@@ -62,14 +62,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:fontFamily="@font/futuramediumbt"
-                    android:text="@string/usertypes"
+                    android:text="Customer"
                     android:textColor="@color/new_txt_color"
                     android:textSize="@dimen/big_txt_size" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="end">
+                    android:gravity="end"
+                    android:visibility="gone">
 
                     <Button
                         android:id="@+id/btn_changeusertype"
@@ -84,7 +85,7 @@
                         android:paddingEnd="10dp"
                         android:text="@string/change_user_type"
                         android:textAllCaps="false"
-                        android:textColor="@color/white"
+                        android:textColor="@color/new_txt_color"
                         android:textSize="14sp" />
                 </RelativeLayout>
 

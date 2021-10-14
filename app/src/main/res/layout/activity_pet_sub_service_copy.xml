@@ -41,7 +41,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".serviceprovider.SPInvoiceActivity"
+                tools:context=".MainActivity"
                 tools:ignore="UselessParent">
 
                 <androidx.recyclerview.widget.RecyclerView

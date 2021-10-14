@@ -50,17 +50,6 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/img_map"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/location"
-                    tools:ignore="ContentDescription" />
-
-                <ImageView
                     android:id="@+id/img_videocall"
                     android:layout_width="24dp"
                     android:layout_height="24dp"

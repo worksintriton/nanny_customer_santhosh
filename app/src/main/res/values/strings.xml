@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Nanny Partners</string>
+    <string name="app_name">Nanny</string>
     <string name="verify_otp">Verify OTP</string>
     <string name="emailorphonenumber">Phone Number</string>
     <string name="new_here">New here ?</string>
@@ -601,11 +601,20 @@
     <string name="aplicable_on_swiggy_above_inr_99">Aplicable on Swiggy transcations above INR 99</string>
     <string name="top_services">Top Services</string>
     <string name="subservices">Subservices</string>
-    <string name="reject">Reject</string>
+    <string name="classic_cleaning">Classic Cleaning</string>
+    <string name="upto_25_off">Upto 25 % off</string>
+    <string name="price_serv">Price</string>
+    <string name="dollar_300_00">\u20B9 300</string>
+    <string name="rating">Rating</string>
+    <string name="_4_66">4.66</string>
+    <string name="_3_5k_ratings">3.5k ratings</string>
+    <string name="asterisk">*</string>
+    <string name="service_description1">Service Description</string>
+    <string name="check_availability">Check Availability</string>
+    <string name="your_selected_time_slot_is_available">Your Selected Time Slot is available</string>
+    <string name="book_service">Book Service</string>
     <string name="selected_time">Selected Time</string>
-    <string name="back_to_appointment">Back to Appointment</string>
     <string name="spname">Service Name</string>
-    <string name="customer_name">Customer Name</string>
-    <string name="start">Start Service</string>
     <string name="invoice">View Invoice</string>
+    <string name="start">Start</string>
 </resources>
