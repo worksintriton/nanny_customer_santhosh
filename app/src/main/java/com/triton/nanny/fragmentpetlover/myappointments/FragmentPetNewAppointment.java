@@ -385,7 +385,7 @@ public class FragmentPetNewAppointment extends Fragment implements OnAppointment
 
                 if (response.body() != null) {
                     if(response.body().getCode() == 200){
-                        spnotificationSendResponseCall(userid,spid,appointmentid);
+                        //spnotificationSendResponseCall(userid,spid,appointmentid);
 
                     }
                     else{
