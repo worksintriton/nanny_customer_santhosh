@@ -115,10 +115,10 @@ public class PetCompletedAppointmentAdapter extends  RecyclerView.Adapter<Recycl
             holder.txt_appointment_status.setText("");
         }
 
-        if(completedAppointmentResponseList.get(position).getBooking_at() != null){
-            holder.txt_bookedon.setText("Completed on :"+" "+completedAppointmentResponseList.get(position).getBooking_at());
-
-        }
+//        if(completedAppointmentResponseList.get(position).getBooking_at() != null){
+//            holder.txt_bookedon.setText("Completed on :"+" "+completedAppointmentResponseList.get(position).getBooking_at());
+//
+//        }
 
 
         if (completedAppointmentResponseList.get(position).getImage_url() != null && !completedAppointmentResponseList.get(position).getImage_url().isEmpty()) {

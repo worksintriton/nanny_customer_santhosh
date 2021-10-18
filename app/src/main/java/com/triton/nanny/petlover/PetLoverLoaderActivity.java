@@ -1,30 +1,45 @@
 package com.triton.nanny.petlover;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.triton.nanny.R;
+import com.triton.nanny.api.APIClient;
+import com.triton.nanny.api.RestApiInterface;
+import com.triton.nanny.requestpojo.FindServiceProviderRequest;
 import com.triton.nanny.responsepojo.CartDetailsResponse;
+import com.triton.nanny.responsepojo.FindServiceProviderResponse;
 import com.triton.nanny.responsepojo.SPDetailsRepsonse;
+import com.triton.nanny.utils.RestUtils;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.zhanghai.android.materialprogressbar.MaterialProgressBar;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PetLoverLoaderActivity extends AppCompatActivity {
 
@@ -80,7 +95,17 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
     private int ratingcount;
 
     private String location,count_number,total_amount;
+    FindServiceProviderResponse.DataBean dataBean = new FindServiceProviderResponse.DataBean();
 
+    CountDownTimer countDownTimer;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_root)
+    RelativeLayout rl_root;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.content)
+    LinearLayout content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -171,18 +196,19 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
         MaterialProgressBar progressBar = (MaterialProgressBar) findViewById(R.id.progress);
 
         // timer for seekbar
-//        final int oneMin = 1 * 60 * 1000; // 1 minute in milli seconds
+        final int oneMin = 1 * 60 * 1000; // 1 minute in milli seconds
 
-        final int oneMin = 10000; // 1 minute in milli seconds
-
+        /*final int oneMin = 10000; // 1 minute in milli seconds
+*/
         /** CountDownTimer starts with 1 minutes and every onTick is 1 second */
-        new CountDownTimer(oneMin, 1000) {
+         countDownTimer = new CountDownTimer(oneMin, 1000) {
             public void onTick(long millisUntilFinished) {
 
                 //forward progress
                 long finishedSeconds = oneMin - millisUntilFinished;
                 int total = (int) (((float)finishedSeconds / (float)oneMin) * 100.0);
                 progressBar.setProgress(total);
+                findSPResponseCall();
 
 //                //backward progress
 //                int total = (int) (((float) millisUntilFinished / (float) oneMin) * 100.0);
@@ -193,30 +219,9 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
             public void onFinish() {
                 // DO something when 1 minute is up
 
-                Intent intent = new Intent(PetLoverLoaderActivity.this, PetLoverServiceDetailScreenActivity.class);
-                intent.putExtra("spid",spid);
-                intent.putExtra("catid",catid);
-                intent.putExtra("subcatid",subcatid);
-                intent.putExtra("servname",servname);
-                intent.putExtra("subservname",subservname);
-                intent.putExtra("icon_banner",icon_banner);
-                intent.putExtra("serviceamount",serviceamount);
-                intent.putExtra("servicedate",servicedate);
-                intent.putExtra("servicetime",servicetime);
-                intent.putExtra("catid",catid);
-                intent.putExtra("from",from);
-                intent.putExtra("spuserid",spuserid);
-                intent.putExtra("selectedServiceTitle",selectedServiceTitle);
-                intent.putExtra("serviceamount",serviceamount);
-                intent.putExtra("servicetime",servicetime);
-                intent.putExtra("SP_ava_Date",SP_ava_Date);
-                intent.putExtra("selectedTimeSlot",selectedTimeSlot);
-                intent.putExtra("distance",distance);
-                intent.putExtra("fromactivity",TAG);
-                intent.putExtra("count_number",count_number);
-                intent.putExtra("total_amount",total_amount);
-                Log.w(TAG,"gotoServiceBookAppoinment : "+"SP_ava_Date : "+SP_ava_Date);
-                startActivity(intent);
+                rl_root.setVisibility(View.VISIBLE);
+
+                content.setVisibility(View.GONE);
 
 
             }
@@ -235,4 +240,94 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
     public void onBackPressed() {
         /*super.onBackPressed();*/
     }
+
+    @SuppressLint("LogNotTimber")
+    private void findSPResponseCall() {
+
+        RestApiInterface ApiService = APIClient.getClient().create(RestApiInterface.class);
+        Call<FindServiceProviderResponse> call = ApiService.findSPResponseCall(RestUtils.getContentType(),FindServiceProviderRequest());
+        Log.w(TAG,"url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<FindServiceProviderResponse>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(@NonNull Call<FindServiceProviderResponse> call, @NonNull Response<FindServiceProviderResponse> response) {
+
+                Log.w(TAG, "FindServiceProviderResponse" + "--->" + new Gson().toJson(response.body()));
+
+
+                if (response.body() != null) {
+                    if (200 == response.body().getCode()) {
+                        if(response.body().getData() != null) {
+                            dataBean = response.body().getData();
+
+                            if(dataBean.getSp_id()!=null&&!dataBean.getSp_id().isEmpty()){
+
+                                countDownTimer.cancel();
+
+                                gotoServiceDetailScreen(dataBean.getSp_id());
+
+
+                            }
+
+                            else {
+
+
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+
+
+
+            @Override
+            public void onFailure(@NonNull Call<FindServiceProviderResponse> call, @NonNull Throwable t) {
+
+
+                Log.w(TAG,"FindServiceProviderResponse flr"+"--->" + t.getMessage());
+            }
+        });
+
+    }
+
+    private void gotoServiceDetailScreen(String id) {
+
+        Intent intent = new Intent(PetLoverLoaderActivity.this, PetLoverServiceDetailScreenActivity.class);
+        intent.putExtra("spid",id);
+        intent.putExtra("catid",catid);
+        intent.putExtra("subcatid",subcatid);
+        intent.putExtra("servname",servname);
+        intent.putExtra("subservname",subservname);
+        intent.putExtra("icon_banner",icon_banner);
+        intent.putExtra("serviceamount",serviceamount);
+        intent.putExtra("servicedate",servicedate);
+        intent.putExtra("servicetime",servicetime);
+        intent.putExtra("catid",catid);
+        intent.putExtra("from",from);
+        intent.putExtra("spuserid",spuserid);
+        intent.putExtra("selectedServiceTitle",selectedServiceTitle);
+        intent.putExtra("serviceamount",serviceamount);
+        intent.putExtra("servicetime",servicetime);
+        intent.putExtra("SP_ava_Date",SP_ava_Date);
+        intent.putExtra("selectedTimeSlot",selectedTimeSlot);
+        intent.putExtra("distance",distance);
+        intent.putExtra("fromactivity",TAG);
+        intent.putExtra("count_number",count_number);
+        intent.putExtra("total_amount",total_amount);
+        Log.w(TAG,"gotoServiceBookAppoinment : "+"SP_ava_Date : "+SP_ava_Date);
+        startActivity(intent);
+    }
+
+    private FindServiceProviderRequest FindServiceProviderRequest() {
+        FindServiceProviderRequest FindServiceProviderRequest = new FindServiceProviderRequest();
+        FindServiceProviderRequest.setAppointment_id("SP001");
+        Log.w(TAG,"FindServiceProviderRequest"+ "--->" + new Gson().toJson(FindServiceProviderRequest));
+        return FindServiceProviderRequest;
+    }
+
+
 }

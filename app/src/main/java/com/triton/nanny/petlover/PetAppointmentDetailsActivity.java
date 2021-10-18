@@ -507,14 +507,9 @@ public class PetAppointmentDetailsActivity extends AppCompatActivity implements 
 
             dialogButtonApprove.setOnClickListener(view -> {
                 dialog.dismiss();
-                if(appointmentfor != null) {
-                    if (appointmentfor.equalsIgnoreCase("Doctor")) {
-                        appoinmentCancelledResponseCall(id);
-                    } else if (appointmentfor.equalsIgnoreCase("SP")) {
-                        spappoinmentCancelledResponseCall(id);
 
-                    }
-                }
+
+                    spappoinmentCancelledResponseCall(id);
 
 
 

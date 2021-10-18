@@ -129,10 +129,10 @@ public class PetNewAppointmentAdapter extends  RecyclerView.Adapter<RecyclerView
             holder.txt_appointment_status.setText("");
         }
 
-        if(newAppointmentResponseList.get(position).getBooking_at() != null){
+/*        if(newAppointmentResponseList.get(position).getBooking_at() != null){
             holder.txt_bookedon.setText("Booked for :"+" "+newAppointmentResponseList.get(position).getBooking_at());
 
-        }
+        }*/
 
 
         if (newAppointmentResponseList.get(position).getImage_url() != null && !newAppointmentResponseList.get(position).getImage_url().isEmpty()) {
@@ -196,7 +196,7 @@ public class PetNewAppointmentAdapter extends  RecyclerView.Adapter<RecyclerView
             txt_datetimeslot = itemView.findViewById(R.id.txt_datetimeslot);
             txt_service_cost = itemView.findViewById(R.id.txt_service_cost);
             txt_appointment_status = itemView.findViewById(R.id.txt_appointment_status);
-            txt_bookedon = itemView.findViewById(R.id.txt_bookedon);
+        /*    txt_bookedon = itemView.findViewById(R.id.txt_bookedon);*/
             btn_cancel = itemView.findViewById(R.id.btn_cancel);
             ll_new = itemView.findViewById(R.id.ll_new);
 

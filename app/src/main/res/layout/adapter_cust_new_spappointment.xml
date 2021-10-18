@@ -331,6 +331,7 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
                         android:background="@drawable/orange_background_button"
                         android:fontFamily="@font/futuramediumbt"
                         android:text="@string/cancel"
@@ -355,7 +356,8 @@
                     android:maxLines="1"
                     android:text="@string/completed_on_date"
                     android:textColor="@color/new_green_btn"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:visibility="gone" />
 
             </RelativeLayout>
 

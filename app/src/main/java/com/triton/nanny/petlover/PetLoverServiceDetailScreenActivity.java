@@ -559,66 +559,67 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
 
                     if (200 == response.body().getCode()) {
 
-                        viewPager.setVisibility(View.VISIBLE);
-                        //ll_book_now.setVisibility(View.VISIBLE);
+                        if(response.body().getData()!=null){
 
-                        tabLayout.setVisibility(View.VISIBLE);
+                            viewPager.setVisibility(View.VISIBLE);
+                            //ll_book_now.setVisibility(View.VISIBLE);
 
-                        hand_img1.setVisibility(View.VISIBLE);
+                            tabLayout.setVisibility(View.VISIBLE);
 
-                        hand_img2.setVisibility(View.VISIBLE);
+                            hand_img1.setVisibility(View.VISIBLE);
 
-                        hand_img3.setVisibility(View.VISIBLE);
+                            hand_img2.setVisibility(View.VISIBLE);
 
-                        hand_img4.setVisibility(View.VISIBLE);
+                            hand_img3.setVisibility(View.VISIBLE);
 
-                        hand_img5.setVisibility(View.VISIBLE);
+                            hand_img4.setVisibility(View.VISIBLE);
 
-                        txt_sp_companyname.setVisibility(View.VISIBLE);
+                            hand_img5.setVisibility(View.VISIBLE);
 
-                        txt_sp_name.setVisibility(View.VISIBLE);
+                            txt_sp_companyname.setVisibility(View.VISIBLE);
 
-                        ll_root1.setVisibility(View.VISIBLE);
+                            txt_sp_name.setVisibility(View.VISIBLE);
 
-                        ll_root3.setVisibility(View.VISIBLE);
+                            ll_root1.setVisibility(View.VISIBLE);
 
-                        ll_book_now.setVisibility(View.VISIBLE);
+                            ll_root3.setVisibility(View.VISIBLE);
 
-                        txt_spec_label.setVisibility(View.VISIBLE);
+                            ll_book_now.setVisibility(View.VISIBLE);
 
-                        rv_speclist.setVisibility(View.VISIBLE);
+                            txt_spec_label.setVisibility(View.VISIBLE);
 
-                        txt_pet_hanldle.setVisibility(View.VISIBLE);
+                            rv_speclist.setVisibility(View.VISIBLE);
 
-                        ll_popular_serv.setVisibility(View.VISIBLE);
+                            txt_pet_hanldle.setVisibility(View.VISIBLE);
 
-                        txt_location_label.setVisibility(View.VISIBLE);
+                            ll_popular_serv.setVisibility(View.VISIBLE);
 
-                        txt_place.setVisibility(View.VISIBLE);
+                            txt_location_label.setVisibility(View.VISIBLE);
 
-                        ll_map.setVisibility(View.VISIBLE);
+                            txt_place.setVisibility(View.VISIBLE);
 
-                        setBottomSheet();
+                            ll_map.setVisibility(View.VISIBLE);
 
+                            setBottomSheet();
 
-                        if(response.body().getData().getBus_service_gall() != null) {
-                            spServiceGalleryResponseList = response.body().getData().getBus_service_gall();
-                        }
-                        if(response.body().getData().getBussiness_name() != null) {
-                            serviceprovidingcompanyname = response.body().getData().getBussiness_name();
-                        }
-                        if(response.body().getData().getBus_user_name() != null) {
-                            spprovidername = response.body().getData().getBus_user_name();
-                        }
+                            if(response.body().getData().getBus_service_gall() != null) {
+                                spServiceGalleryResponseList = response.body().getData().getBus_service_gall();
+                            }
+                            if(response.body().getData().getBussiness_name() != null) {
+                                serviceprovidingcompanyname = response.body().getData().getBussiness_name();
+                            }
+                            if(response.body().getData().getBus_user_name() != null) {
+                                spprovidername = response.body().getData().getBus_user_name();
+                            }
 
-                        Log.w(TAG,"RatingCount : "+response.body().getData().getRating());
-                        if(response.body().getData().getRating() != 0) {
-                            ratingcount = response.body().getData().getRating();
-                        }
+                            Log.w(TAG,"RatingCount : "+response.body().getData().getRating());
+                            if(response.body().getData().getRating() != 0) {
+                                ratingcount = response.body().getData().getRating();
+                            }
 
-                        if(response.body().getData().getUser_id() != null) {
-                            spuserid = response.body().getData().getUser_id();
-                        }
+                            if(response.body().getData().getUser_id() != null) {
+                                spuserid = response.body().getData().getUser_id();
+                            }
 
 
 //                        if(response.body().getData().getDistance() != 0) {
@@ -629,31 +630,31 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
 //                            distance = 0;
 //                            txt_distance.setText(0+"");
 //                        }
-                        if( response.body().getData().getSp_loc() != null) {
-                            location = response.body().getData().getSp_loc();
+                            if( response.body().getData().getSp_loc() != null) {
+                                location = response.body().getData().getSp_loc();
 
-                            latitude = response.body().getData().getSp_lat();
+                                latitude = response.body().getData().getSp_lat();
 
-                            longitude = response.body().getData().getSp_long();
+                                longitude = response.body().getData().getSp_long();
 
-                            Log.w(TAG,"latitude"+ latitude );
+                                Log.w(TAG,"latitude"+ latitude );
 
-                            Log.w(TAG,"longitude"+ longitude );
-
-
-
-                            // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-                            mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                                    .findFragmentById(R.id.map);
+                                Log.w(TAG,"longitude"+ longitude );
 
 
-                            if (mapFragment != null) {
-                                mapFragment.getMapAsync(PetLoverServiceDetailScreenActivity.this);
+
+                                // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+                                mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                                        .findFragmentById(R.id.map);
+
+
+                                if (mapFragment != null) {
+                                    mapFragment.getMapAsync(PetLoverServiceDetailScreenActivity.this);
+                                }
+
+                                // mapFragment.getMapAsync(PetLoverServiceDetailScreenActivity.this);
+
                             }
-
-                            // mapFragment.getMapAsync(PetLoverServiceDetailScreenActivity.this);
-
-                        }
                       /*  if(response.body().getDetails().getImage_path() != null) {
                             selectedServiceImagepath = response.body().getDetails().getImage_path();
                         }
@@ -676,22 +677,22 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
                             serv_name = response.body().getDetails().getTitle();
                         }
 */
-                        if(serv_name != null && !serv_name.isEmpty()){
-                            txt_selected_servicesname.setText(serv_name);
+                            if(serv_name != null && !serv_name.isEmpty()){
+                                txt_selected_servicesname.setText(serv_name);
 
-                        }
+                            }
 
-                        if(selectedServiceImagepath != null && !selectedServiceImagepath.isEmpty()){
-                            Glide.with(PetLoverServiceDetailScreenActivity.this)
-                                    .load(selectedServiceImagepath)
-                                    .into(img_selectedserviceimage);
+                            if(selectedServiceImagepath != null && !selectedServiceImagepath.isEmpty()){
+                                Glide.with(PetLoverServiceDetailScreenActivity.this)
+                                        .load(selectedServiceImagepath)
+                                        .into(img_selectedserviceimage);
 
-                        }
+                            }
 
-                        else {
+                            else {
 
-                            img_selectedserviceimage.setImageResource(R.drawable.services);
-                        }
+                                img_selectedserviceimage.setImageResource(R.drawable.services);
+                            }
 
 
 
@@ -702,106 +703,107 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
                         if(response.body().getDetails().getTime() != null) {
                             servicetime = response.body().getDetails().getTime();
                         }*/
-                        if(response.body().getData().getUser_id() != null) {
-                            spuserid = response.body().getData().getUser_id();
+                            if(response.body().getData().getUser_id() != null) {
+                                spuserid = response.body().getData().getUser_id();
 
-                            spCreateAppointmentResponseCall();
-                        }
+                                spCreateAppointmentResponseCall();
+                            }
 
-                        if(serviceprovidingcompanyname != null && !serviceprovidingcompanyname.isEmpty()){
-                            txt_sp_companyname.setText(serviceprovidingcompanyname);
-                        }
-                        if(spprovidername != null && !spprovidername.isEmpty()){
-                            txt_sp_name.setText(spprovidername);
-                        }
-                        if(ratingcount != 0 ) {
+                            if(serviceprovidingcompanyname != null && !serviceprovidingcompanyname.isEmpty()){
+                                txt_sp_companyname.setText(serviceprovidingcompanyname);
+                            }
+                            if(spprovidername != null && !spprovidername.isEmpty()){
+                                txt_sp_name.setText(spprovidername);
+                            }
+                            if(ratingcount != 0 ) {
 
-                            if(ratingcount == 1){
-                                hand_img1.setBackgroundResource(R.drawable.ic_logo_color);
+                                if(ratingcount == 1){
+                                    hand_img1.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img2.setBackgroundResource(R.drawable.ic_logo_graycolor);
+                                    hand_img3.setBackgroundResource(R.drawable.ic_logo_graycolor);
+                                    hand_img4.setBackgroundResource(R.drawable.ic_logo_graycolor);
+                                    hand_img5.setBackgroundResource(R.drawable.ic_logo_graycolor);
+                                } else if(ratingcount == 2){
+                                    hand_img1.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img2.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img3.setBackgroundResource(R.drawable.ic_logo_graycolor);
+                                    hand_img4.setBackgroundResource(R.drawable.ic_logo_graycolor);
+                                    hand_img5.setBackgroundResource(R.drawable.ic_logo_graycolor);
+                                }else if(ratingcount == 3){
+                                    hand_img1.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img2.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img3.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img4.setBackgroundResource(R.drawable.ic_logo_graycolor);
+                                    hand_img5.setBackgroundResource(R.drawable.ic_logo_graycolor);
+                                }else if(ratingcount == 4){
+                                    hand_img1.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img2.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img3.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img4.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img5.setBackgroundResource(R.drawable.ic_logo_graycolor);
+                                } else if(ratingcount == 5){
+                                    hand_img1.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img2.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img3.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img4.setBackgroundResource(R.drawable.ic_logo_color);
+                                    hand_img5.setBackgroundResource(R.drawable.ic_logo_color);
+                                }
+
+
+                            }else{
+                                hand_img1.setBackgroundResource(R.drawable.ic_logo_graycolor);
                                 hand_img2.setBackgroundResource(R.drawable.ic_logo_graycolor);
                                 hand_img3.setBackgroundResource(R.drawable.ic_logo_graycolor);
                                 hand_img4.setBackgroundResource(R.drawable.ic_logo_graycolor);
                                 hand_img5.setBackgroundResource(R.drawable.ic_logo_graycolor);
-                            } else if(ratingcount == 2){
-                                hand_img1.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img2.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img3.setBackgroundResource(R.drawable.ic_logo_graycolor);
-                                hand_img4.setBackgroundResource(R.drawable.ic_logo_graycolor);
-                                hand_img5.setBackgroundResource(R.drawable.ic_logo_graycolor);
-                            }else if(ratingcount == 3){
-                                hand_img1.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img2.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img3.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img4.setBackgroundResource(R.drawable.ic_logo_graycolor);
-                                hand_img5.setBackgroundResource(R.drawable.ic_logo_graycolor);
-                            }else if(ratingcount == 4){
-                                hand_img1.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img2.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img3.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img4.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img5.setBackgroundResource(R.drawable.ic_logo_graycolor);
-                            } else if(ratingcount == 5){
-                                hand_img1.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img2.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img3.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img4.setBackgroundResource(R.drawable.ic_logo_color);
-                                hand_img5.setBackgroundResource(R.drawable.ic_logo_color);
+                            }
+                            if(location != null && !location.isEmpty()){
+                                txt_place.setText(location);
+                            }
+
+                            if(distance != null&&!distance.isEmpty()){
+
+                                txt_distance.setText(distance+" KM Away");
+
+                            }
+                            else if(APIClient.SP_DISTANCE != null&&!APIClient.SP_DISTANCE.isEmpty()){
+
+                                txt_distance.setText(APIClient.SP_DISTANCE+" KM Away");
+
                             }
 
 
-                        }else{
-                            hand_img1.setBackgroundResource(R.drawable.ic_logo_graycolor);
-                            hand_img2.setBackgroundResource(R.drawable.ic_logo_graycolor);
-                            hand_img3.setBackgroundResource(R.drawable.ic_logo_graycolor);
-                            hand_img4.setBackgroundResource(R.drawable.ic_logo_graycolor);
-                            hand_img5.setBackgroundResource(R.drawable.ic_logo_graycolor);
-                        }
-                        if(location != null && !location.isEmpty()){
-                            txt_place.setText(location);
-                        }
+                            if(spServiceGalleryResponseList != null && spServiceGalleryResponseList.size()>0){
 
-                        if(distance != null&&!distance.isEmpty()){
-
-                            txt_distance.setText(distance+" KM Away");
-
-                        }
-                        else if(APIClient.SP_DISTANCE != null&&!APIClient.SP_DISTANCE.isEmpty()){
-
-                            txt_distance.setText(APIClient.SP_DISTANCE+" KM Away");
-
-                        }
+                                for (int i = 0; i < spServiceGalleryResponseList.size(); i++) {
+                                    spServiceGalleryResponseList.get(i).getBus_service_gall();
+                                    Log.w(TAG, "RES" + ", " +  spServiceGalleryResponseList.get(i).getBus_service_gall());
+                                }
 
 
-                        if(spServiceGalleryResponseList != null && spServiceGalleryResponseList.size()>0){
+                                viewpageData(spServiceGalleryResponseList);
 
-                            for (int i = 0; i < spServiceGalleryResponseList.size(); i++) {
-                                spServiceGalleryResponseList.get(i).getBus_service_gall();
-                                Log.w(TAG, "RES" + ", " +  spServiceGalleryResponseList.get(i).getBus_service_gall());
+                            }
+
+                            if(response.body().getData().getBus_spec_list() != null&&response.body().getData().getBus_spec_list().size()>0){
+
+                                // specializationBeanList = new ArrayList<>();
+
+                                specializationBeanList=response.body().getData().getBus_spec_list();
+
+                                Log.w(TAG,"SpecilaziationList : "+new Gson().toJson(specializationBeanList));
+                                Log.w(TAG,"SpecilaziationList size: "+specializationBeanList.size());
+
+                                setSpecList(specializationBeanList,4);
+
+
+
                             }
 
 
-                            viewpageData(spServiceGalleryResponseList);
-
-                        }
-
-                        if(response.body().getData().getBus_spec_list() != null&&response.body().getData().getBus_spec_list().size()>0){
-
-                            // specializationBeanList = new ArrayList<>();
-
-                            specializationBeanList=response.body().getData().getBus_spec_list();
-
-                            Log.w(TAG,"SpecilaziationList : "+new Gson().toJson(specializationBeanList));
-                            Log.w(TAG,"SpecilaziationList size: "+specializationBeanList.size());
-
-                            setSpecList(specializationBeanList,4);
-
 
 
                         }
-
-
-
-
 
                     }
                 }
@@ -863,7 +865,7 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
 
 
         SPDetailScreenRequest spDetailsRequest = new SPDetailScreenRequest();
-        spDetailsRequest.setSub_service_id(subcatid);
+        spDetailsRequest.setSp_id(spid);
 
         Log.w(TAG,"spSpecificServiceDetailsRequest "+ new Gson().toJson(spDetailsRequest));
         return spDetailsRequest;

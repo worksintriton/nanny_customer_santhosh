@@ -304,7 +304,9 @@ public interface RestApiInterface {
     @POST("doctordetails/filter_doctor")
     Call<FilterDoctorResponse> filterDoctorResponseCall(@Header("Content-Type") String type, @Body FilterDoctorRequest filterDoctorRequest);
 
-
+    /*customer finds for SP*/
+    @POST("service_waiting/find_service_provider")
+    Call<FindServiceProviderResponse> findSPResponseCall(@Header("Content-Type") String type, @Body FindServiceProviderRequest findServiceProviderRequest);
 
 
     /*Service Provider*/

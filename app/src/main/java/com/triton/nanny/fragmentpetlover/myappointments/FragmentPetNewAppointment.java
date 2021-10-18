@@ -287,11 +287,9 @@ public class FragmentPetNewAppointment extends Fragment implements OnAppointment
                 @Override
                 public void onClick(View view) {
                     dialog.dismiss();
-                    if(appointmenttype != null && appointmenttype.equalsIgnoreCase("Doctor")){
-                        appoinmentCancelledResponseCall(id,appointmenttype,userid,doctorid,appointmentid);
-                    } else if(appointmenttype != null && appointmenttype.equalsIgnoreCase("SP")){
+
                         spappoinmentCancelledResponseCall(id,appointmenttype,userid,doctorid,appointmentid,spid);
-                    }
+
 
 
 

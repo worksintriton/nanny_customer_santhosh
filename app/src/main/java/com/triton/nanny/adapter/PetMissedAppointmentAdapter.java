@@ -44,7 +44,7 @@ public class PetMissedAppointmentAdapter extends  RecyclerView.Adapter<RecyclerV
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_pet_missed_appointment, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_cust_spmissed_appointment, parent, false);
         return new ViewHolderOne(view);
     }
 
@@ -110,10 +110,12 @@ public class PetMissedAppointmentAdapter extends  RecyclerView.Adapter<RecyclerV
             holder.txt_appointment_status.setText("");
         }
 
+/*
         if(missedAppointmentResponseList.get(position).getBooking_at() != null){
             holder.txt_bookedon.setText("Booked for :"+" "+missedAppointmentResponseList.get(position).getBooking_at());
 
         }
+*/
 
 
         if (missedAppointmentResponseList.get(position).getImage_url() != null && !missedAppointmentResponseList.get(position).getImage_url().isEmpty()) {

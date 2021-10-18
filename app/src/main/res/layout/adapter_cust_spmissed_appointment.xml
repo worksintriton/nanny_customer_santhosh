@@ -274,6 +274,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -326,7 +327,8 @@
                     android:maxLines="1"
                     android:text="@string/completed_on_date"
                     android:textColor="@color/new_green_btn"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:visibility="gone" />
 
             </RelativeLayout>
 
