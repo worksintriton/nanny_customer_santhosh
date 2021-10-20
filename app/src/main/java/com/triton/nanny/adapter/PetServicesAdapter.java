@@ -162,7 +162,7 @@ public class PetServicesAdapter extends  RecyclerView.Adapter<RecyclerView.ViewH
           }
           else{
             Glide.with(context)
-                    .load(R.drawable.services)
+                    .load(R.drawable.no_image)
                     .into(holder.img_petservice);
 
         }

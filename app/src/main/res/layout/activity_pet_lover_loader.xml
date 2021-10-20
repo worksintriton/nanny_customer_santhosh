@@ -44,7 +44,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
 
                 <ImageView
@@ -101,10 +102,12 @@
 
             </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/rl_root"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
                 android:visibility="gone">
 
                 <ImageView
@@ -112,6 +115,7 @@
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_centerInParent="true"
+                    android:layout_gravity="center"
                     android:scaleType="fitXY"
                     android:src="@drawable/sos_bottom"
                     tools:ignore="ContentDescription" />
@@ -122,13 +126,29 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/logo2"
                     android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:gravity="center_horizontal"
-                    android:text="New Appointment Details"
+                    android:text="No Service Provider Available"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:visibility="visible" />
-            </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btn_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_lbl_newappointdetails2"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_20dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:layout_marginBottom="@dimen/_20dp"
+                    android:background="@drawable/new_rounded_corner_btn"
+                    android:fontFamily="@font/futuramediumbt"
+                    android:text="@string/back"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_text_size_for_header" />
+            </LinearLayout>
         </RelativeLayout>
     </ScrollView>
 

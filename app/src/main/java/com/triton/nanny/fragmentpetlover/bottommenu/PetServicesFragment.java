@@ -25,6 +25,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -295,7 +296,7 @@ public class PetServicesFragment extends Fragment implements Serializable, View.
 
     private void setViewPetServices(List<ServiceCatResponse.DataBean> serviceCatList) {
         // Setting the layout as Staggered Grid for vertical orientation
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
+        GridLayoutManager staggeredGridLayoutManager = new GridLayoutManager(getContext(),2);
         rv_popular_services.setLayoutManager(staggeredGridLayoutManager);
 
         PetServicesAdapter petServicesAdapter = new PetServicesAdapter(mContext, serviceCatList);

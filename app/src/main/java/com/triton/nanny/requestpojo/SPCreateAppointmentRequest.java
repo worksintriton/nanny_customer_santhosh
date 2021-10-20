@@ -66,6 +66,60 @@ public class SPCreateAppointmentRequest {
     private int total_price;
     private String coupon_status;
     private String coupon_code;
+    private String address_text;
+    private String state;
+    private String city;
+    private String pin_code;
+    private String lat;
+    private String lon;
+
+    public String getAddress_text() {
+        return address_text;
+    }
+
+    public void setAddress_text(String address_text) {
+        this.address_text = address_text;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPin_code() {
+        return pin_code;
+    }
+
+    public void setPin_code(String pin_code) {
+        this.pin_code = pin_code;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLon() {
+        return lon;
+    }
+
+    public void setLon(String lon) {
+        this.lon = lon;
+    }
 
     public String getHrs() {
         return hrs;

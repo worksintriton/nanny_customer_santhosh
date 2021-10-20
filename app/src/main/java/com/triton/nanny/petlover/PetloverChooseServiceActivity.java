@@ -262,6 +262,8 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
             servicedate = extras.getString("servicedate");
 
 
+
+
             state = extras.getString("state");
 
             street = extras.getString("street");
@@ -529,8 +531,25 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
                 Log.w(TAG, "TriggerSPSearchResponse" + new Gson().toJson(response.body()));
                 if (response.body() != null) {
                     if (200 == response.body().getCode()) {
-                        Toasty.success(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
-                        showPaymentSuccessalert();
+
+                        if (response.body().getData()!=null) {
+
+                            if(response.body().getData().getAppointmentid()!=null&&!response.body().getData().getAppointmentid().isEmpty()){
+
+                                String appointment_id = response.body().getData().getAppointmentid();
+
+                                Toasty.success(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
+
+                                showPaymentSuccessalert(appointment_id);
+                            }
+
+                        }
+
+                    }
+
+                    else {
+
+                        Toasty.warning(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
                     }
 
 
@@ -649,10 +668,11 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
         }
     }
 
-    private void showPaymentSuccessalert() {
+    private void showPaymentSuccessalert(String appointment_id) {
 
         Intent intent = new Intent(getApplicationContext(), PetLoverLoaderActivity.class);
         intent.putExtra("spid",spid);
+        intent.putExtra("appointment_id",appointment_id);
         intent.putExtra("catid",catid);
         intent.putExtra("subcatid",subcatid);
         intent.putExtra("servname",servname);

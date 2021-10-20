@@ -366,7 +366,18 @@ public class PetSubServiceActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        callDirections("3");
+
+        if(from!=null&&from.equals("PetHome")){
+
+            callDirections("1");
+
+        }
+
+        else {
+
+            callDirections("3");
+        }
+
 
     }
 

@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/drawable/rectangular_corner_bg_lightgrey.xml" value="0.290625" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_doctor_clinic_details.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_login.xml" value="0.27447916666666666" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_pet_cart.xml" value="0.2" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_pet_lover_edit_profile_image.xml" value="0.2708333333333333" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_pet_lover_loader.xml" value="0.2" />
@@ -23,6 +24,10 @@
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_cust_new_spappointment.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_cust_spcompleted_appointment.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_cust_spmissed_appointment.xml" value="0.275" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_petlover_services.xml" value="0.1" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_petloversplist.xml" value="0.27447916666666666" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_petloversplist_subservice.xml" value="0.27447916666666666" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_sp_service_list.xml" value="0.27447916666666666" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/alert_payment_success_layout.xml" value="0.2" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/alert_return_layout.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/alert_sp_accept_reject_appointment.xml" value="0.275" />

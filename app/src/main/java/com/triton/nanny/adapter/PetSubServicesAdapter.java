@@ -79,7 +79,7 @@ public class PetSubServicesAdapter extends  RecyclerView.Adapter<RecyclerView.Vi
                           .into(holder.img_petservice);
               }else{
                   Glide.with(context)
-                          .load(APIClient.PROFILE_IMAGE_URL)
+                          .load(R.drawable.no_image)
                           //.load(R.drawable.logo)
                           .into(holder.img_petservice);
 
@@ -112,6 +112,7 @@ public class PetSubServicesAdapter extends  RecyclerView.Adapter<RecyclerView.Vi
                 Intent intent = new Intent(context, Service_Details_Activity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("servname",servname);
                 intent.putExtra("subservname",serviceCatList.get(position).getTitle());
+                intent.putExtra("subservimage",serviceCatList.get(position).getIcon_banner());
                 intent.putExtra("subcatid",serviceCatList.get(position).get_id());
                 intent.putExtra("catid",serviceCatList.get(position).getService_id());
                 intent.putExtra("from","PetSubServices");

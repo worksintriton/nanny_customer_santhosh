@@ -265,19 +265,19 @@ public class ViewSPInvoiceActivity extends AppCompatActivity {
 
                             String cust_name = response.body().getData().getUser_id().getFirst_name();
 
-//                            String custaddress_st = response.body().getData().getUser_id().g();
+                            String custaddress_st = response.body().getData().getAddress_text();
 
-                            String custaddress_st = "";
+                          //  String custaddress_st = "";
 
                             String invoicebilldate = response.body().getData().getDisplay_date();
 
-//                            String cust_addr_landmark = response.body().getData().get;
+                          String cust_addr_landmark = response.body().getData().getCity();
 
-//                            String custaddr_pincode = response.body().getData().get;
+                           String custaddr_pincode = response.body().getData().getPin_code();
 
-                            String cust_addr_landmark = "";
+                            //String cust_addr_landmark = "";
 
-                            String custaddr_pincode = "";
+                            //String custaddr_pincode = "";
 
 
 

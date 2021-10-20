@@ -248,7 +248,9 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
 
     private int prodcut_item_count;
 
+    String  name, phonum, state, street, landmark_pincode, address_type, date, shipid;
 
+    String first_name,last_name,flat_no,landmark,pincode,alt_phonum,address_status,city,username;
 
 
     @Override
@@ -329,6 +331,20 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
             count_number = extras.getString("count_number");
 
             total_amount = extras.getString("total_amount");
+
+
+            state = extras.getString("state");
+
+            street = extras.getString("street");
+
+            landmark = extras.getString("landmark");
+
+            pincode = extras.getString("pincode");
+
+            address_type = extras.getString("address_type");
+
+            city = extras.getString("city");
+
 
 
             Log.w(TAG,"spid : "+spid +" catid : "+catid+"subcatid : "+subcatid+"  from : "+from);
@@ -682,19 +698,23 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
 
                             }
 
-                            if(selectedServiceImagepath != null && !selectedServiceImagepath.isEmpty()){
+                            if(icon_banner != null && !icon_banner.isEmpty()){
                                 Glide.with(PetLoverServiceDetailScreenActivity.this)
-                                        .load(selectedServiceImagepath)
+                                        .load(icon_banner)
                                         .into(img_selectedserviceimage);
 
                             }
 
                             else {
 
-                                img_selectedserviceimage.setImageResource(R.drawable.services);
+                                img_selectedserviceimage.setImageResource(R.drawable.no_image);
                             }
 
 
+                            if(subservname!= null) {
+
+                                txt_selected_servicesname.setText(subservname);
+                            }
 
                       /*  if(response.body().getDetails().getTime() != null) {
                             servicetime = response.body().getDetails().getTime();
@@ -1069,6 +1089,13 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
         spCreateAppointmentRequest.setCoupon_status("");
         spCreateAppointmentRequest.setCoupon_code("");
         spCreateAppointmentRequest.setHrs(count_number);
+        spCreateAppointmentRequest.setAddress_text(street);
+        spCreateAppointmentRequest.setState(state);
+        spCreateAppointmentRequest.setCity(city);
+        spCreateAppointmentRequest.setPin_code(pincode);
+        spCreateAppointmentRequest.setLat("");
+        spCreateAppointmentRequest.setLon("");
+
         Log.w(TAG,"spCreateAppointmentRequest"+ "--->" + new Gson().toJson(spCreateAppointmentRequest));
         return spCreateAppointmentRequest;
     }

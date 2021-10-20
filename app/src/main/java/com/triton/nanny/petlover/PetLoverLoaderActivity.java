@@ -12,6 +12,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -56,7 +57,7 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
     ImageView logo;
 
 
-    String fromactivity,SP_ava_Date,selectedTimeSlot,subcatid,subservname,servname,icon_banner,servicedate;
+    String fromactivity,SP_ava_Date,selectedTimeSlot,subcatid,subservname,servname,icon_banner,servicedate,appointment_id;
 
     String serv_name,selectedServiceImagepath;
 
@@ -101,11 +102,19 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rl_root)
-    RelativeLayout rl_root;
+    LinearLayout rl_root;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.btn_back)
+    Button btn_back;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.content)
     LinearLayout content;
+
+    String first_name,last_name,flat_no,landmark,pincode,alt_phonum,address_status,city,username;
+
+    String  name, phonum, state, street, landmark_pincode, address_type, date, shipid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -173,6 +182,21 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
 
             servicedate = extras.getString("servicedate");
 
+            appointment_id = extras.getString("appointment_id");
+
+
+            state = extras.getString("state");
+
+            street = extras.getString("street");
+
+            landmark = extras.getString("landmark");
+
+            pincode = extras.getString("pincode");
+
+            address_type = extras.getString("address_type");
+
+            city = extras.getString("city");
+
 
 
 
@@ -223,8 +247,15 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
 
                 content.setVisibility(View.GONE);
 
+                btn_back.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
-            }
+                        showPaymentSuccessalert();
+                    }
+                });
+
+            };
         }.start();
 
     /*    new Handler().postDelayed(new Runnable() {
@@ -318,16 +349,60 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
         intent.putExtra("fromactivity",TAG);
         intent.putExtra("count_number",count_number);
         intent.putExtra("total_amount",total_amount);
+        intent.putExtra("state",state);
+        intent.putExtra("street",street);
+        intent.putExtra("landmark",landmark);
+        intent.putExtra("pincode",pincode);
+        intent.putExtra("address_type",address_type);
+        intent.putExtra("city",city);
         Log.w(TAG,"gotoServiceBookAppoinment : "+"SP_ava_Date : "+SP_ava_Date);
         startActivity(intent);
     }
 
     private FindServiceProviderRequest FindServiceProviderRequest() {
         FindServiceProviderRequest FindServiceProviderRequest = new FindServiceProviderRequest();
-        FindServiceProviderRequest.setAppointment_id("SP001");
+        FindServiceProviderRequest.setAppointment_id(appointment_id);
         Log.w(TAG,"FindServiceProviderRequest"+ "--->" + new Gson().toJson(FindServiceProviderRequest));
         return FindServiceProviderRequest;
     }
+
+
+    private void showPaymentSuccessalert() {
+
+        Intent intent = new Intent(getApplicationContext(), PetloverChooseServiceActivity.class);
+        intent.putExtra("spid",spid);
+        intent.putExtra("catid",catid);
+        intent.putExtra("subcatid",subcatid);
+        intent.putExtra("servname",servname);
+        intent.putExtra("subservname",subservname);
+        intent.putExtra("icon_banner",icon_banner);
+        intent.putExtra("serviceamount",serviceamount);
+        intent.putExtra("servicedate",servicedate);
+        intent.putExtra("servicetime",servicetime);
+        intent.putExtra("catid",catid);
+        intent.putExtra("from",from);
+        intent.putExtra("spuserid",spuserid);
+        intent.putExtra("selectedServiceTitle",selectedServiceTitle);
+        intent.putExtra("serviceamount",serviceamount);
+        intent.putExtra("servicetime",servicetime);
+        intent.putExtra("SP_ava_Date",SP_ava_Date);
+        intent.putExtra("selectedTimeSlot",selectedTimeSlot);
+        intent.putExtra("distance",distance);
+        intent.putExtra("fromactivity",TAG);
+        intent.putExtra("state",state);
+        intent.putExtra("street",street);
+        intent.putExtra("landmark",landmark);
+        intent.putExtra("pincode",pincode);
+        intent.putExtra("address_type",address_type);
+        intent.putExtra("city",city);
+        intent.putExtra("fromactivity",TAG);
+
+        Log.w(TAG,"gotoServiceBookAppoinment : "+"SP_ava_Date : "+SP_ava_Date);
+        startActivity(intent);
+
+    }
+
+
 
 
 }

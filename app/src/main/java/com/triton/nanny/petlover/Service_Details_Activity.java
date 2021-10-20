@@ -189,7 +189,7 @@ public class Service_Details_Activity extends AppCompatActivity implements View.
     RelativeLayout rl_homes;
 
     boolean flag;
-    String fromactivity,subcatid,subservname,servname,icon_banner;
+    String fromactivity,subcatid,subservname,servname,icon_banner,subservimage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -216,6 +216,7 @@ public class Service_Details_Activity extends AppCompatActivity implements View.
             servname = extras.getString("servname");
             subcatid = extras.getString("subcatid");
             subservname = extras.getString("subservname");
+            subservimage = extras.getString("subservimage");
             from = extras.getString("from");
             distance = extras.getString("distance");
             reviewcount = extras.getInt("reviewcount");

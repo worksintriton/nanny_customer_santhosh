@@ -8,7 +8,7 @@ public class SPDetailScreenResponse {
     /**
      * Status : Success
      * Message : Service Provider Details
-     * Data : {"bus_service_list":[{"amount":100,"time_slots":"60 mins","bus_service_list":" Pet Training"},{"amount":100,"time_slots":"60 mins","bus_service_list":"Pet daycare"},{"amount":200,"time_slots":"60 mins","bus_service_list":"Vet Care 2"},{"amount":100,"time_slots":"60 mins","bus_service_list":"Pet daycare 1"},{"amount":200,"time_slots":"60 mins","bus_service_list":"Pet daycare 2"}],"bus_spec_list":[{"bus_spec_list":"Kennel Cut"},{"bus_spec_list":"Teddy Bear Trim"},{"bus_spec_list":"Breed Trims"},{"bus_spec_list":"Full Coat / Show Trims"}],"bus_service_gall":[{"bus_service_gall":"http://54.193.18.54:3000/api/uploads/61275eccdc2406057b5aeb152608175750"}],"bus_certif":[{"bus_certif":"http://54.193.18.54:3000/api/uploads/61275eccdc2406057b5aeb15certificate.pdf"}],"_id":"6127891a4f7e5d1561c63783","user_id":"61275eccdc2406057b5aeb15","bus_user_name":"Sample","bus_user_email":"","bussiness_name":"Abc nanny service ","bus_user_phone":"2342342344","bus_profile":"http://54.193.18.54:3000/api/uploads/61275eccdc2406057b5aeb152608175858","bus_proof":"http://54.193.18.54:3000/api/uploads/61275eccdc2406057b5aeb15certificate.pdf","date_and_time":"26-08-2021 05:59 PM","mobile_type":"IOS","profile_status":true,"profile_verification_status":"Verified","thumbnail_image":"","sp_loc":"5-38A, 2nd Main Rd, Ram Nagar, Karnam Street, Karunabigai Colony, Velachery, Chennai, Tamil Nadu 600042, India","sp_lat":12.983360290527344,"sp_long":80.22343632290122,"city_name":"Chennai","delete_status":false,"calender_status":true,"comments":0,"rating":5,"updatedAt":"2021-08-26T12:37:43.458Z","createdAt":"2021-08-26T12:29:14.243Z","__v":0}
+     * Data : {"bus_service_list":[{"service_name":"Bartender","subsericelist":[{"_id":"616ff0dcea122f58f9d09803","isservice":false,"service_id":"616ff0a4ea122f58f9d09802","title":"Bartender Cleaning"},{"_id":"616ff0f3ea122f58f9d09804","isservice":true,"service_id":"616ff0a4ea122f58f9d09802","title":"Bartender Services"}]},{"service_name":"Cleaning Services","subsericelist":[{"_id":"616feeb83d269556cda2bd99","isservice":true,"service_id":"616feca476f39652d97de5d2","title":"Plumber Services"},{"_id":"616feee93d269556cda2bd9a","isservice":true,"service_id":"616feca476f39652d97de5d2","title":"cleaning & spring"}]}],"bus_spec_list":[{"bus_spec_list":"Kennel Cut"},{"bus_spec_list":"Breed Trims"}],"bus_service_gall":[{"bus_service_gall":"http://54.193.18.54:3000/api/uploads/1634735675394.jpg"}],"bus_certif":[{"bus_certif":"http://54.193.18.54:3000/api/uploads/1634735710052.jpg"}],"_id":"617016616456aa6e363001db","user_id":"616a83bf9e7b943a38ec0883","bus_user_name":"DineshSP","bus_user_email":"iddineshkumar@gmail.com","bussiness_name":"nanny","bus_user_phone":"1472583690","bus_profile":"http://54.193.18.54:3000/api/uploads/1634735687315.jpg","bus_proof":"http://54.193.18.54:3000/api/uploads/1634735697529.jpg","date_and_time":"20/10/2021 06:45 PM","mobile_type":"Android","profile_status":true,"profile_verification_status":"Not verified","thumbnail_image":"","sp_loc":"Chennai 2A, 3rd Main Rd, Ram Nagar, Ramnagar South, Dhadeswaram Nagar, Velachery, Chennai, Tamil Nadu 600042, India","sp_lat":12.9832443,"sp_long":80.2234923,"city_name":"Chennai","delete_status":false,"calender_status":true,"comments":0,"rating":5,"sp_info":"is service","updatedAt":"2021-10-20T13:18:25.338Z","createdAt":"2021-10-20T13:15:13.683Z","__v":0}
      * banner : [{"title":"title1","image_path":"http://54.212.108.156:3000/api/uploads/1625687015621.png"},{"title":"title1","image_path":"http://54.212.108.156:3000/api/uploads/1625687032584.png"},{"title":"title1","image_path":"http://54.212.108.156:3000/api/uploads/1625687050185.png"},{"title":"title1","image_path":"http://54.212.108.156:3000/api/uploads/1625687064021.png"},{"title":"title1","image_path":"http://54.212.108.156:3000/api/uploads/1625687086700.png"}]
      * Code : 200
      */
@@ -16,33 +16,34 @@ public class SPDetailScreenResponse {
     private String Status;
     private String Message;
     /**
-     * bus_service_list : [{"amount":100,"time_slots":"60 mins","bus_service_list":" Pet Training"},{"amount":100,"time_slots":"60 mins","bus_service_list":"Pet daycare"},{"amount":200,"time_slots":"60 mins","bus_service_list":"Vet Care 2"},{"amount":100,"time_slots":"60 mins","bus_service_list":"Pet daycare 1"},{"amount":200,"time_slots":"60 mins","bus_service_list":"Pet daycare 2"}]
-     * bus_spec_list : [{"bus_spec_list":"Kennel Cut"},{"bus_spec_list":"Teddy Bear Trim"},{"bus_spec_list":"Breed Trims"},{"bus_spec_list":"Full Coat / Show Trims"}]
-     * bus_service_gall : [{"bus_service_gall":"http://54.193.18.54:3000/api/uploads/61275eccdc2406057b5aeb152608175750"}]
-     * bus_certif : [{"bus_certif":"http://54.193.18.54:3000/api/uploads/61275eccdc2406057b5aeb15certificate.pdf"}]
-     * _id : 6127891a4f7e5d1561c63783
-     * user_id : 61275eccdc2406057b5aeb15
-     * bus_user_name : Sample
-     * bus_user_email :
-     * bussiness_name : Abc nanny service
-     * bus_user_phone : 2342342344
-     * bus_profile : http://54.193.18.54:3000/api/uploads/61275eccdc2406057b5aeb152608175858
-     * bus_proof : http://54.193.18.54:3000/api/uploads/61275eccdc2406057b5aeb15certificate.pdf
-     * date_and_time : 26-08-2021 05:59 PM
-     * mobile_type : IOS
+     * bus_service_list : [{"service_name":"Bartender","subsericelist":[{"_id":"616ff0dcea122f58f9d09803","isservice":false,"service_id":"616ff0a4ea122f58f9d09802","title":"Bartender Cleaning"},{"_id":"616ff0f3ea122f58f9d09804","isservice":true,"service_id":"616ff0a4ea122f58f9d09802","title":"Bartender Services"}]},{"service_name":"Cleaning Services","subsericelist":[{"_id":"616feeb83d269556cda2bd99","isservice":true,"service_id":"616feca476f39652d97de5d2","title":"Plumber Services"},{"_id":"616feee93d269556cda2bd9a","isservice":true,"service_id":"616feca476f39652d97de5d2","title":"cleaning & spring"}]}]
+     * bus_spec_list : [{"bus_spec_list":"Kennel Cut"},{"bus_spec_list":"Breed Trims"}]
+     * bus_service_gall : [{"bus_service_gall":"http://54.193.18.54:3000/api/uploads/1634735675394.jpg"}]
+     * bus_certif : [{"bus_certif":"http://54.193.18.54:3000/api/uploads/1634735710052.jpg"}]
+     * _id : 617016616456aa6e363001db
+     * user_id : 616a83bf9e7b943a38ec0883
+     * bus_user_name : DineshSP
+     * bus_user_email : iddineshkumar@gmail.com
+     * bussiness_name : nanny
+     * bus_user_phone : 1472583690
+     * bus_profile : http://54.193.18.54:3000/api/uploads/1634735687315.jpg
+     * bus_proof : http://54.193.18.54:3000/api/uploads/1634735697529.jpg
+     * date_and_time : 20/10/2021 06:45 PM
+     * mobile_type : Android
      * profile_status : true
-     * profile_verification_status : Verified
+     * profile_verification_status : Not verified
      * thumbnail_image :
-     * sp_loc : 5-38A, 2nd Main Rd, Ram Nagar, Karnam Street, Karunabigai Colony, Velachery, Chennai, Tamil Nadu 600042, India
-     * sp_lat : 12.983360290527344
-     * sp_long : 80.22343632290122
+     * sp_loc : Chennai 2A, 3rd Main Rd, Ram Nagar, Ramnagar South, Dhadeswaram Nagar, Velachery, Chennai, Tamil Nadu 600042, India
+     * sp_lat : 12.9832443
+     * sp_long : 80.2234923
      * city_name : Chennai
      * delete_status : false
      * calender_status : true
      * comments : 0
      * rating : 5
-     * updatedAt : 2021-08-26T12:37:43.458Z
-     * createdAt : 2021-08-26T12:29:14.243Z
+     * sp_info : is service
+     * updatedAt : 2021-10-20T13:18:25.338Z
+     * createdAt : 2021-10-20T13:15:13.683Z
      * __v : 0
      */
 
@@ -117,13 +118,13 @@ public class SPDetailScreenResponse {
         private boolean calender_status;
         private int comments;
         private int rating;
+        private String sp_info;
         private String updatedAt;
         private String createdAt;
         private int __v;
         /**
-         * amount : 100
-         * time_slots : 60 mins
-         * bus_service_list :  Pet Training
+         * service_name : Bartender
+         * subsericelist : [{"_id":"616ff0dcea122f58f9d09803","isservice":false,"service_id":"616ff0a4ea122f58f9d09802","title":"Bartender Cleaning"},{"_id":"616ff0f3ea122f58f9d09804","isservice":true,"service_id":"616ff0a4ea122f58f9d09802","title":"Bartender Services"}]
          */
 
         private List<BusServiceListBean> bus_service_list;
@@ -133,12 +134,12 @@ public class SPDetailScreenResponse {
 
         private List<BusSpecListBean> bus_spec_list;
         /**
-         * bus_service_gall : http://54.193.18.54:3000/api/uploads/61275eccdc2406057b5aeb152608175750
+         * bus_service_gall : http://54.193.18.54:3000/api/uploads/1634735675394.jpg
          */
 
         private List<BusServiceGallBean> bus_service_gall;
         /**
-         * bus_certif : http://54.193.18.54:3000/api/uploads/61275eccdc2406057b5aeb15certificate.pdf
+         * bus_certif : http://54.193.18.54:3000/api/uploads/1634735710052.jpg
          */
 
         private List<BusCertifBean> bus_certif;
@@ -311,6 +312,14 @@ public class SPDetailScreenResponse {
             this.rating = rating;
         }
 
+        public String getSp_info() {
+            return sp_info;
+        }
+
+        public void setSp_info(String sp_info) {
+            this.sp_info = sp_info;
+        }
+
         public String getUpdatedAt() {
             return updatedAt;
         }
@@ -368,32 +377,69 @@ public class SPDetailScreenResponse {
         }
 
         public static class BusServiceListBean {
-            private int amount;
-            private String time_slots;
-            private String bus_service_list;
+            private String service_name;
+            /**
+             * _id : 616ff0dcea122f58f9d09803
+             * isservice : false
+             * service_id : 616ff0a4ea122f58f9d09802
+             * title : Bartender Cleaning
+             */
 
-            public int getAmount() {
-                return amount;
+            private List<SubsericelistBean> subsericelist;
+
+            public String getService_name() {
+                return service_name;
             }
 
-            public void setAmount(int amount) {
-                this.amount = amount;
+            public void setService_name(String service_name) {
+                this.service_name = service_name;
             }
 
-            public String getTime_slots() {
-                return time_slots;
+            public List<SubsericelistBean> getSubsericelist() {
+                return subsericelist;
             }
 
-            public void setTime_slots(String time_slots) {
-                this.time_slots = time_slots;
+            public void setSubsericelist(List<SubsericelistBean> subsericelist) {
+                this.subsericelist = subsericelist;
             }
 
-            public String getBus_service_list() {
-                return bus_service_list;
-            }
+            public static class SubsericelistBean {
+                private String _id;
+                private boolean isservice;
+                private String service_id;
+                private String title;
 
-            public void setBus_service_list(String bus_service_list) {
-                this.bus_service_list = bus_service_list;
+                public String get_id() {
+                    return _id;
+                }
+
+                public void set_id(String _id) {
+                    this._id = _id;
+                }
+
+                public boolean isIsservice() {
+                    return isservice;
+                }
+
+                public void setIsservice(boolean isservice) {
+                    this.isservice = isservice;
+                }
+
+                public String getService_id() {
+                    return service_id;
+                }
+
+                public void setService_id(String service_id) {
+                    this.service_id = service_id;
+                }
+
+                public String getTitle() {
+                    return title;
+                }
+
+                public void setTitle(String title) {
+                    this.title = title;
+                }
             }
         }
 

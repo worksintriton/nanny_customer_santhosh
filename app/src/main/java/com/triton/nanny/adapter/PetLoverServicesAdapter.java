@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.triton.nanny.R;
 import com.triton.nanny.api.APIClient;
+import com.triton.nanny.petlover.PetSubServiceActivity;
 import com.triton.nanny.petlover.SelectedServiceActivity;
 import com.triton.nanny.responsepojo.PetLoverDashboardResponse;
 
@@ -99,8 +100,10 @@ public class PetLoverServicesAdapter extends  RecyclerView.Adapter<RecyclerView.
             @Override
             public void onClick(View v) {
                 if(serviceDetailsResponseList.get(position).get_id() != null) {
-                    Intent intent = new Intent(context, SelectedServiceActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.putExtra("catid", serviceDetailsResponseList.get(position).get_id());
+                    Intent intent = new Intent(context, PetSubServiceActivity.class);
+                    intent.putExtra("catid",serviceDetailsResponseList.get(position).get_id());
+                    intent.putExtra("servname",serviceDetailsResponseList.get(position).getService_title());
+                    intent.putExtra("from","PetHome");
                     context.startActivity(intent);
                 }
                 }
