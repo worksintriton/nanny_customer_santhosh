@@ -193,6 +193,8 @@ public class PetServicesAdapter extends  RecyclerView.Adapter<RecyclerView.ViewH
                     intent.putExtra("from","PetServices");
                     context.startActivity(intent);
 
+                Log.w(TAG,"servname : "+serviceCatList.get(position).getTitle());
+
                 }
 
              /*   else {

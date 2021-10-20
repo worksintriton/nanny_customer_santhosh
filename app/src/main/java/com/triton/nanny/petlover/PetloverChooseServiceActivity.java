@@ -19,17 +19,24 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
 import com.triton.nanny.R;
 import com.triton.nanny.adapter.SPDetails_SpecTypesListAdapter;
 import com.triton.nanny.adapter.ViewPagerSPDetailsGalleryAdapter;
+import com.triton.nanny.api.APIClient;
+import com.triton.nanny.api.RestApiInterface;
 import com.triton.nanny.doctor.DoctorDashboardActivity;
+import com.triton.nanny.requestpojo.TriggerSPSearchRequest;
 import com.triton.nanny.responsepojo.CartDetailsResponse;
 import com.triton.nanny.responsepojo.SPDetailsRepsonse;
+import com.triton.nanny.responsepojo.TriggerSPSearchResponse;
 import com.triton.nanny.serviceprovider.ServiceProviderDashboardActivity;
 import com.triton.nanny.sessionmanager.SessionManager;
+import com.triton.nanny.utils.RestUtils;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
@@ -41,6 +48,10 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PetloverChooseServiceActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -172,7 +183,7 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
 
     String  name, phonum, state, street, landmark_pincode, address_type, date, shipid;
 
-    String first_name,last_name,flat_no,landmark,pincode,alt_phonum,address_status,city;
+    String first_name,last_name,flat_no,landmark,pincode,alt_phonum,address_status,city,username;
 
 
     @Override
@@ -193,6 +204,7 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
         SessionManager session = new SessionManager(getApplicationContext());
         HashMap<String, String> user = session.getProfileDetails();
         userid = user.get(SessionManager.KEY_ID);
+        username = user.get(SessionManager.KEY_FIRST_NAME);
 
 
         Bundle extras = getIntent().getExtras();
@@ -490,7 +502,7 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
                 onBackPressed();
                 break;
             case R.id.ll_sp_bookserv:
-                showPaymentSuccessalert();
+                triggerSPSeacrhResponseCall();
                 break;
 
             case R.id.rl_add:
@@ -501,6 +513,66 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
                 decrement(v);
                 break;
         }
+    }
+
+    private void triggerSPSeacrhResponseCall() {
+        avi_indicator.setVisibility(View.VISIBLE);
+        avi_indicator.smoothToShow();
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<TriggerSPSearchResponse> call = apiInterface.triggerSPSeacrhResponseCall(RestUtils.getContentType(), TriggerSPSearchRequest());
+        Log.w(TAG,"TriggerSPSearchResponse url  :%s"+" "+ call.request().url().toString());
+
+        call.enqueue(new Callback<TriggerSPSearchResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<TriggerSPSearchResponse> call, @NonNull Response<TriggerSPSearchResponse> response) {
+                avi_indicator.smoothToHide();
+                Log.w(TAG, "TriggerSPSearchResponse" + new Gson().toJson(response.body()));
+                if (response.body() != null) {
+                    if (200 == response.body().getCode()) {
+                        Toasty.success(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
+                        showPaymentSuccessalert();
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<TriggerSPSearchResponse> call,@NonNull Throwable t) {
+                avi_indicator.smoothToHide();
+                Log.e("TriggerSPSearchResponse flr", "--->" + t.getMessage());
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+
+    private TriggerSPSearchRequest TriggerSPSearchRequest() {
+
+        /**
+         * service_name : Vet Care
+         * sub_service_title : Sub Service 2
+         * customer_name : Mohammed imthiyas
+         * location : No 2 Muthamil nager Kodugaiyur
+         * selected_date : 23-10-2021
+         * selected_time : 11:00 AM
+         * user_id : 6164232765d9a57d7fc9575
+         */
+
+
+
+        TriggerSPSearchRequest TriggerSPSearchRequest = new TriggerSPSearchRequest();
+        TriggerSPSearchRequest.setService_name(servname);
+        TriggerSPSearchRequest.setSub_service_title(subservname);
+        TriggerSPSearchRequest.setCustomer_name(username);
+        TriggerSPSearchRequest.setLocation(street);
+        TriggerSPSearchRequest.setSelected_date(servicedate);
+        TriggerSPSearchRequest.setSelected_time(servicetime);
+        TriggerSPSearchRequest.setUser_id(userid);
+
+        Log.w(TAG," TriggerSPSearchRequest"+ new Gson().toJson(TriggerSPSearchRequest));
+        return TriggerSPSearchRequest;
     }
 
     @Override

@@ -1049,6 +1049,11 @@ public class PetAppointmentDetailsActivity extends AppCompatActivity implements 
                 callDirections("5");
                 break;
 
+            case R.id.btn_viewinvoice:
+
+                startActivity(new Intent(PetAppointmentDetailsActivity.this,ViewSPInvoiceActivity.class));
+                break;
+
         }
     }
 

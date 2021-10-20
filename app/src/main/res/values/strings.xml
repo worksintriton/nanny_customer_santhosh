@@ -618,4 +618,8 @@
     <string name="invoice">View Invoice</string>
     <string name="start">Start</string>
     <string name="reject">Reject</string>
+    <string name="sno">S.No</string>
+    <string name="dated">Service Title</string>
+    <string name="added">Hours</string>
+    <string name="deduted">Date</string>
 </resources>

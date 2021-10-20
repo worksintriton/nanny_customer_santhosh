@@ -385,6 +385,9 @@ public interface RestApiInterface {
     @POST("sp_appointments/edit")
     Call<AppoinmentCancelledResponse> spappoinmentCancelledResponseCall(@Header("Content-Type") String type, @Body AppoinmentCancelledRequest appoinmentCancelledRequest);
 
+    /*Trigger SP */
+    @POST("service_provider/trigger_service_provider_search")
+    Call<TriggerSPSearchResponse> triggerSPSeacrhResponseCall(@Header("Content-Type") String type, @Body TriggerSPSearchRequest triggerSPSearchRequest);
 
 
     /*Vendor*/

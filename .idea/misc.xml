@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/drawable/rectangular_corner_bg_lightgrey.xml" value="0.290625" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_doctor_clinic_details.xml" value="0.2" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_pet_cart.xml" value="0.2" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_pet_lover_edit_profile_image.xml" value="0.2708333333333333" />
@@ -17,6 +18,8 @@
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_service_provider_dashboard.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_splash.xml" value="0.2708333333333333" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_verify_otp.xml" value="0.2708333333333333" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_view_spinvoice.xml" value="0.2604166666666667" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_address_list.xml" value="0.27447916666666666" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_cust_new_spappointment.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_cust_spcompleted_appointment.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_cust_spmissed_appointment.xml" value="0.275" />

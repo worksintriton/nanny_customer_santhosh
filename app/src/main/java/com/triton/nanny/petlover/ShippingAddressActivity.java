@@ -269,6 +269,9 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
 
 
         }
+
+        Log.w(TAG," servname : "+servname);
+
         txt_date.setVisibility(View.GONE);
 
         img_back.setOnClickListener(this);
@@ -1141,6 +1144,9 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
         intent.putExtra("distance",distance);
         intent.putExtra("fromactivity",TAG);
         startActivity(intent);
+
+        Log.w(TAG," servname : "+servname);
+
 
     }
 

@@ -165,6 +165,8 @@ public class PetSubServiceActivity extends AppCompatActivity {
 
         Log.w(TAG," userid : "+userid+ " catid : "+catid+" from : "+from+" flag : "+flag);
 
+        Log.w(TAG," servname : "+servname);
+
 
         ImageView img_back = include_petlover_header.findViewById(R.id.img_back);
         ImageView img_sos = include_petlover_header.findViewById(R.id.img_sos);

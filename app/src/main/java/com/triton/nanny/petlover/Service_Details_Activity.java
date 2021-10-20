@@ -226,6 +226,9 @@ public class Service_Details_Activity extends AppCompatActivity implements View.
 
         }
 
+        Log.w(TAG," servname : "+servname);
+
+
         /*serv*/
         title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
         img_care.setImageResource(R.drawable.grey_care);
@@ -409,6 +412,9 @@ public class Service_Details_Activity extends AppCompatActivity implements View.
         intent.putExtra("fromactivity",TAG);
         intent.putExtra("goto","service");
         startActivity(intent);
+
+        Log.w(TAG," servname : "+servname);
+
     }
 
     private void gotoSPAvailableTimeActivity() {
@@ -427,6 +433,9 @@ public class Service_Details_Activity extends AppCompatActivity implements View.
         intent.putExtra("goto","calendar");
         intent.putExtra("fromactivity",TAG);
         startActivity(intent);
+
+        Log.w(TAG," servname : "+servname);
+
     }
     @Override
     public void onBackPressed() {
@@ -498,7 +507,7 @@ public class Service_Details_Activity extends AppCompatActivity implements View.
 
                         if(response.body().getData().getTitle()!= null) {
 
-                            servname = response.body().getData().getTitle();
+                           // servname = response.body().getData().getTitle();
 
                              txt_servname.setText(""+response.body().getData().getTitle());
 

@@ -120,6 +120,8 @@ public class PetSubServicesAdapter extends  RecyclerView.Adapter<RecyclerView.Vi
 
                 Log.w(TAG,"catid"+ serviceCatList.get(position).getService_id());
 
+                Log.w(TAG," servname : "+servname);
+
             }
 
 
