@@ -112,6 +112,14 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
     @BindView(R.id.content)
     LinearLayout content;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_title)
+    TextView txt_title;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_subtitle)
+    TextView txt_subtitle;
+
     String first_name,last_name,flat_no,landmark,pincode,alt_phonum,address_status,city,username;
 
     String  name, phonum, state, street, landmark_pincode, address_type, date, shipid,radioValue;
@@ -212,6 +220,12 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
 
         }
 
+
+        txt_title.setText("Searching......");
+
+        txt_subtitle.setText("We are looking for the nearest available best Nanny for you.\n" +
+                "Please wait..!!");
+
         Glide.with(PetLoverLoaderActivity.this)
                 .load(R.drawable.searchgif)
                 .into(logo);
@@ -243,9 +257,20 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
             public void onFinish() {
                 // DO something when 1 minute is up
 
-                rl_root.setVisibility(View.VISIBLE);
+                progressBar.setProgress(0);
 
-                content.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
+
+                btn_back.setVisibility(View.VISIBLE);
+
+                Glide.with(PetLoverLoaderActivity.this)
+                        .load(R.drawable.warning)
+                        .into(logo);
+
+
+                txt_title.setText("Oops!!!");
+
+                txt_subtitle.setText("No Nanny available at this time.. Please try again.");
 
                 btn_back.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -370,7 +395,7 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
 
     private void showPaymentSuccessalert() {
 
-        Intent intent = new Intent(getApplicationContext(), PetloverChooseServiceActivity.class);
+        Intent intent = new Intent(getApplicationContext(), Service_Details_Activity.class);
         intent.putExtra("spid",spid);
         intent.putExtra("catid",catid);
         intent.putExtra("subcatid",subcatid);

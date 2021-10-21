@@ -98,8 +98,8 @@
         android:textSize="16sp"
         android:visibility="gone" />
 
-    <include layout="@layout/sp_choose_service_bottom_sheet" />
 
+    <include layout="@layout/sp_choose_service_bottom_sheet" />
 
     <LinearLayout
         android:id="@+id/footerView"

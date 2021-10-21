@@ -36,6 +36,7 @@ import com.google.gson.Gson;
 import com.triton.nanny.R;
 
 import com.triton.nanny.adapter.SPDetails_SpecTypesListAdapter;
+import com.triton.nanny.adapter.ServiceDetailsAdapter;
 import com.triton.nanny.adapter.ViewPagerSPDetailsGalleryAdapter;
 import com.triton.nanny.api.APIClient;
 import com.triton.nanny.api.RestApiInterface;
@@ -54,6 +55,8 @@ import com.triton.nanny.utils.ConnectionDetector;
 import com.triton.nanny.utils.GridSpacingItemDecoration;
 import com.triton.nanny.utils.RestUtils;
 import com.wang.avi.AVLoadingIndicatorView;
+
+import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -162,6 +165,14 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
     @BindView(R.id.txt_pet_hanldle)
     TextView txt_pet_hanldle;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txtlbl_service)
+    TextView txtlbl_service;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rv_services_list)
+    RecyclerView rv_services_list;
+
     SPDetails_SpecTypesListAdapter spDetails_specTypesListAdapter;
 
     private String active_tag;
@@ -253,6 +264,42 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
     String first_name,last_name,flat_no,landmark,pincode,alt_phonum,address_status,city,username,radioValue;
 
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_servicename)
+    TextView txt_servicename;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_sub_servicename)
+    TextView txt_sub_servicename;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_name)
+    TextView txt_name;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_phone)
+    TextView txt_phone;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_dateofbooking)
+    TextView txt_dateofbooking;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_timing)
+    TextView txt_timing;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_noofhours)
+    TextView txt_noofhours;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_totalcost)
+    TextView txt_totalcost;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_paymenttype)
+    TextView txt_paymenttype;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -313,39 +360,41 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
             /**/
 
             catid = extras.getString("catid");
-
             subcatid = extras.getString("subcatid");
-
             servname = extras.getString("servname");
-
             subservname = extras.getString("subservname");
-
             icon_banner = extras.getString("icon_banner");
-
             serviceamount = extras.getInt("serviceamount");
-
             servicetime = extras.getString("servicetime");
-
             servicedate = extras.getString("servicedate");
-
             count_number = extras.getString("count_number");
-
             total_amount = extras.getString("total_amount");
-
-
             state = extras.getString("state");
-
             street = extras.getString("street");
-
             landmark = extras.getString("landmark");
-
             pincode = extras.getString("pincode");
-
             address_type = extras.getString("address_type");
-
             city = extras.getString("city");
-
             radioValue = extras.getString("radioValue");
+
+            if(servname != null){
+                txt_servicename.setText(servname);
+            } if(subservname != null){
+                txt_sub_servicename.setText(subservname);
+            }if(servicedate != null){
+                txt_dateofbooking.setText(servicedate);
+            }if(servicetime != null){
+                txt_timing.setText(servicetime);
+            }if(count_number != null){
+                txt_noofhours.setText(count_number);
+            }if(total_amount != null){
+                txt_totalcost.setText("\u20B9 "+total_amount);
+            }
+            if(count_number != null){
+                txt_noofhours.setText(count_number);
+            }if(radioValue != null){
+                txt_paymenttype.setText(radioValue);
+            }
 
 
 
@@ -579,6 +628,13 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
 
                         if(response.body().getData()!=null){
 
+
+                            if(response.body().getData().getBus_user_name() != null){
+                                txt_name.setText(response.body().getData().getBus_user_name());
+                            } if(response.body().getData().getBus_user_phone() != null){
+                                txt_phone.setText(response.body().getData().getBus_user_phone());
+                            }
+
                             viewPager.setVisibility(View.VISIBLE);
                             //ll_book_now.setVisibility(View.VISIBLE);
 
@@ -772,7 +828,8 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
                                 }
 
 
-                            }else{
+                            }
+                            else{
                                 hand_img1.setBackgroundResource(R.drawable.ic_logo_graycolor);
                                 hand_img2.setBackgroundResource(R.drawable.ic_logo_graycolor);
                                 hand_img3.setBackgroundResource(R.drawable.ic_logo_graycolor);
@@ -824,6 +881,15 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
 
 
 
+                            if(response.body().getData().getBus_service_list() != null && response.body().getData().getBus_service_list().size()>0 ) {
+                                rv_services_list.setVisibility(View.VISIBLE);
+                                setServiceList(response.body().getData().getBus_service_list());
+                            } else{
+                                rv_services_list.setVisibility(View.GONE);
+                            }
+
+                               
+
 
                         }
 
@@ -842,6 +908,14 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
         });
 
     }
+
+    private void setServiceList(List<SPDetailScreenResponse.DataBean.BusServiceListBean> bus_service_list) {
+        rv_services_list.setLayoutManager(new GridLayoutManager(this, 1));
+        rv_services_list.setItemAnimator(new DefaultItemAnimator());
+        ServiceDetailsAdapter serviceDetailsAdapter = new ServiceDetailsAdapter(getApplicationContext(), bus_service_list);
+        rv_services_list.setAdapter(serviceDetailsAdapter);
+    }
+
     private void viewpageData(List<SPDetailScreenResponse.DataBean.BusServiceGallBean> spServiceGalleryResponseList) {
         tabLayout.setupWithViewPager(viewPager, true);
 
@@ -924,7 +998,7 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
                 public void onMapClick(@NonNull LatLng latLng) {
                     Log.w(TAG,"mMap onclick : "+"latitude : "+latitude+" longitude : "+longitude+" location : "+location);
                     String strUri = "http://maps.google.com/maps?q=loc:" + latitude + "," + longitude + " (" + location + ")";
-                    Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(strUri));
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(strUri));
                     intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
                     startActivity(intent);
                 }

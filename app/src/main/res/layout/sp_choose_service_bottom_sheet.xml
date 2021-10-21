@@ -140,6 +140,7 @@
                             android:id="@+id/txt_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:ellipsize="end"
                             android:maxLines="1"
                             android:textColor="@color/new_txt_color"

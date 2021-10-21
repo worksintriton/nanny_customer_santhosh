@@ -191,10 +191,10 @@ public class Service_Details_Activity extends AppCompatActivity implements View.
 
     boolean flag;
     String fromactivity,subcatid,subservname,servname,icon_banner,subservimage;
-//
-//    public static final String MY_PREFS_NAME = "MyPrefsFile";
-//
-//    SharedPreferences.Editor editor;
+
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
+
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -214,10 +214,12 @@ public class Service_Details_Activity extends AppCompatActivity implements View.
         HashMap<String, String> user = session.getProfileDetails();
         userid = user.get(SessionManager.KEY_ID);
 
-/*        editor.clear().commit();
+        editor = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+
+        editor.clear().commit();
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         String test = prefs.getString("isadd","");
-        Log.w(TAG,"TEST "+test);*/
+        Log.w(TAG,"TEST "+test);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
