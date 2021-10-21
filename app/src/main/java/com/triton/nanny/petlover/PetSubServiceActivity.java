@@ -176,7 +176,17 @@ public class PetSubServiceActivity extends AppCompatActivity {
         TextView toolbar_title = include_petlover_header.findViewById(R.id.toolbar_title);
         img_sos.setVisibility(View.GONE);
         img_cart.setVisibility(View.GONE);
-        toolbar_title.setText(getResources().getString(R.string.subservice_details));
+
+        if(servname!=null&&!servname.isEmpty()){
+
+            toolbar_title.setText(servname);
+
+        }
+        else {
+
+
+            toolbar_title.setText(getResources().getString(R.string.subservice_details));
+        }
 
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override

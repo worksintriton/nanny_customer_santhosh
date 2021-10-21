@@ -14,9 +14,12 @@
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_petappointment_details.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_petappointment_sp_date_time.xml" value="0.2" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_petlover_choose_service.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_pick_up_location_allow.xml" value="0.27447916666666666" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_service_detail.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_service_details.xml" value="0.2" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_service_provider_dashboard.xml" value="0.275" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_shipping_address_add.xml" value="0.27447916666666666" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_sign_up.xml" value="0.27447916666666666" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_splash.xml" value="0.2708333333333333" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_verify_otp.xml" value="0.2708333333333333" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/activity_view_spinvoice.xml" value="0.2604166666666667" />
@@ -24,7 +27,7 @@
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_cust_new_spappointment.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_cust_spcompleted_appointment.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_cust_spmissed_appointment.xml" value="0.275" />
-        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_petlover_services.xml" value="0.1" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_petlover_services.xml" value="0.27447916666666666" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_petloversplist.xml" value="0.27447916666666666" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_petloversplist_subservice.xml" value="0.27447916666666666" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/adapter_sp_service_list.xml" value="0.27447916666666666" />
@@ -33,7 +36,7 @@
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/alert_sp_accept_reject_appointment.xml" value="0.275" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/content_sp_details.xml" value="0.2" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/doctor_bottom_sheet.xml" value="0.275" />
-        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/petloverdetailscreen_bottom_sheet.xml" value="0.2" />
+        <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/petloverdetailscreen_bottom_sheet.xml" value="0.4" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/sp_choose_service_bottom_sheet.xml" value="0.2" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/layout/sp_details_bottom_sheet.xml" value="0.275" />
       </map>

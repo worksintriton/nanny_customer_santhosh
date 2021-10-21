@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -169,6 +170,12 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
     private int serviceamount;
     private int distance;
 
+    String isadd="";
+
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
+
+    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -202,13 +209,14 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
 
         Log.w(TAG,"User ID:  "+userid);
 
+        editor = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
 
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
             spid = extras.getString("spid");
 
-            from = extras.getString("from");
+
             spuserid = extras.getString("spuserid");
             selectedServiceTitle = extras.getString("selectedServiceTitle");
             serviceamount = extras.getInt("serviceamount");
@@ -218,12 +226,9 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
             servicetime = extras.getString("servicetime");
             SP_ava_Date = extras.getString("SP_ava_Date");
             selectedTimeSlot = extras.getString("selectedTimeSlot");
-            goto_screen = extras.getString("goto");
+
             Log.w(TAG,"spid : "+spid +" catid : "+catid+" from : "+from);
             Log.w(TAG,"distance : "+distance);
-            fromactivity = extras.getString("fromactivity");
-
-            Log.w(TAG,"From "+ fromactivity +" : true-->");
 
             Data = (List<CartDetailsResponse.DataBean>) extras.getSerializable("data");
 
@@ -246,21 +251,71 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
 
             /**/
 
-            catid = extras.getString("catid");
 
-            subcatid = extras.getString("subcatid");
+            SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
 
-            servname = extras.getString("servname");
+            isadd = prefs.getString("isadd",isadd);
 
-            subservname = extras.getString("subservname");
+            if(isadd!=null&&!isadd.isEmpty()&&isadd.equals("true")){
 
-            icon_banner = extras.getString("icon_banner");
+                Log.w(TAG,"Shared " +" : true-->");
 
-            serviceamount = extras.getInt("serviceamount");
 
-            servicetime = extras.getString("servicetime");
+                catid = prefs.getString("catid","");
 
-            servicedate = extras.getString("servicedate");
+                subcatid = prefs.getString("subcatid","");
+
+                servname = prefs.getString("servname","");
+
+                subservname = prefs.getString("subservname","");
+
+                icon_banner = prefs.getString("icon_banner","");
+
+                serviceamount = prefs.getInt("serviceamount",0);
+
+                servicetime = prefs.getString("servicetime","");
+
+                servicedate = prefs.getString("servicedate","");
+
+                goto_screen = prefs.getString("goto","");
+
+                fromactivity = prefs.getString("fromactivity","");
+
+                from = prefs.getString("from","");
+
+                Log.w(TAG,"From "+ fromactivity +" : true-->");
+
+            }
+            else {
+
+                Log.w(TAG,"Shared " +" : false-->");
+
+                catid = extras.getString("catid");
+
+                subcatid = extras.getString("subcatid");
+
+                servname = extras.getString("servname");
+
+                subservname = extras.getString("subservname");
+
+                icon_banner = extras.getString("icon_banner");
+
+                serviceamount = extras.getInt("serviceamount");
+
+                servicetime = extras.getString("servicetime");
+
+                servicedate = extras.getString("servicedate");
+
+                goto_screen = extras.getString("goto");
+
+                fromactivity = extras.getString("fromactivity");
+
+                from = extras.getString("from");
+
+                Log.w(TAG,"From "+ fromactivity +" : true-->");
+
+            }
+
 
             if (new ConnectionDetector(ShippingAddressActivity.this).isNetworkAvailable(ShippingAddressActivity.this)) {
                 shippingAddressresponseCall(userid);
@@ -691,22 +746,35 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
         switch (v.getId()){
 
             case R.id.img_back:
+                editor.clear().commit();
+                SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+                String test = prefs.getString("isadd","");
+                Log.w(TAG,"TEST "+test);
                 onBackPressed();
                 break;
 
             case R.id.ll_addresslist:
+                isadd = "true";
+                editor.putString("isadd",isadd);
+                storesession();
                 gotoShippingaddresslist();
+
                 break;
 
             case R.id.ll_address_list_show:
                 if(goto_screen!=null&&goto_screen.equals("service")) {
 
+                    isadd = "true";
+                    editor.putString("isadd",isadd);
+                    storesession();
                     gotoChooseService();
                     break;
 
                 }
                 else {
-
+                    isadd = "true";
+                    editor.putString("isadd",isadd);
+                    storesession();
                     gotoSelectCalendar();
                     break;
 
@@ -729,6 +797,35 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
                 break;
         }
 
+    }
+
+    private void storesession() {
+
+        editor.putString("catid",catid);
+
+        editor.putString("subcatid",subcatid);
+
+        editor.putString("servname",servname);
+
+        editor.putString("subservname",subservname);
+
+        editor.putString("icon_banner",icon_banner);
+
+        editor.putInt("serviceamount",serviceamount);
+
+        editor.putString("servicetime",servicetime);
+
+        editor.putString("servicedate",servicedate);
+
+        editor.putString("goto",goto_screen);
+
+        editor.putString("fromactivity",fromactivity);
+
+        editor.putString("from",from);
+
+        Log.w(TAG,"From "+ fromactivity +" : true-->");
+
+        editor.apply();
     }
 
 
@@ -984,6 +1081,10 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        editor.clear().commit();
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        String test = prefs.getString("isadd","");
+        Log.w(TAG,"TEST "+test);
         if(fromactivity != null && fromactivity.equalsIgnoreCase("DoctorCartActivity")){
             startActivity(new Intent(getApplicationContext(), DoctorCartActivity.class));
             finish();

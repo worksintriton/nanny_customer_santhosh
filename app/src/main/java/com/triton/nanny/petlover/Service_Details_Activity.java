@@ -460,6 +460,7 @@ public class Service_Details_Activity extends AppCompatActivity implements View.
 
         Intent intent = new Intent(Service_Details_Activity.this, PetSubServiceActivity.class);
         intent.putExtra("catid",catid);
+        intent.putExtra("servname",servname);
         intent.putExtra("fromactivity",fromactivity);
         intent.putExtra("flag",flag);
         intent.putExtra("from",from);
