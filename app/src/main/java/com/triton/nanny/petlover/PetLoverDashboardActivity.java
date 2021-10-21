@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -185,6 +186,11 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
     private String doctorid;
 
 
+//    public static final String MY_PREFS_NAME = "MyPrefsFile";
+//
+//    SharedPreferences.Editor editor;
+
+
     @SuppressLint("LogNotTimber")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -200,9 +206,11 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
         SessionManager session = new SessionManager(getApplicationContext());
         HashMap<String, String> user = session.getProfileDetails();
         userid = user.get(SessionManager.KEY_ID);
-
-
-
+//
+//        editor.clear().commit();
+//        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+//        String test = prefs.getString("isadd","");
+//        Log.w(TAG,"TEST "+test);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {

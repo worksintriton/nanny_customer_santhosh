@@ -250,7 +250,7 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
 
     String  name, phonum, state, street, landmark_pincode, address_type, date, shipid;
 
-    String first_name,last_name,flat_no,landmark,pincode,alt_phonum,address_status,city,username;
+    String first_name,last_name,flat_no,landmark,pincode,alt_phonum,address_status,city,username,radioValue;
 
 
     @Override
@@ -344,6 +344,8 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
             address_type = extras.getString("address_type");
 
             city = extras.getString("city");
+
+            radioValue = extras.getString("radioValue");
 
 
 
@@ -1074,7 +1076,7 @@ public class PetLoverServiceDetailScreenActivity extends AppCompatActivity imple
         spCreateAppointmentRequest.setDisplay_date(displaydateandtime);
         spCreateAppointmentRequest.setServer_date_time("");
         spCreateAppointmentRequest.setPayment_id("");
-        spCreateAppointmentRequest.setPayment_method("Online");
+        spCreateAppointmentRequest.setPayment_method(radioValue);
         spCreateAppointmentRequest.setService_name(servname);
         spCreateAppointmentRequest.setService_amount(String.valueOf(serviceamount));
         spCreateAppointmentRequest.setService_time(servicetime);

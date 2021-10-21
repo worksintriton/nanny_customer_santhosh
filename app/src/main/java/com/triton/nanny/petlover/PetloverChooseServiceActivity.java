@@ -17,6 +17,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -181,9 +183,15 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
     @BindView(R.id.txt_total_amount)
     TextView txt_total_amount;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rdGroupPayment)
+    RadioGroup rdGroupPayment;
+
     String  name, phonum, state, street, landmark_pincode, address_type, date, shipid;
 
     String first_name,last_name,flat_no,landmark,pincode,alt_phonum,address_status,city,username;
+
+    String radioValue = "Online";
 
 
     @Override
@@ -301,6 +309,31 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
             rl_minus.setOnClickListener(this);
 
             ll_sp_bookserv.setOnClickListener(this);
+
+            rdGroupPayment.setOnCheckedChangeListener(new  RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                    RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                    if (null != rb) {
+
+                        // checkedId is the RadioButton selected
+                        switch (checkedId) {
+                            case R.id.rdonline:
+                                // Do Something
+                                radioValue="Online";
+                                break;
+
+                            case R.id.rdcod:
+                                // Do Something
+                                radioValue="Cash";
+                                break;
+
+                        }
+                    }
+                }
+
+            });
 
 
         }
@@ -670,9 +703,12 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
 
     private void showPaymentSuccessalert(String appointment_id) {
 
+
+
         Intent intent = new Intent(getApplicationContext(), PetLoverLoaderActivity.class);
         intent.putExtra("spid",spid);
         intent.putExtra("appointment_id",appointment_id);
+        intent.putExtra("radioValue",radioValue);
         intent.putExtra("catid",catid);
         intent.putExtra("subcatid",subcatid);
         intent.putExtra("servname",servname);

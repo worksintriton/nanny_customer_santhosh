@@ -55,98 +55,35 @@
                     android:textColor="@color/new_thick_orange_bgm_color"
                     android:textSize="16sp" />
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp">
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginTop="20dp">-->
 
-                    <View
-                        android:id="@+id/view12"
-                        android:layout_width="100dp"
-                        android:layout_height="1dp"
-                        android:layout_centerInParent="true"
-                        android:layout_centerHorizontal="false"
-                        android:background="@color/blue" />
+<!--                    <View-->
+<!--                        android:id="@+id/view12"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="1dp"-->
+<!--                        android:layout_centerInParent="true"-->
+<!--                        android:background="@color/blue" />-->
 
-                </RelativeLayout>
+<!--                </RelativeLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/ll_multipleadd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                <!--                <RelativeLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="center">-->
 
-                    android:orientation="horizontal"
-                    android:padding="3dp"
-                    android:visibility="visible">
+<!--                    <View-->
+<!--                        android:id="@+id/view11"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="1dp"-->
+<!--                        android:layout_centerInParent="true"-->
+<!--                        android:layout_centerHorizontal="false"-->
+<!--                        android:background="@color/blue" />-->
 
-                    <RelativeLayout
-                        android:id="@+id/rl_minus"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginEnd="15dp"
-                        android:background="@drawable/new_rounded_corner_btn_green">
-
-                        <TextView
-                            android:id="@+id/txt_minus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="-"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_16sp"
-                            android:textStyle="bold" />
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:id="@+id/txt_count_number"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="15dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="1"
-                        android:textSize="@dimen/_16sp"
-                        android:textStyle="bold" />
-
-
-                    <RelativeLayout
-                        android:id="@+id/rl_add"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:background="@drawable/new_rounded_corner_btn_green">
-
-                        <TextView
-                            android:id="@+id/txt_add"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="+"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_16sp"
-                            android:textStyle="bold" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center">
-
-                    <View
-                        android:id="@+id/view11"
-                        android:layout_width="100dp"
-                        android:layout_height="1dp"
-                        android:layout_centerInParent="true"
-                        android:layout_centerHorizontal="false"
-                        android:background="@color/blue" />
-
-                </RelativeLayout>
+<!--                </RelativeLayout>-->
 
 
                 <LinearLayout
@@ -263,13 +200,93 @@
 
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/hours"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_multipleadd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+
+                            android:orientation="horizontal"
+                            android:padding="3dp"
+                            android:visibility="visible">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginEnd="15dp"
+                                android:background="@drawable/new_rounded_corner_btn_green">
+
+                                <TextView
+                                    android:id="@+id/txt_minus"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="-"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_16sp"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/txt_count_number"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="15dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textSize="@dimen/_16sp"
+                                android:textStyle="bold" />
+
+
+                            <RelativeLayout
+                                android:id="@+id/rl_add"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:background="@drawable/new_rounded_corner_btn_green">
+
+                                <TextView
+                                    android:id="@+id/txt_add"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="+"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_16sp"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                     <View
                         android:id="@+id/view19"
                         android:layout_width="match_parent"
                         android:layout_height="10dp"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/vertical_dotted_line"
-                        android:layerType="software" />
+                        android:layerType="software"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/txt_splocation"
@@ -323,6 +340,7 @@
                                 android:id="@+id/rdonline"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:checked="true"
                                 android:text="@string/online"
                                 android:textColor="@color/new_txt_color"
                                 android:textSize="14sp" />

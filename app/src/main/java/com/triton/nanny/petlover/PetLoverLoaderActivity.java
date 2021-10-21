@@ -114,7 +114,7 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
 
     String first_name,last_name,flat_no,landmark,pincode,alt_phonum,address_status,city,username;
 
-    String  name, phonum, state, street, landmark_pincode, address_type, date, shipid;
+    String  name, phonum, state, street, landmark_pincode, address_type, date, shipid,radioValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,7 +197,7 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
 
             city = extras.getString("city");
 
-
+            radioValue = extras.getString("radioValue");
 
 
             Log.w(TAG,"spid : "+spid +" catid : "+catid+"subcatid : "+subcatid+"  from : "+from);
@@ -330,6 +330,7 @@ public class PetLoverLoaderActivity extends AppCompatActivity {
         Intent intent = new Intent(PetLoverLoaderActivity.this, PetLoverServiceDetailScreenActivity.class);
         intent.putExtra("spid",id);
         intent.putExtra("catid",catid);
+        intent.putExtra("radioValue",radioValue);
         intent.putExtra("subcatid",subcatid);
         intent.putExtra("servname",servname);
         intent.putExtra("subservname",subservname);

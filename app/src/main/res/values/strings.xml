@@ -622,4 +622,5 @@
     <string name="dated">Service Title</string>
     <string name="added">Hours</string>
     <string name="deduted">Date</string>
+    <string name="hours">Hours</string>
 </resources>
