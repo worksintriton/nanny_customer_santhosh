@@ -200,10 +200,10 @@ public class PetMyappointmentsActivity extends AppCompatActivity implements Bott
 //        bottom_navigation_view.getMenu().findItem(R.id.home).setChecked(true);
 
         /*shop*/
-        title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-          img_serv.setImageResource(R.drawable.grey_servc);
+        img_serv.setImageResource(R.drawable.grey_care);
         title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-       img_serv.setImageResource(R.drawable.grey_care);
+        title_care.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
+        img_care.setImageResource(R.drawable.green_serv);
         title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
         img_community.setImageResource(R.drawable.grey_community);
         title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));

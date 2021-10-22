@@ -244,7 +244,7 @@ public class Service_Details_Activity extends AppCompatActivity implements View.
 
         /*serv*/
         title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-          img_serv.setImageResource(R.drawable.grey_servc);
+          img_serv.setImageResource(R.drawable.grey_care);
         title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
         img_shop.setImageResource(R.drawable.grey_shop);
         title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));

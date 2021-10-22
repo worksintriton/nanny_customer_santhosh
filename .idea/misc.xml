@@ -4,10 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/TritonAppsGIt/nanny_customer_santhosh/app/src/main/res/layout/activity_pet_lover_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/TritonAppsGIt/nanny_customer_santhosh/app/src/main/res/layout/activity_pet_myappointments.xml" value="0.25416666666666665" />
         <entry key="..\:/TritonAppsGIt/nanny_customer_santhosh/app/src/main/res/layout/adapter_petlover_services.xml" value="0.13020833333333334" />
         <entry key="..\:/TritonAppsGIt/nanny_customer_santhosh/app/src/main/res/layout/adapter_petloversplist.xml" value="0.13020833333333334" />
         <entry key="..\:/TritonAppsGIt/nanny_customer_santhosh/app/src/main/res/layout/adapter_petloversplist_subservice.xml" value="0.13020833333333334" />
         <entry key="..\:/TritonAppsGIt/nanny_customer_santhosh/app/src/main/res/layout/fragment_home_pet_new.xml" value="0.12360688956433637" />
+        <entry key="..\:/TritonAppsGIt/nanny_customer_santhosh/app/src/main/res/layout/fragment_pet_care.xml" value="0.25416666666666665" />
+        <entry key="..\:/TritonAppsGIt/nanny_customer_santhosh/app/src/main/res/layout/fragment_pet_care1.xml" value="0.25271739130434784" />
+        <entry key="..\:/TritonAppsGIt/nanny_customer_santhosh/app/src/main/res/layout/fragment_pet_new_appointment.xml" value="0.2504528985507246" />
         <entry key="..\:/TritonAppsGIt/nanny_customer_santhosh/app/src/main/res/layout/sliding_image_banner_new.xml" value="0.18535681186283595" />
         <entry key="..\:/TritonAppsGIt/nanny_customer_santhosh/app/src/main/res/layout/toolbar_layout_petlover_footer_new_shaped.xml" value="0.25416666666666665" />
         <entry key="..\:/Workspace/Petfolio_Clone_Nanny/app/src/main/res/drawable/rectangular_corner_bg_lightgrey.xml" value="0.290625" />

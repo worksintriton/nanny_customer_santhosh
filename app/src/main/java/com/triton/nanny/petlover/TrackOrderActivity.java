@@ -288,9 +288,9 @@ public class TrackOrderActivity extends AppCompatActivity implements View.OnClic
 
         /*shop*/
         title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-          img_serv.setImageResource(R.drawable.grey_servc);
+          img_serv.setImageResource(R.drawable.grey_care);
         title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-       img_serv.setImageResource(R.drawable.grey_care);
+      img_care.setImageResource(R.drawable.grey_servc);
         title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
         img_community.setImageResource(R.drawable.grey_community);
         title_shop.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));

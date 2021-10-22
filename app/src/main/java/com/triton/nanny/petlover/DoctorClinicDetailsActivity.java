@@ -324,7 +324,7 @@ public class DoctorClinicDetailsActivity extends AppCompatActivity implements Vi
         title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
         img_community.setImageResource(R.drawable.grey_community);
         title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-       img_serv.setImageResource(R.drawable.grey_care);
+      img_care.setImageResource(R.drawable.grey_servc);
 
         rl_home.setOnClickListener(this);
         rl_care.setOnClickListener(this);

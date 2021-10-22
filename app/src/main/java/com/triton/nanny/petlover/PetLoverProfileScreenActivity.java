@@ -417,9 +417,9 @@ public class PetLoverProfileScreenActivity extends AppCompatActivity implements 
 
         /*home*/
         title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-          img_serv.setImageResource(R.drawable.grey_servc);
+          img_serv.setImageResource(R.drawable.grey_care);
         title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-       img_serv.setImageResource(R.drawable.grey_care);
+      img_care.setImageResource(R.drawable.grey_servc);
         title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
         img_shop.setImageResource(R.drawable.grey_shop);
         title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
@@ -431,7 +431,7 @@ public class PetLoverProfileScreenActivity extends AppCompatActivity implements 
 //                bottom_navigation_view.getMenu().findItem(R.id.services).setChecked(true);
                 /*serv*/
                 title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                  img_serv.setImageResource(R.drawable.grey_servc);
+                  img_serv.setImageResource(R.drawable.grey_care);
                 title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_shop.setImageResource(R.drawable.grey_shop);
                 title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
@@ -444,7 +444,7 @@ public class PetLoverProfileScreenActivity extends AppCompatActivity implements 
 //                bottom_navigation_view.getMenu().findItem(R.id.care).setChecked(true);
     /*Care*/
                 title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-               img_serv.setImageResource(R.drawable.grey_care);
+              img_care.setImageResource(R.drawable.grey_servc);
                 title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_shop.setImageResource(R.drawable.grey_shop);
                 title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
