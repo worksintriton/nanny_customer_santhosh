@@ -31,7 +31,7 @@
                 android:adjustViewBounds="true"
                 tools:ignore="ContentDescription"
                 android:scaleType="centerCrop"
-                android:background="@drawable/images_avatar"/>
+                android:background="@drawable/ic_user"/>
 
             <ImageView
                 android:id="@+id/img_background"

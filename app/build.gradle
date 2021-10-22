@@ -107,9 +107,9 @@ dependencies {
     /*Payment gateway razorpay*/
     implementation 'com.razorpay:checkout:1.5.16'
 
-    /*Jitsi Video Call*/
+   /* *//*Jitsi Video Call*//*
    // implementation ('org.jitsi.react:jitsi-meet-sdk:2.11.0') { transitive = true }
-    implementation ('org.jitsi.react:jitsi-meet-sdk:2.+') { transitive = true }
+    implementation ('org.jitsi.react:jitsi-meet-sdk:2.+') { transitive = true }*/
 
 
     // Shimmer
