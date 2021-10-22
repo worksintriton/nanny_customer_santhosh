@@ -67,9 +67,10 @@ public class PetLoverDoctorNewAdapter extends  RecyclerView.Adapter<RecyclerView
     @SuppressLint("SetTextI18n")
     private void initLayoutOne(ViewHolderOne holder, final int position) {
           currentItem = doctorDetailsResponseList.get(position);
-          if(currentItem.getDoctor_name() != null){
+         /* if(currentItem.getDoctor_name() != null){
               holder.txt_doctors_name.setText(currentItem.getDoctor_name());
-          } if(currentItem.getClinic_name() != null){
+          }
+          if(currentItem.getClinic_name() != null){
               holder.txt_clinicname.setText(currentItem.getClinic_name());
           }
 
@@ -81,7 +82,8 @@ public class PetLoverDoctorNewAdapter extends  RecyclerView.Adapter<RecyclerView
               holder.hand_img3.setBackgroundResource(R.drawable.ic_logo_graycolor);
               holder.hand_img4.setBackgroundResource(R.drawable.ic_logo_graycolor);
               holder.hand_img5.setBackgroundResource(R.drawable.ic_logo_graycolor);
-          } else if(currentItem.getStar_count() == 2){
+          }
+          else if(currentItem.getStar_count() == 2){
               holder.hand_img1.setBackgroundResource(R.drawable.ic_logo_color);
               holder.hand_img2.setBackgroundResource(R.drawable.ic_logo_color);
               holder.hand_img3.setBackgroundResource(R.drawable.ic_logo_graycolor);
@@ -125,12 +127,7 @@ public class PetLoverDoctorNewAdapter extends  RecyclerView.Adapter<RecyclerView
               }
 
           }
-         /* if(doctorDetailsResponseList.get(position).getStar_count() != 0) {
-              holder.txt_star_rating.setText(doctorDetailsResponseList.get(position).getStar_count() + "");
-          }
-          if(doctorDetailsResponseList.get(position).getReview_count() != 0) {
-              holder.txt_review_count.setText(doctorDetailsResponseList.get(position).getReview_count() + "");
-          }*/
+
         if (currentItem.getThumbnail_image() != null && !currentItem.getThumbnail_image().isEmpty()) {
             Glide.with(context)
                     .load(currentItem.getThumbnail_image())
@@ -142,26 +139,20 @@ public class PetLoverDoctorNewAdapter extends  RecyclerView.Adapter<RecyclerView
                     .load(APIClient.PROFILE_IMAGE_URL)
                     .into(holder.img_doctors_image);
 
-        }
+        }*/
         holder.ll_root.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //Opens the AppDetailActivity showing the selected App Card
-                //Log.d("Debugtext","Card with position " + getAdapterPosition() + " was touched.");
-//                Intent intent = new Intent(context, DoctorClinicDetailsActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-//                        context, holder.img_doctors_image, holder.img_doctors_image.getTransitionName());
-//                ActivityCompat.startActivity(context, intent, options.toBundle());
 
                 Intent intent = new Intent(context, DoctorClinicDetailsActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("doctorid",doctorDetailsResponseList.get(position).get_id());
+               /* intent.putExtra("doctorid",doctorDetailsResponseList.get(position).get_id());
                 intent.putExtra("doctorname",doctorDetailsResponseList.get(position).getDoctor_name());
                 intent.putExtra("reviewcount",doctorDetailsResponseList.get(position).getReview_count());
                 intent.putExtra("starcount",doctorDetailsResponseList.get(position).getStar_count());
                 intent.putExtra("distance",doctorDetailsResponseList.get(position).getDistance());
                 intent.putExtra("fromactivity",TAG);
-                Log.w(TAG,"doctorid :"+doctorDetailsResponseList.get(position).get_id());
+                Log.w(TAG,"doctorid :"+doctorDetailsResponseList.get(position).get_id());*/
                 context.startActivity(intent);
                 }
 

@@ -41,7 +41,9 @@ import com.triton.nanny.sessionmanager.SessionManager;
 import com.triton.nanny.utils.RestUtils;
 import com.wang.avi.AVLoadingIndicatorView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
@@ -602,7 +604,7 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
 
     private TriggerSPSearchRequest TriggerSPSearchRequest() {
 
-        /**
+        /*
          * service_name : Vet Care
          * sub_service_title : Sub Service 2
          * customer_name : Mohammed imthiyas
@@ -612,7 +614,11 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
          * user_id : 6164232765d9a57d7fc9575
          */
 
-
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDateandTime24hrs = simpleDateFormat.format(new Date());
+        String currenttime = currentDateandTime24hrs.substring(currentDateandTime24hrs.indexOf(' ') + 1);
+        String currentdate =  currentDateandTime24hrs.substring(0, currentDateandTime24hrs.indexOf(' '));
+        String currentdateandtime = currentdate+"T"+currenttime+".000Z";
 
         TriggerSPSearchRequest TriggerSPSearchRequest = new TriggerSPSearchRequest();
         TriggerSPSearchRequest.setService_name(servname);
@@ -622,6 +628,7 @@ public class PetloverChooseServiceActivity extends AppCompatActivity implements 
         TriggerSPSearchRequest.setSelected_date(servicedate);
         TriggerSPSearchRequest.setSelected_time(servicetime);
         TriggerSPSearchRequest.setUser_id(userid);
+        TriggerSPSearchRequest.setCurrentdateandtime(currentdateandtime);
 
         Log.w(TAG," TriggerSPSearchRequest"+ new Gson().toJson(TriggerSPSearchRequest));
         return TriggerSPSearchRequest;

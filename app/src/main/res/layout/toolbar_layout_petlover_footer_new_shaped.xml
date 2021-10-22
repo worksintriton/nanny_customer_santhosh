@@ -134,7 +134,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/grey_servc"
+                android:src="@drawable/grey_care"
                 tools:ignore="ContentDescription" />
 
         </RelativeLayout>
@@ -221,7 +221,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/futuramediumbt"
-                android:text="Offer"
+                android:text="@string/appointment"
                 android:textColor="@color/text_color"
                 android:textSize="12sp"
                 tools:ignore="HardcodedText" />
@@ -231,7 +231,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/grey_care"
+                android:src="@drawable/grey_servc"
                 tools:ignore="ContentDescription" />
         </RelativeLayout>
 

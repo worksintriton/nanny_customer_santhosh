@@ -11,6 +11,7 @@ public class TriggerSPSearchRequest {
      * selected_date : 23-10-2021
      * selected_time : 11:00 AM
      * user_id : 6164232765d9a57d7fc9575
+     * currentdateandtime
      */
 
     private String service_name;
@@ -20,6 +21,15 @@ public class TriggerSPSearchRequest {
     private String selected_date;
     private String selected_time;
     private String user_id;
+    private String currentdateandtime;
+
+    public String getCurrentdateandtime() {
+        return currentdateandtime;
+    }
+
+    public void setCurrentdateandtime(String currentdateandtime) {
+        this.currentdateandtime = currentdateandtime;
+    }
 
     public String getService_name() {
         return service_name;

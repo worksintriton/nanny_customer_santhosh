@@ -244,13 +244,13 @@ public class Service_Details_Activity extends AppCompatActivity implements View.
 
         /*serv*/
         title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-        img_care.setImageResource(R.drawable.grey_care);
+          img_serv.setImageResource(R.drawable.grey_servc);
         title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
         img_shop.setImageResource(R.drawable.grey_shop);
         title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
         img_community.setImageResource(R.drawable.grey_community);
         title_serv.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
-        img_serv.setImageResource(R.drawable.green_serv);
+        img_serv.setImageResource(R.drawable.green_care);
 
         rl_home.setOnClickListener(this);
         rl_care.setOnClickListener(this);
@@ -453,33 +453,22 @@ public class Service_Details_Activity extends AppCompatActivity implements View.
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-//        if(from != null && from.equalsIgnoreCase("PetLoverSPNewFavAdapter")){
-//            Intent intent = new Intent(getApplicationContext(),PetloverFavListActivity.class);
-//            startActivity(intent);
-//            finish();
-//        }else{
-//            Intent intent = new Intent(getApplicationContext(),SelectedServiceActivity.class);
-//            intent.putExtra("spid",spid);
-//            intent.putExtra("catid",catid);
-//            intent.putExtra("from",from);
-//            intent.putExtra("distance",distance);
-//            intent.putExtra("reviewcount",reviewcount);
-//            intent.putExtra("Count_value_start",Count_value_start);
-//            intent.putExtra("Count_value_end",Count_value_end);
-//            startActivity(intent);
-//            finish();
-//        }
+        if(from != null && from.equalsIgnoreCase("DashboardServicesAdapter")){
+            Intent intent = new Intent(getApplicationContext(),PetLoverDashboardActivity.class);
+            startActivity(intent);
+            finish();
+        }else{
+            Intent intent = new Intent(Service_Details_Activity.this, PetSubServiceActivity.class);
+            intent.putExtra("catid",catid);
+            intent.putExtra("servname",servname);
+            intent.putExtra("fromactivity",fromactivity);
+            intent.putExtra("flag",flag);
+            intent.putExtra("from",from);
+            Log.w(TAG,"catid"+ catid);
+            startActivity(intent);
+            finish();
+        }
 
-        Intent intent = new Intent(Service_Details_Activity.this, PetSubServiceActivity.class);
-        intent.putExtra("catid",catid);
-        intent.putExtra("servname",servname);
-        intent.putExtra("fromactivity",fromactivity);
-        intent.putExtra("flag",flag);
-        intent.putExtra("from",from);
-
-        Log.w(TAG,"catid"+ catid);
-
-        startActivity(intent);
 
     }
     @SuppressLint("LogNotTimber")

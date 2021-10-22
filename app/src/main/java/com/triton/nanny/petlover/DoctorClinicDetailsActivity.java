@@ -318,13 +318,13 @@ public class DoctorClinicDetailsActivity extends AppCompatActivity implements Vi
 
         /*petcare*/
         title_care.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
-        img_care.setImageResource(R.drawable.green_care);
+        img_care.setImageResource(R.drawable.green_serv);
         title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
         img_shop.setImageResource(R.drawable.grey_shop);
         title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
         img_community.setImageResource(R.drawable.grey_community);
         title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-        img_serv.setImageResource(R.drawable.grey_servc);
+       img_serv.setImageResource(R.drawable.grey_care);
 
         rl_home.setOnClickListener(this);
         rl_care.setOnClickListener(this);

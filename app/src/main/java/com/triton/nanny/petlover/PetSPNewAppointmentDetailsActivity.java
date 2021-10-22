@@ -319,13 +319,13 @@ public class PetSPNewAppointmentDetailsActivity extends AppCompatActivity implem
 //        bottom_navigation_view.getMenu().findItem(R.id.services).setChecked(true);
         /*serv*/
         title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-        img_care.setImageResource(R.drawable.grey_care);
+          img_serv.setImageResource(R.drawable.grey_servc);
         title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
         img_shop.setImageResource(R.drawable.grey_shop);
         title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
         img_community.setImageResource(R.drawable.grey_community);
         title_serv.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
-        img_serv.setImageResource(R.drawable.green_serv);
+        img_serv.setImageResource(R.drawable.green_care);
 
 
         if (new ConnectionDetector(PetSPNewAppointmentDetailsActivity.this).isNetworkAvailable(PetSPNewAppointmentDetailsActivity.this)) {

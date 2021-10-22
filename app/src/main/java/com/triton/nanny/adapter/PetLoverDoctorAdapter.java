@@ -73,10 +73,10 @@ public class PetLoverDoctorAdapter extends  RecyclerView.Adapter<RecyclerView.Vi
 
 
           currentItem = doctorDetailsResponseList.get(position);
-          if(currentItem.getDoctor_name() != null){
-              holder.txt_doctors_name.setText(currentItem.getDoctor_name());
+          if(currentItem.getService_name() != null){
+              holder.txt_doctors_name.setText(currentItem.getService_name());
           }
-          List<PetLoverDashboardResponse.DataBean.DashboarddataBean.DoctorDetailsBean.SpecializationBean> specializationBeanList = currentItem.getSpecialization();
+         /* List<PetLoverDashboardResponse.DataBean.DashboarddataBean.DoctorDetailsBean.SpecializationBean> specializationBeanList = currentItem.getSpecialization();
 
           for(int i=0;i<specializationBeanList.size();i++){
               if(specializationBeanList.get(i).getSpecialization() !=  null) {
@@ -91,8 +91,7 @@ public class PetLoverDoctorAdapter extends  RecyclerView.Adapter<RecyclerView.Vi
               holder.txt_review_count.setText(doctorDetailsResponseList.get(position).getReview_count() + "");
           }
           if (currentItem.getDoctor_img() != null && !currentItem.getDoctor_img().isEmpty()) {
-
-            Glide.with(context)
+              Glide.with(context)
                     .load(currentItem.getDoctor_img())
                     .into(holder.img_doctors_image);
 
@@ -102,20 +101,20 @@ public class PetLoverDoctorAdapter extends  RecyclerView.Adapter<RecyclerView.Vi
                     .load(APIClient.PROFILE_IMAGE_URL)
                     .into(holder.img_doctors_image);
 
-        }
+        }*/
 
         holder.ll_root.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("LogNotTimber")
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DoctorClinicDetailsActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("doctorid",doctorDetailsResponseList.get(position).get_id());
+               /* intent.putExtra("doctorid",doctorDetailsResponseList.get(position).get_id());
                 intent.putExtra("doctorname",doctorDetailsResponseList.get(position).getDoctor_name());
                 intent.putExtra("reviewcount",doctorDetailsResponseList.get(position).getReview_count());
                 intent.putExtra("starcount",doctorDetailsResponseList.get(position).getStar_count());
                 intent.putExtra("distance",doctorDetailsResponseList.get(position).getDistance());
                 intent.putExtra("fromactivity",TAG);
-                Log.w(TAG,"doctorid :"+doctorDetailsResponseList.get(position).get_id());
+                Log.w(TAG,"doctorid :"+doctorDetailsResponseList.get(position).get_id());*/
                 context.startActivity(intent);
                 }
 

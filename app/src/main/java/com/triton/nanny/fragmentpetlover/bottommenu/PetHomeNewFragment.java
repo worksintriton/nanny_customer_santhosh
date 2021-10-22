@@ -60,6 +60,7 @@ import com.google.gson.Gson;
 import com.triton.nanny.R;
 import com.triton.nanny.activity.location.PickUpLocationAllowActivity;
 import com.triton.nanny.activity.location.PickUpLocationDenyActivity;
+import com.triton.nanny.adapter.DashboardServicesAdapter;
 import com.triton.nanny.adapter.PetLoverDashboardPubbyLoveAdapter;
 import com.triton.nanny.adapter.PetLoverDoctorNewAdapter;
 import com.triton.nanny.adapter.PetLoverServicesAdapter;
@@ -338,7 +339,7 @@ public class PetHomeNewFragment extends Fragment implements Serializable,
                 break;
 
             case R.id.txt_seemore_vets:
-                callDirections("4");
+                callDirections("3");
                 break;
 
 
@@ -389,6 +390,7 @@ public class PetHomeNewFragment extends Fragment implements Serializable,
                         if (response.body().getData().getDashboarddata().getDoctor_details() != null) {
                             doctorDetailsResponseList = response.body().getData().getDashboarddata().getDoctor_details();
                             Log.w(TAG, "doctorDetailsResponseList Size" + doctorDetailsResponseList.size());
+                            Log.w(TAG, "doctorDetailsResponseList " + new Gson().toJson(doctorDetailsResponseList));
                             if (doctorDetailsResponseList != null && doctorDetailsResponseList.size()>0) {
                                 rvdoctors.setVisibility(View.VISIBLE);
                                 txt_doctor_norecord.setVisibility(View.GONE);
@@ -583,8 +585,8 @@ public class PetHomeNewFragment extends Fragment implements Serializable,
         rvdoctors.setMotionEventSplittingEnabled(false);
         int size =3;
         rvdoctors.setItemAnimator(new DefaultItemAnimator());
-        PetLoverDoctorNewAdapter petLoverDoctorAdapter = new PetLoverDoctorNewAdapter(mContext, doctorDetailsResponseList, rvdoctors, size);
-        rvdoctors.setAdapter(petLoverDoctorAdapter);
+        DashboardServicesAdapter dashboardServicesAdapter = new DashboardServicesAdapter(mContext, doctorDetailsResponseList, rvdoctors, size);
+        rvdoctors.setAdapter(dashboardServicesAdapter);
     }
     private void setViewDoctorsSeeMore() {
         rvdoctors.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));

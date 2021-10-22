@@ -117,16 +117,17 @@
                             android:gravity="end"
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="5dp">
+
                             <TextView
                                 android:id="@+id/txt_seemore_services"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
                                 android:fontFamily="@font/futuramediumbt"
                                 android:gravity="center"
                                 android:text="@string/view_more"
                                 android:textColor="@color/new_gree_color"
-                                android:textSize="16sp"
-                                android:layout_marginEnd="10dp"/>
+                                android:textSize="16sp" />
 
                         </RelativeLayout>
 
@@ -241,16 +242,17 @@
                             android:gravity="end"
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="5dp">
+
                             <TextView
                                 android:id="@+id/txt_seemore_vets"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
                                 android:fontFamily="@font/futuramediumbt"
                                 android:gravity="center"
                                 android:text="@string/view_more"
                                 android:textColor="@color/new_gree_color"
-                                android:textSize="16sp"
-                                android:layout_marginEnd="10dp"/>
+                                android:textSize="16sp" />
 
                         </RelativeLayout>
 

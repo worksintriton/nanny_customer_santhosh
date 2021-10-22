@@ -8,7 +8,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -251,9 +250,9 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
             if(tag.equalsIgnoreCase("1")){
                 active = petHomeFragment;
                 title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_care.setImageResource(R.drawable.grey_care);
+                  img_serv.setImageResource(R.drawable.grey_servc);
                 title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_serv.setImageResource(R.drawable.grey_servc);
+               img_serv.setImageResource(R.drawable.grey_care);
                 title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_shop.setImageResource(R.drawable.grey_shop);
                 title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
@@ -263,9 +262,9 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
 
                 active = vendorShopFragment;
                 title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_care.setImageResource(R.drawable.grey_care);
+                  img_serv.setImageResource(R.drawable.grey_servc);
                 title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_serv.setImageResource(R.drawable.grey_servc);
+               img_serv.setImageResource(R.drawable.grey_care);
                 title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_community.setImageResource(R.drawable.grey_community);
                 title_shop.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
@@ -274,31 +273,31 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
             }else if(tag.equalsIgnoreCase("3")){
                 active = petServicesFragment;
                 title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_care.setImageResource(R.drawable.grey_care);
+                  img_serv.setImageResource(R.drawable.grey_servc);
                 title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_shop.setImageResource(R.drawable.grey_shop);
                 title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_community.setImageResource(R.drawable.grey_community);
                 title_serv.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
-                img_serv.setImageResource(R.drawable.green_serv);
+                img_serv.setImageResource(R.drawable.green_care);
                 loadFragment(new PetServicesFragment());
             }else if(tag.equalsIgnoreCase("4")){
                 active = petCareFragment;
                 title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_serv.setImageResource(R.drawable.grey_servc);
+               img_serv.setImageResource(R.drawable.grey_care);
                 title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_shop.setImageResource(R.drawable.grey_shop);
                 title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_community.setImageResource(R.drawable.grey_community);
                 title_care.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
-                img_care.setImageResource(R.drawable.green_care);
+                img_care.setImageResource(R.drawable.green_serv);
                 loadFragment(new PetCareFragment());
             } else if(tag.equalsIgnoreCase("5")){
                 active = petCommunityFragment;
                 title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_care.setImageResource(R.drawable.grey_care);
+                  img_serv.setImageResource(R.drawable.grey_servc);
                 title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_serv.setImageResource(R.drawable.grey_servc);
+               img_serv.setImageResource(R.drawable.grey_care);
                 title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_shop.setImageResource(R.drawable.grey_shop);
                 title_community.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
@@ -309,9 +308,9 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
         }
         else{
             title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-            img_care.setImageResource(R.drawable.grey_care);
+              img_serv.setImageResource(R.drawable.grey_servc);
             title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-            img_serv.setImageResource(R.drawable.grey_servc);
+           img_serv.setImageResource(R.drawable.grey_care);
             title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
             img_shop.setImageResource(R.drawable.grey_shop);
             title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
@@ -826,9 +825,9 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
             case R.id.rl_homes:
                 active_tag = "1";
                 title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_care.setImageResource(R.drawable.grey_care);
+                  img_serv.setImageResource(R.drawable.grey_servc);
                 title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_serv.setImageResource(R.drawable.grey_servc);
+               img_serv.setImageResource(R.drawable.grey_care);
                 title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_shop.setImageResource(R.drawable.grey_shop);
                 title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
@@ -839,9 +838,9 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
             case R.id.rl_home:
                 active_tag = "1";
                 title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_care.setImageResource(R.drawable.grey_care);
+                  img_serv.setImageResource(R.drawable.grey_servc);
                 title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_serv.setImageResource(R.drawable.grey_servc);
+               img_serv.setImageResource(R.drawable.grey_care);
                 title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_shop.setImageResource(R.drawable.grey_shop);
                 title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
@@ -852,9 +851,9 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
             case R.id.rl_shop:
                 active_tag = "2";
                 title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_care.setImageResource(R.drawable.grey_care);
+                  img_serv.setImageResource(R.drawable.grey_servc);
                 title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_serv.setImageResource(R.drawable.grey_servc);
+               img_serv.setImageResource(R.drawable.grey_care);
                 title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_community.setImageResource(R.drawable.grey_community);
                 title_shop.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
@@ -865,13 +864,13 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
             case R.id.rl_service:
                 active_tag = "3";
                 title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_care.setImageResource(R.drawable.grey_care);
+                img_serv.setImageResource(R.drawable.grey_servc);
                 title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_shop.setImageResource(R.drawable.grey_shop);
                 title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_community.setImageResource(R.drawable.grey_community);
                 title_serv.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
-                img_serv.setImageResource(R.drawable.green_serv);
+                img_serv.setImageResource(R.drawable.green_care);
                 replaceFragment(new PetServicesFragment());
                 break;
 
@@ -879,22 +878,22 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
             case R.id.rl_care:
                 active_tag = "4";
                 title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_serv.setImageResource(R.drawable.grey_servc);
+               img_serv.setImageResource(R.drawable.grey_care);
                 title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_shop.setImageResource(R.drawable.grey_shop);
                 title_community.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_community.setImageResource(R.drawable.grey_community);
                 title_care.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
-                img_care.setImageResource(R.drawable.green_care);
+                img_care.setImageResource(R.drawable.green_serv);
                 replaceFragment(new PetCareFragment());
                 break;
 
             case R.id.rl_comn:
                 active_tag = "5";
                 title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_care.setImageResource(R.drawable.grey_care);
+                  img_serv.setImageResource(R.drawable.grey_servc);
                 title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
-                img_serv.setImageResource(R.drawable.grey_servc);
+               img_serv.setImageResource(R.drawable.grey_care);
                 title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                 img_shop.setImageResource(R.drawable.grey_shop);
                 title_community.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
