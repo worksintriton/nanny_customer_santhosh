@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -40,12 +41,15 @@ import com.triton.nanny.R;
 import com.triton.nanny.activity.LoginActivity;
 import com.triton.nanny.activity.NotificationActivity;
 import com.triton.nanny.activity.SoSActivity;
+import com.triton.nanny.activity.TransactionHistoryActivity;
 import com.triton.nanny.activity.location.ManageAddressActivity;
 import com.triton.nanny.api.APIClient;
 import com.triton.nanny.api.RestApiInterface;
+import com.triton.nanny.requestpojo.DefaultLocationRequest;
 import com.triton.nanny.requestpojo.NotificationCartCountRequest;
 import com.triton.nanny.responsepojo.NotificationCartCountResponse;
 import com.triton.nanny.responsepojo.PetLoverDashboardResponse;
+import com.triton.nanny.responsepojo.SuccessResponse;
 import com.triton.nanny.sessionmanager.SessionManager;
 import com.triton.nanny.utils.ConnectionDetector;
 import com.triton.nanny.utils.RestUtils;
@@ -204,15 +208,16 @@ public class PetLoverNavigationDrawerNew extends AppCompatActivity implements Vi
                     return true;
 
                 case R.id.nav_item_four:
+                    gotoMyCoupons();
                     return true;
 
                 case R.id.nav_item_five:
                     gotoMedicalHistory();
                     return true;
-//
-//                case R.id.nav_item_six:
-//                    gotoPaymentdetails();
-//                    return true;
+
+              case R.id.nav_item_six:
+                  gotoTransactionHistory();
+                  return true;
                 case R.id.nav_item_seven:
                      gotoNotifications();
                     return true;
@@ -237,6 +242,11 @@ public class PetLoverNavigationDrawerNew extends AppCompatActivity implements Vi
 
     }
 
+    private void gotoMyCoupons() {
+        startActivity(new Intent(getApplicationContext(), MyCouponsActivity.class));
+
+    }
+
     private void gotoSOS() {
         startActivity(new Intent(getApplicationContext(), SoSActivity.class));
 
@@ -248,9 +258,8 @@ public class PetLoverNavigationDrawerNew extends AppCompatActivity implements Vi
         startActivity(intent);
     }
 
-    private void gotoPaymentdetails() {
-
-        Intent intent = new Intent(getApplicationContext(),PetloverPaymentDetailsActivity.class);
+    private void gotoTransactionHistory() {
+        Intent intent = new Intent(getApplicationContext(), TransactionHistoryActivity.class);
         startActivity(intent);
 
     }
@@ -514,10 +523,11 @@ public class PetLoverNavigationDrawerNew extends AppCompatActivity implements Vi
 
     }
     private void gotoLogout() {
-        session.logoutUser();
+        logoutResponseCall();
+        /*session.logoutUser();
         session.setIsLogin(false);
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-        finish();
+        finish();*/
 
 
 
@@ -634,6 +644,49 @@ public class PetLoverNavigationDrawerNew extends AppCompatActivity implements Vi
         Log.w(TAG,"notificationCartCountRequest"+ "--->" + new Gson().toJson(notificationCartCountRequest));
         return notificationCartCountRequest;
     }
+
+    @SuppressLint("LogNotTimber")
+    private void logoutResponseCall() {
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<SuccessResponse> call = apiInterface.logoutResponseCall(RestUtils.getContentType(), defaultLocationRequest());
+        Log.w(TAG,"SignupResponse url  :%s"+" "+ call.request().url().toString());
+        call.enqueue(new Callback<SuccessResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<SuccessResponse> call, @NonNull Response<SuccessResponse> response) {
+                Log.w(TAG,"SuccessResponse" + new Gson().toJson(response.body()));
+                if (response.body() != null) {
+                    if (200 == response.body().getCode()) {
+                        session.logoutUser();
+                        session.setIsLogin(false);
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        finish();
+
+
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<SuccessResponse> call,@NonNull Throwable t) {
+
+                Log.e("SuccessResponse flr", "--->" + t.getMessage());
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+    private DefaultLocationRequest defaultLocationRequest() {
+        DefaultLocationRequest defaultLocationRequest = new DefaultLocationRequest();
+        defaultLocationRequest.setUser_id(userid);
+
+        Log.w(TAG,"defaultLocationRequest "+ new Gson().toJson(defaultLocationRequest));
+        return defaultLocationRequest;
+    }
+
+
 
 
 

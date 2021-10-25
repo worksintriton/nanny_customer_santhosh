@@ -240,6 +240,9 @@ public class PetMyappointmentsActivity extends AppCompatActivity implements Bott
         super.onBackPressed();
         Intent i = new Intent(PetMyappointmentsActivity.this, PetLoverDashboardActivity.class);
         startActivity(i);
+       /* overridePendingTransition( 0, 0);
+        startActivity(i);
+        overridePendingTransition( 0, 0);*/
         finish();
     }
 

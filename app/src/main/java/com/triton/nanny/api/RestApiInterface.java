@@ -768,6 +768,22 @@ public interface RestApiInterface {
     @POST("coupon_code/check_coupon")
     Call<CouponCodeCheckResponse> CouponCodeCheckResponseCall(@Header("Content-Type") String type, @Body CouponCodeCheckRequest couponCodeCheckRequest);
 
+    /*coupon code text*/
+    @GET("coupon_code/text")
+    Call<CouponCodeTextResponse> CouponCodeTextResponseCall(@Header("Content-Type") String type);
+
+    /*RefundCouponCreateRequest Call*/
+    @POST("refund_coupon/create")
+    Call<SuccessResponse> RefundCouponCreateRequestCall(@Header("Content-Type") String type, @Body RefundCouponCreateRequest refundCouponCreateRequest);
+
+    /*Coupon code list*/
+    @POST("coupon_code/getlist_id")
+    Call<CouponCodeListResponse> CouponCodeListResponseCall(@Header("Content-Type") String type, @Body CouponCodeListRequest couponCodeListRequest);
+
+    /*session clear*/
+    @POST("userdetails/logout")
+    Call<SuccessResponse> logoutResponseCall(@Header("Content-Type") String type, @Body DefaultLocationRequest defaultLocationRequest);
+
 
 
 }

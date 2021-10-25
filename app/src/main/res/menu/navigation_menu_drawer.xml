@@ -28,12 +28,14 @@
         android:title="@string/my_appointments" />
     </group>
 
-    <group android:checkableBehavior="single"
+
+
+    <group
         android:id="@+id/group4">
-    <item android:id="@+id/nav_item_four"
-        android:icon="@drawable/discount"
-        android:title="@string/my_coupons"
-        android:visible="false"/>
+        <item android:id="@+id/nav_item_four"
+            android:icon="@drawable/discount"
+            android:title="@string/my_coupons"
+            />
     </group>
 
 
@@ -49,9 +51,9 @@
             android:id="@+id/group6">
             <item
                 android:id="@+id/nav_item_six"
-                android:icon="@drawable/ic_payment"
-                android:title="@string/payment_details"
-                android:visible="false" />
+                android:icon="@drawable/cloak"
+                android:title="@string/transaction_history"
+                />
         </group>
 
     <group android:checkableBehavior="single"

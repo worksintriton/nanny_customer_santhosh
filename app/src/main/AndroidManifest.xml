@@ -46,10 +46,15 @@
         tools:ignore="AllowBackup,UnusedAttribute"
         tools:replace="android:allowBackup,icon,theme,label,name">
         <activity
+            android:name=".activity.TransactionHistoryActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name=".petlover.ViewSPInvoiceActivity"
             android:exported="true"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".petlover.PetLoverServiceDetailScreenActivity"
             android:exported="true"
@@ -97,6 +102,12 @@
         </activity>
         <activity
             android:name=".petlover.ShippingAddressEditActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".petlover.MyCouponsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
@@ -248,7 +259,7 @@
         <activity
             android:name=".petlover.PetLoverDashboardActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NewAppTheme"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".petlover.BookAppointmentActivity"

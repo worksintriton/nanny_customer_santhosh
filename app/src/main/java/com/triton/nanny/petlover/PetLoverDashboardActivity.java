@@ -281,7 +281,7 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
                 img_serv.setImageResource(R.drawable.green_care);
                 loadFragment(new PetServicesFragment());
             }else if(tag.equalsIgnoreCase("4")){
-                active = petCareFragment;
+               /* active = petCareFragment;
                 title_serv.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
                img_care.setImageResource(R.drawable.grey_servc);
                 title_shop.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
@@ -290,7 +290,9 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
                 img_community.setImageResource(R.drawable.grey_community);
                 title_care.setTextColor(getResources().getColor(R.color.new_gree_color,getTheme()));
                 img_care.setImageResource(R.drawable.green_serv);
-                loadFragment(new PetCareFragment());
+                loadFragment(new PetCareFragment());*/
+                startActivity(new Intent(getApplicationContext(),PetMyappointmentsActivity.class));
+                finish();
             } else if(tag.equalsIgnoreCase("5")){
                 active = petCommunityFragment;
                 title_care.setTextColor(getResources().getColor(R.color.darker_grey_new,getTheme()));
@@ -363,36 +365,8 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
     @Override
     public void onBackPressed() {
         Log.w(TAG,"tag : "+tag);
-//        if (bottom_navigation_view.getSelectedItemId() == R.id.home) {
             showExitAppAlert();
-          /*  new android.app.AlertDialog.Builder(PetLoverDashboardActivity.this)
-                    .setMessage("Are you sure you want to exit?")
-                    .setCancelable(false)
-                    .setPositiveButton("Yes", (dialog, id) -> PetLoverDashboardActivity.this.finishAffinity())
-                    .setNegativeButton("No", null)
-                    .show();*/
-//        }
-//        else if(tag != null ){
-//            Log.w(TAG,"Else IF--->"+"fromactivity : "+fromactivity);
-//            if(fromactivity != null){
-//
-//
-//            }else{
-//                bottom_navigation_view.setSelectedItemId(R.id.home);
-//                // load fragment
-//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                transaction.replace(R.id.frame_schedule,new PetHomeNewFragment());
-//                transaction.commitNowAllowingStateLoss();
-//            }
-//
-//
-//        }else{
-//            bottom_navigation_view.setSelectedItemId(R.id.home);
-//            // load fragment
-//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//            transaction.replace(R.id.frame_schedule,new PetHomeNewFragment());
-//            transaction.commitNowAllowingStateLoss();
-//        }
+
     }
 
     private void replaceFragment(Fragment fragment){
