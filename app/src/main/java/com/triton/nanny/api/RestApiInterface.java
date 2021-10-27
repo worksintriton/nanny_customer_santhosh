@@ -784,6 +784,19 @@ public interface RestApiInterface {
     @POST("userdetails/logout")
     Call<SuccessResponse> logoutResponseCall(@Header("Content-Type") String type, @Body DefaultLocationRequest defaultLocationRequest);
 
+    /*Transaction Create*/
+    @POST("transaction/create")
+    Call<SuccessResponse> transactionCreateResponseCall(@Header("Content-Type") String type, @Body TransactionCreateRequest transactionCreateRequest);
+
+
+    /*Transaction History list*/
+    @POST("transaction/getlist_user_id")
+    Call<TransactionHistoryResponse> transactionHistoryResponseCall(@Header("Content-Type") String type, @Body TransactionHistoryRequest transctionHistoryRequest);
+
+    /* SP Appointment Details*/
+    @POST("sp_appointments/edit")
+    Call<SuccessResponse> spAppointmenUpdateResponse(@Header("Content-Type") String type, @Body AppoinmentUpdateRequest appoinmentUpdateRequest);
+
 
 
 }

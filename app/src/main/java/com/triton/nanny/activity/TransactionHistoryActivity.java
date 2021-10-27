@@ -24,7 +24,9 @@ import com.triton.nanny.adapter.TransactionHistoryAdapter;
 import com.triton.nanny.api.APIClient;
 import com.triton.nanny.api.RestApiInterface;
 import com.triton.nanny.requestpojo.NotificationGetlistRequest;
+import com.triton.nanny.requestpojo.TransactionHistoryRequest;
 import com.triton.nanny.responsepojo.NotificationGetlistResponse;
+import com.triton.nanny.responsepojo.TransactionHistoryResponse;
 import com.triton.nanny.sessionmanager.SessionManager;
 import com.triton.nanny.utils.ConnectionDetector;
 import com.triton.nanny.utils.RestUtils;
@@ -83,13 +85,12 @@ public class TransactionHistoryActivity extends AppCompatActivity {
 
       SessionManager session;
     String type = "",name = "",userid = "";
-    private List<NotificationGetlistResponse.DataBean> notificationGetlistResponseList;
     private String fromactivity;
 
     private int year, month, day;
     private static final int DATE_PICKER_ID = 0 ;
-    private String Selectedddate;
-
+    private String Selectedddate = "";
+    private List<TransactionHistoryResponse.DataBean.TransactionBean> transactionHistoryResponseList;
 
 
     @Override
@@ -108,12 +109,19 @@ public class TransactionHistoryActivity extends AppCompatActivity {
         userid = user.get(SessionManager.KEY_ID);
         Log.w(TAG,"session--->"+"type :"+type+" "+"name :"+" "+name);
         img_back.setOnClickListener(v -> onBackPressed());
+        
+        
+        if(userid != null){
+            if (new ConnectionDetector(TransactionHistoryActivity.this).isNetworkAvailable(TransactionHistoryActivity.this)) {
+                transactionHistoryResponseCall();
+            }
+        }
 
         refresh_layout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 if (new ConnectionDetector(TransactionHistoryActivity.this).isNetworkAvailable(TransactionHistoryActivity.this)) {
-
+                    transactionHistoryResponseCall();
                 }
             }
         });
@@ -198,39 +206,54 @@ public class TransactionHistoryActivity extends AppCompatActivity {
 
 
     @SuppressLint("LogNotTimber")
-    private void notificationGetlistResponseCall() {
+    private void transactionHistoryResponseCall() {
         avi_indicator.setVisibility(View.VISIBLE);
         avi_indicator.smoothToShow();
         RestApiInterface ApiService = APIClient.getClient().create(RestApiInterface.class);
-        Call<NotificationGetlistResponse> call = ApiService.notificationGetlistResponseCall(RestUtils.getContentType(),notificationGetlistRequest());
+        Call<TransactionHistoryResponse> call = ApiService.transactionHistoryResponseCall(RestUtils.getContentType(),transactionHistoryRequest());
         Log.w(TAG,"url  :%s"+ call.request().url().toString());
 
-        call.enqueue(new Callback<NotificationGetlistResponse>() {
+        call.enqueue(new Callback<TransactionHistoryResponse>() {
             @SuppressLint("SetTextI18n")
             @Override
-            public void onResponse(@NonNull Call<NotificationGetlistResponse> call, @NonNull Response<NotificationGetlistResponse> response) {
+            public void onResponse(@NonNull Call<TransactionHistoryResponse> call, @NonNull Response<TransactionHistoryResponse> response) {
                 avi_indicator.smoothToHide();
-                Log.w(TAG,"NotificationGetlistResponse"+ "--->" + new Gson().toJson(response.body()));
+                Log.w(TAG,"transactionHistoryResponseCall"+ "--->" + new Gson().toJson(response.body()));
                 refresh_layout.setRefreshing(false);
 
                 if (response.body() != null) {
                     if(response.body().getCode() == 200){
 
 
-                        if(response.body().getData() != null && response.body().getData().size()>0){
-                            notificationGetlistResponseList = response.body().getData();
-                            txt_no_records.setVisibility(View.GONE);
-                            rv_transactionhistory.setVisibility(View.VISIBLE);
-                            setView();
-                        }else{
-                            rv_transactionhistory.setVisibility(View.GONE);
-                            txt_no_records.setVisibility(View.VISIBLE);
-                            txt_no_records.setText("No transction history");
+                        if(response.body().getData() != null) {
+                            if(response.body().getData().getRefund_amount() != 0){
+                                txt_return.setText("\u20B9 "+response.body().getData().getRefund_amount());
+                            }else{
+                                txt_return.setText("");
+                            }
+                            if(response.body().getData().getSpend_amount() != 0){
+                                txt_total_spent.setText("\u20B9 "+response.body().getData().getSpend_amount());
+                            }else{
+                                txt_total_spent.setText("");
+                            }
+
+                            if(response.body().getData().getTransaction() != null && response.body().getData().getTransaction().size()>0){
+                                transactionHistoryResponseList = response.body().getData().getTransaction();
+                                txt_no_records.setVisibility(View.GONE);
+                                rv_transactionhistory.setVisibility(View.VISIBLE);
+                                setView();
+                            } else{
+                                rv_transactionhistory.setVisibility(View.GONE);
+                                txt_no_records.setVisibility(View.VISIBLE);
+                                txt_no_records.setText("No transction history");
+
+                            }
+                        }
 
                         }
 
 
-                    }
+
 
                 }
 
@@ -239,29 +262,32 @@ public class TransactionHistoryActivity extends AppCompatActivity {
 
             @SuppressLint("LogNotTimber")
             @Override
-            public void onFailure(@NonNull Call<NotificationGetlistResponse> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<TransactionHistoryResponse> call, @NonNull Throwable t) {
                 avi_indicator.smoothToHide();
 
-                Log.w(TAG,"NotificationGetlistResponse"+"--->" + t.getMessage());
+                Log.w(TAG,"TransactionHistoryResponse flr"+"--->" + t.getMessage());
             }
         });
 
     }
     @SuppressLint("LogNotTimber")
-    private NotificationGetlistRequest notificationGetlistRequest() {
+    private TransactionHistoryRequest transactionHistoryRequest() {
         /*
-         * user_id : 5ee3666a5dfb34019b13c3a2
+         * user_id : 6163d60a489ccc3d894683d2
+         * filter_date :
          */
-        NotificationGetlistRequest notificationGetlistRequest = new NotificationGetlistRequest();
-        notificationGetlistRequest.setUser_id(userid);
-        Log.w(TAG,"notificationGetlistRequest"+ "--->" + new Gson().toJson(notificationGetlistRequest));
-        return notificationGetlistRequest;
+
+        TransactionHistoryRequest transactionHistoryRequest = new TransactionHistoryRequest();
+        transactionHistoryRequest.setUser_id(userid);
+        transactionHistoryRequest.setFilter_date(Selectedddate);
+        Log.w(TAG,"transactionHistoryRequest"+ "--->" + new Gson().toJson(transactionHistoryRequest));
+        return transactionHistoryRequest;
     }
 
     private void setView() {
         rv_transactionhistory.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         rv_transactionhistory.setItemAnimator(new DefaultItemAnimator());
-        TransactionHistoryAdapter transactionHistoryAdapter = new TransactionHistoryAdapter(getApplicationContext(), notificationGetlistResponseList);
+        TransactionHistoryAdapter transactionHistoryAdapter = new TransactionHistoryAdapter(getApplicationContext(), transactionHistoryResponseList);
         rv_transactionhistory.setAdapter(transactionHistoryAdapter);
 
     }

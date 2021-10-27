@@ -1,6 +1,7 @@
 package com.triton.nanny.petlover;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -26,6 +27,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
+import com.razorpay.Checkout;
+import com.razorpay.PaymentResultListener;
 import com.triton.nanny.R;
 import com.triton.nanny.activity.NotificationActivity;
 import com.triton.nanny.api.APIClient;
@@ -33,17 +36,24 @@ import com.triton.nanny.api.RestApiInterface;
 import com.triton.nanny.doctor.DoctorPrescriptionDetailsActivity;
 import com.triton.nanny.requestpojo.AddReviewRequest;
 import com.triton.nanny.requestpojo.AppoinmentCancelledRequest;
+import com.triton.nanny.requestpojo.AppoinmentUpdateRequest;
 import com.triton.nanny.requestpojo.AppointmentDetailsRequest;
 import com.triton.nanny.requestpojo.PetNewAppointmentDetailsRequest;
 import com.triton.nanny.requestpojo.SPNotificationSendRequest;
+import com.triton.nanny.requestpojo.TransactionCreateRequest;
+import com.triton.nanny.requestpojo.TransactionHistoryRequest;
 import com.triton.nanny.responsepojo.AddReviewResponse;
 import com.triton.nanny.responsepojo.AppoinmentCancelledResponse;
 import com.triton.nanny.responsepojo.NotificationSendResponse;
 import com.triton.nanny.responsepojo.PetNewAppointmentDetailsResponse;
 import com.triton.nanny.responsepojo.SPAppointmentDetailsResponse;
+import com.triton.nanny.responsepojo.SuccessResponse;
+import com.triton.nanny.responsepojo.TransactionHistoryResponse;
 import com.triton.nanny.utils.ConnectionDetector;
 import com.triton.nanny.utils.RestUtils;
 import com.wang.avi.AVLoadingIndicatorView;
+
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -60,7 +70,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PetAppointmentDetailsActivity extends AppCompatActivity implements View.OnClickListener {
+public class PetAppointmentDetailsActivity extends AppCompatActivity implements View.OnClickListener, PaymentResultListener {
 
     private static final String TAG = "PetAppointmentDetailsActivity";
 
@@ -91,6 +101,10 @@ public class PetAppointmentDetailsActivity extends AppCompatActivity implements 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.btn_cancel)
     Button btn_cancel;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.btn_pay)
+    Button btn_pay;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.btn_start_stop)
@@ -174,6 +188,11 @@ public class PetAppointmentDetailsActivity extends AppCompatActivity implements 
     private String petAgeandMonth;
 
     private String concatenatedStarNames = "";
+    private String Payment_id;
+    private String total_paid_amount;
+    private int grand_total;
+    private String _id;
+    private String Work_status;
 
 
     @SuppressLint({"LogNotTimber", "LongLogTag"})
@@ -302,7 +321,37 @@ public class PetAppointmentDetailsActivity extends AppCompatActivity implements 
                         String usr_image = "";
                         if (response.body().getData() != null) {
 
-                            spid = response.body().getData().getSp_id().get_id();
+
+
+
+                            if(response.body().getData().getAddition_payment_method() != null && response.body().getData().getAddition_payment_status() != null && response.body().getData().getWork_status() != null){
+                                Work_status = response.body().getData().getWork_status();
+                                if(response.body().getData().getAddition_payment_method().equalsIgnoreCase("Online") && response.body().getData().getAddition_payment_status().equalsIgnoreCase("Not Paid") && response.body().getData().getWork_status().equalsIgnoreCase("Completed")) {
+                                  btn_pay.setVisibility(View.VISIBLE);
+                                  if(response.body().getData().getTotal_paid_amount() != null && !response.body().getData().getTotal_paid_amount().isEmpty()){
+                                      total_paid_amount = response.body().getData().getTotal_paid_amount();
+                                      btn_pay.setOnClickListener(new View.OnClickListener() {
+                                          @Override
+                                          public void onClick(View view) {
+                                              startPayment();
+
+                                          }
+                                      }); 
+                                  }
+                                  
+                                 
+                                }else{
+                                    btn_pay.setVisibility(View.GONE);
+                                }
+
+
+                                }
+
+
+
+
+                            _id = response.body().getData().get_id();
+                            appointmentid = response.body().getData().getAppointment_UID();
                             appointmentid = response.body().getData().getAppointment_UID();
                             userid = response.body().getData().getUser_id().get_id();
 
@@ -1063,5 +1112,231 @@ public class PetAppointmentDetailsActivity extends AppCompatActivity implements 
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)rl_layout.getLayoutParams();
         params.setMargins(i, i1, i2, i3);
         rl_layout.setLayoutParams(params);
+    }
+
+    @SuppressLint({"LongLogTag", "LogNotTimber"})
+    public void startPayment() {
+        /*
+          You need to pass current activity in order to let Razorpay create CheckoutActivity
+         */
+        final Activity activity = this;
+
+        final Checkout co = new Checkout();
+
+        //totalamount = amount;
+
+      /*  Double d = new Double(amount);
+        int amout = d.intValue();*/
+
+
+
+
+        try {
+            grand_total = Integer.parseInt(total_paid_amount);
+        } catch(NumberFormatException nfe) {
+            System.out.println("Could not parse " + nfe);
+        }
+
+
+        Integer totalamout = grand_total*100;
+
+        try {
+            JSONObject options = new JSONObject();
+            options.put("name", "PetFolio");
+            options.put("description", userid);
+            //You can omit the image option to fetch the image from dashboard
+            options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
+            options.put("currency", "INR");
+            options.put("amount", totalamout);
+
+
+            co.open(activity, options);
+        } catch (Exception e) {
+            Log.w(TAG,"Error in payment: " + e.getMessage());
+
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onPaymentSuccess(String razorpayPaymentID) {
+        try {
+            Payment_id = razorpayPaymentID;
+
+            Log.w(TAG, "Payment Successful: " + razorpayPaymentID);
+            Toasty.success(getApplicationContext(), "Payment Successful. View your booking details in upcoming appointments.", Toast.LENGTH_SHORT, true).show();
+
+
+            if (new ConnectionDetector(getApplicationContext()).isNetworkAvailable(getApplicationContext())) {
+                transactionCreateResponseCall();
+            }
+
+
+
+
+        } catch (Exception e) {
+            Log.w(TAG, "Exception in onPaymentSuccess", e);
+        }
+    }
+    @SuppressLint({"LongLogTag", "LogNotTimber"})
+    @Override
+    public void onPaymentError(int code, String response) {
+        try {
+            if(new ConnectionDetector(getApplicationContext()).isNetworkAvailable(getApplicationContext())) {
+
+            }
+            Log.w(TAG,  "Payment failed: " + code + " " + response);
+            Toasty.error(getApplicationContext(), "Payment failed. Please try again with another payment method..", Toast.LENGTH_SHORT, true).show();
+
+        } catch (Exception e) {
+            Log.w(TAG, "Exception in onPaymentError", e);
+        }
+    }
+
+
+
+
+    @SuppressLint("LogNotTimber")
+    private void transactionCreateResponseCall() {
+        avi_indicator.setVisibility(View.VISIBLE);
+        avi_indicator.smoothToShow();
+        RestApiInterface ApiService = APIClient.getClient().create(RestApiInterface.class);
+        Call<SuccessResponse> call = ApiService.transactionCreateResponseCall(RestUtils.getContentType(),transactionCreateRequest());
+        Log.w(TAG,"url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<SuccessResponse>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(@NonNull Call<SuccessResponse> call, @NonNull Response<SuccessResponse> response) {
+                avi_indicator.smoothToHide();
+                Log.w(TAG,"transactionCreateResponseCall"+ "--->" + new Gson().toJson(response.body()));
+
+
+                if (response.body() != null) {
+                    if(response.body().getCode() == 200){
+
+                        if(response.body().getData() != null) {
+                            spAppointmenUpdateResponse();
+
+                        }
+
+                    }
+
+
+
+
+                }
+
+
+            }
+
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onFailure(@NonNull Call<SuccessResponse> call, @NonNull Throwable t) {
+                avi_indicator.smoothToHide();
+
+                Log.w(TAG,"transactionCreateResponseCall flr"+"--->" + t.getMessage());
+            }
+        });
+
+    }
+    @SuppressLint("LogNotTimber")
+    private TransactionCreateRequest transactionCreateRequest() {
+        /*
+         * user_id : 6163d60a489ccc3d894683d2
+         * sp_id : 6172b83d8dd3e15b142de045
+         * transaction_id : TRN12345
+         * transaction_amount : 150
+         * transaction_date_time : 23-10-2021 11:00 AM
+         * transaction_date : 23-10-2021
+         * payment_type : Online
+         * appointment_id : SP_098123
+         * mobile_type : Android
+         * status : debit
+         * reason :
+         */
+
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm aa");
+        String currentDateandTime12hrs = simpleDateFormat.format(new Date());
+        String currenttime = currentDateandTime12hrs.substring(currentDateandTime12hrs.indexOf(' ') + 1);
+        String currentdate =  currentDateandTime12hrs.substring(0, currentDateandTime12hrs.indexOf(' '));
+
+
+
+        TransactionCreateRequest transactionCreateRequest = new TransactionCreateRequest();
+        transactionCreateRequest.setUser_id(userid);
+        transactionCreateRequest.setSp_id(spid);
+        transactionCreateRequest.setTransaction_id(Payment_id);
+        transactionCreateRequest.setTransaction_amount(grand_total);
+        transactionCreateRequest.setTransaction_date_time(currentDateandTime12hrs);
+        transactionCreateRequest.setTransaction_date(currentdate);
+        transactionCreateRequest.setPayment_type("Online");
+        transactionCreateRequest.setAppointment_id(appointmentid);
+        transactionCreateRequest.setMobile_type("Android");
+        transactionCreateRequest.setStatus("debit");
+        transactionCreateRequest.setReason("");
+        Log.w(TAG,"transactionCreateRequest"+ "--->" + new Gson().toJson(transactionCreateRequest));
+        return transactionCreateRequest;
+    }
+
+
+    @SuppressLint("LogNotTimber")
+    private void spAppointmenUpdateResponse() {
+        avi_indicator.setVisibility(View.VISIBLE);
+        avi_indicator.smoothToShow();
+        RestApiInterface ApiService = APIClient.getClient().create(RestApiInterface.class);
+        Call<SuccessResponse> call = ApiService.spAppointmenUpdateResponse(RestUtils.getContentType(),appoinmentUpdateRequest());
+        Log.w(TAG,"url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<SuccessResponse>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(@NonNull Call<SuccessResponse> call, @NonNull Response<SuccessResponse> response) {
+                avi_indicator.smoothToHide();
+                Log.w(TAG,"spAppointmenUpdateResponse"+ "--->" + new Gson().toJson(response.body()));
+
+
+                if (response.body() != null) {
+                    if(response.body().getCode() == 200){
+
+                        if(response.body().getData() != null) {
+                            spAppointmentDetailsResponse();
+
+                        }
+
+                    }
+
+
+
+
+                }
+
+
+            }
+
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onFailure(@NonNull Call<SuccessResponse> call, @NonNull Throwable t) {
+                avi_indicator.smoothToHide();
+
+                Log.w(TAG,"spAppointmenUpdateResponse flr"+"--->" + t.getMessage());
+            }
+        });
+
+    }
+    @SuppressLint("LogNotTimber")
+    private AppoinmentUpdateRequest appoinmentUpdateRequest() {
+        /*
+         * _id : 5fc639ea72fc42044bfa1683
+         * work_status :
+         * payment_id :
+         */
+
+        AppoinmentUpdateRequest appoinmentUpdateRequest = new AppoinmentUpdateRequest();
+        appoinmentUpdateRequest.set_id(_id);
+        appoinmentUpdateRequest.setWork_status(Work_status);
+        appoinmentUpdateRequest.setPayment_id(Payment_id);
+        Log.w(TAG,"transactionCreateRequest"+ "--->" + new Gson().toJson(appoinmentUpdateRequest));
+        return appoinmentUpdateRequest;
     }
 }

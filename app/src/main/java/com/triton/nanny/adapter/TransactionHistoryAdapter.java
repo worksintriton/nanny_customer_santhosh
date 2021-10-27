@@ -1,4 +1,5 @@
 package com.triton.nanny.adapter;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.triton.nanny.R;
 import com.triton.nanny.responsepojo.NotificationGetlistResponse;
+import com.triton.nanny.responsepojo.TransactionHistoryResponse;
+
 import java.util.List;
 
 
@@ -17,16 +20,16 @@ public class TransactionHistoryAdapter extends  RecyclerView.Adapter<RecyclerVie
     private  String TAG = "TransactionHistoryAdapter";
     private Context context;
 
-    NotificationGetlistResponse.DataBean currentItem;
-  private List<NotificationGetlistResponse.DataBean> notificationGetlistResponseList;
+    TransactionHistoryResponse.DataBean.TransactionBean currentItem;
+    private List<TransactionHistoryResponse.DataBean.TransactionBean> transactionHistoryResponseList;
 
 
     private int currentSelectedPosition = RecyclerView.NO_POSITION;
 
 
 
-    public TransactionHistoryAdapter(Context context, List<NotificationGetlistResponse.DataBean> notificationGetlistResponseList) {
-        this.notificationGetlistResponseList = notificationGetlistResponseList;
+    public TransactionHistoryAdapter(Context context, List<TransactionHistoryResponse.DataBean.TransactionBean> transactionHistoryResponseList) {
+        this.transactionHistoryResponseList = transactionHistoryResponseList;
         this.context = context;
 
        
@@ -47,10 +50,43 @@ public class TransactionHistoryAdapter extends  RecyclerView.Adapter<RecyclerVie
 
     }
 
+  @SuppressLint("SetTextI18n")
   private void initLayoutOne(ViewHolderOne holder, final int position) {
-        currentItem = notificationGetlistResponseList.get(position);
+        currentItem = transactionHistoryResponseList.get(position);
 
-        holder.ll_root.setOnClickListener(new View.OnClickListener() {
+        if(currentItem.getStatus() != null && currentItem.getStatus().equalsIgnoreCase("credit")){
+            if(currentItem.getTransaction_amount() != 0){
+                holder.txt_amount.setTextColor(context.getResources().getColor(R.color.medium_green));
+                holder.txt_amount.setText("+ "+"\u20B9 "+currentItem.getTransaction_amount());
+            }else{
+                holder.txt_amount.setText("");
+            }
+
+        }else{
+            if(currentItem.getTransaction_amount() != 0){
+                holder.txt_amount.setTextColor(context.getResources().getColor(R.color.vermillion));
+                holder.txt_amount.setText("- "+"\u20B9 "+currentItem.getTransaction_amount());
+            }else{
+                holder.txt_amount.setText("");
+            }
+        }
+
+     if(currentItem.getAppointment_id() != null) {
+         holder.txt_appointid.setText(currentItem.getAppointment_id());
+     } if(currentItem.getTransaction_date_time() != null) {
+         holder.txt_dateandtime.setText(currentItem.getTransaction_date_time());
+     }if(currentItem.getTransaction_id() != null) {
+         holder.txt_transactionid.setText(currentItem.getTransaction_id());
+     }if(currentItem.getPayment_type() != null) {
+         holder.txt_paymenttype.setText(currentItem.getPayment_type());
+     }
+
+
+
+
+
+
+      holder.ll_root.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -72,7 +108,7 @@ public class TransactionHistoryAdapter extends  RecyclerView.Adapter<RecyclerVie
    @Override
     public int getItemCount() {
         
-        return notificationGetlistResponseList.size();
+        return transactionHistoryResponseList.size();
     }
    
 

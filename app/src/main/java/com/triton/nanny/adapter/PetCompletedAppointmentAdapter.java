@@ -19,7 +19,6 @@ import com.bumptech.glide.Glide;
 import com.triton.nanny.R;
 
 import com.triton.nanny.api.APIClient;
-import com.triton.nanny.doctor.DoctorPrescriptionDetailsActivity;
 import com.triton.nanny.interfaces.AddReviewListener;
 import com.triton.nanny.petlover.PetAppointmentDetailsActivity;
 import com.triton.nanny.responsepojo.PetAppointmentResponse;

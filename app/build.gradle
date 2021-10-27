@@ -76,19 +76,13 @@ dependencies {
     implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
 
 
-
-
-
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
     implementation 'com.google.android.gms:play-services-places:17.0.0'
-    implementation "com.google.android.libraries.places:places:2.4.0"
-
-
-
+    implementation "com.google.android.libraries.places:places:2.5.0"
 
     implementation 'com.google.firebase:firebase-messaging:22.0.0'
-    implementation 'com.google.firebase:firebase-core:19.0.0'
+    implementation 'com.google.firebase:firebase-core:19.0.2'
     implementation 'com.google.firebase:firebase-auth:21.0.1'
     implementation 'com.google.firebase:firebase-messaging-directboot:22.0.0'
 
@@ -101,15 +95,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.google.firebase:firebase-analytics'
 
-
     implementation 'com.vivekkaushik.datepicker:datePickerTimeline:0.0.4'
 
     /*Payment gateway razorpay*/
     implementation 'com.razorpay:checkout:1.5.16'
-
-   /* *//*Jitsi Video Call*//*
-   // implementation ('org.jitsi.react:jitsi-meet-sdk:2.11.0') { transitive = true }
-    implementation ('org.jitsi.react:jitsi-meet-sdk:2.+') { transitive = true }*/
 
 
     // Shimmer
@@ -134,18 +123,10 @@ dependencies {
     implementation 'me.zhanghai.android.materialprogressbar:library:1.6.1'
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+// Add the following line:
+apply plugin: 'com.google.gms.google-services'  // Google Services plugin
+
 // Apply the Crashlytics Gradle plugin
 apply plugin: 'com.google.firebase.crashlytics'

@@ -52,6 +52,7 @@ public class SPAppointmentDetailsResponse {
      * addition_payment_method :
      * addition_payment_status :
      * total_paid_amount :
+     * work_status :
      * start_otp : 904208
      * end_otp : 428340
      * address_text : 103, Vmr Theatre Back Side Rd, Shevapet, Salem, Tamil Nadu 636002, India
@@ -184,6 +185,7 @@ public class SPAppointmentDetailsResponse {
         private String addition_payment_method;
         private String addition_payment_status;
         private String total_paid_amount;
+        private String work_status;
         private String start_otp;
         private String end_otp;
         private String address_text;
@@ -196,6 +198,7 @@ public class SPAppointmentDetailsResponse {
         private String createdAt;
         private int __v;
         private List<?> sp_attched;
+
         /**
          * bus_service_list : [{"service_name":"Bartender","subsericelist":[{"_id":"616ff0dcea122f58f9d09803","isservice":false,"service_id":"616ff0a4ea122f58f9d09802","title":"Bartender Cleaning"},{"_id":"616ff0f3ea122f58f9d09804","isservice":true,"service_id":"616ff0a4ea122f58f9d09802","title":"Bartender Services"}]},{"service_name":"Cleaning Services","subsericelist":[{"_id":"616feeb83d269556cda2bd99","isservice":true,"service_id":"616feca476f39652d97de5d2","title":"Plumber Services"},{"_id":"616feee93d269556cda2bd9a","isservice":true,"service_id":"616feca476f39652d97de5d2","title":"cleaning & spring"}]}]
          * bus_spec_list : [{"bus_spec_list":"Kennel Cut"}]
@@ -510,6 +513,13 @@ public class SPAppointmentDetailsResponse {
             this.total_paid_amount = total_paid_amount;
         }
 
+        public String getWork_status() {
+            return work_status;
+        }
+
+        public void setWork_status(String work_status) {
+            this.work_status = work_status;
+        }
         public String getStart_otp() {
             return start_otp;
         }
