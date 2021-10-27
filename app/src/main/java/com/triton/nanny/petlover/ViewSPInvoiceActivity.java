@@ -1,8 +1,5 @@
 package com.triton.nanny.petlover;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
@@ -13,21 +10,26 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
+
 import com.triton.nanny.R;
 import com.triton.nanny.api.APIClient;
 import com.triton.nanny.api.RestApiInterface;
 import com.triton.nanny.requestpojo.AppointmentDetailsRequest;
 import com.triton.nanny.responsepojo.PetNewAppointmentDetailsResponse;
 import com.triton.nanny.responsepojo.SPAppointmentDetailsResponse;
+import com.triton.nanny.utils.ConnectionDetector;
 import com.triton.nanny.utils.RestUtils;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -68,11 +70,6 @@ public class ViewSPInvoiceActivity extends AppCompatActivity {
     private String concatenatedStarNames = "";
     private String start_otp = "";
     private String end_otp = "";
-
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.include_petlover_footer)
-    View include_petlover_footer;
 
     BottomNavigationView bottom_navigation_view;
 
@@ -169,6 +166,7 @@ public class ViewSPInvoiceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_spinvoice);
+        ButterKnife.bind(this);
 
         ImageView img_back = include_petlover_header.findViewById(R.id.img_back);
         ImageView img_sos = include_petlover_header.findViewById(R.id.img_sos);
@@ -182,9 +180,21 @@ public class ViewSPInvoiceActivity extends AppCompatActivity {
         img_profile.setVisibility(View.GONE);
         img_notification.setVisibility(View.GONE);
 
-
-
         img_back.setOnClickListener(v -> onBackPressed());
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            appointment_id = extras.getString("appointment_id");
+            from = extras.getString("fromactivity");
+
+            Log.w(TAG,"appointment_id : "+appointment_id+" from : "+from);
+
+        }
+
+        if (new ConnectionDetector(ViewSPInvoiceActivity.this).isNetworkAvailable(ViewSPInvoiceActivity.this)) {
+            spAppointmentDetailsResponse();
+        }
+
 
 
     }
@@ -267,19 +277,17 @@ public class ViewSPInvoiceActivity extends AppCompatActivity {
 
                             String custaddress_st = response.body().getData().getAddress_text();
 
-                          //  String custaddress_st = "";
+                            // String custaddress_st = "";
 
                             String invoicebilldate = response.body().getData().getDisplay_date();
 
-                          String cust_addr_landmark = response.body().getData().getCity();
+                            String cust_addr_landmark = response.body().getData().getCity() + " "+response.body().getData().getState();
 
-                           String custaddr_pincode = response.body().getData().getPin_code();
+                            String custaddr_pincode = response.body().getData().getPin_code();
 
-                            //String cust_addr_landmark = "";
+                          /*  String cust_addr_landmark = "";
 
-                            //String custaddr_pincode = "";
-
-
+                            String custaddr_pincode = "";*/
 
                             String servname = response.body().getData().getService_name();
 
@@ -339,16 +347,20 @@ public class ViewSPInvoiceActivity extends AppCompatActivity {
         if(balance_due != null && !balance_due.isEmpty()){
 
             txt_lbl_balance_due.setVisibility(View.VISIBLE);
+            txt_balance_due.setVisibility(View.VISIBLE);
             txt_balance_due.setText(balance_due);
             txt_lbl_baldue.setVisibility(View.VISIBLE);
+            txt_baldue.setVisibility(View.VISIBLE);
             txt_baldue.setText(balance_due);
         }
         else{
 
             txt_lbl_balance_due.setVisibility(View.GONE);
+            txt_balance_due.setVisibility(View.GONE);
             txt_lbl_baldue.setVisibility(View.GONE);
-
+            txt_baldue.setVisibility(View.GONE);
         }
+
 
         if(invoicedate != null && !invoicedate.isEmpty()){
 
@@ -360,13 +372,13 @@ public class ViewSPInvoiceActivity extends AppCompatActivity {
 
         if(cust_name != null && !cust_name.isEmpty()){
 
-            txt_cust_name.setText(invoicedate);
+            txt_cust_name.setText(cust_name);
         }
         else{
             txt_cust_name.setText("");
         }
 
-       if(custaddress_st != null && !custaddress_st.isEmpty()){
+        if(custaddress_st != null && !custaddress_st.isEmpty()){
 
             txt_custaddress_st.setText(custaddress_st);
         }
@@ -435,6 +447,13 @@ public class ViewSPInvoiceActivity extends AppCompatActivity {
 
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(getApplicationContext(),PetAppointmentDetailsActivity.class);
+        intent.putExtra("appointment_id",appointment_id);
+        intent.putExtra("from",from);
+        startActivity(intent);
+        finish();
+    }
 }

@@ -80,8 +80,6 @@ public class PetAppointmentDetailsActivity extends AppCompatActivity implements 
     AVLoadingIndicatorView avi_indicator;
 
 
-
-
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.img_user)
     ImageView img_user;
@@ -209,9 +207,7 @@ public class PetAppointmentDetailsActivity extends AppCompatActivity implements 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             appointment_id = extras.getString("appointment_id");
-
             from = extras.getString("from");
-
             Log.w(TAG,"appointment_id : "+appointment_id+" from : "+from);
 
         }
@@ -288,6 +284,17 @@ public class PetAppointmentDetailsActivity extends AppCompatActivity implements 
                 btn_start_stop.setVisibility(View.GONE);
 
                 btn_viewinvoice.setVisibility(View.VISIBLE);
+                btn_viewinvoice.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(),ViewSPInvoiceActivity.class);
+                        intent.putExtra("appointment_id",appointment_id);
+                        intent.putExtra("from",from);
+                        startActivity(intent);
+                        finish();
+
+                    }
+                });
 
             }
 
