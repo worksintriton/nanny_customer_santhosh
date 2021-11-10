@@ -625,7 +625,8 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
 
 
 
-                if(response.body() != null) {
+                try{
+                    if(response.body() != null) {
                     String currentplacename = null;
                     String compundcode = null;
 
@@ -713,6 +714,11 @@ public class PetLoverDashboardActivity extends PetLoverNavigationDrawerNew imple
                         }
                     }
                 }
+                }catch (Exception e){
+
+                }
+
+
 
 
             }
